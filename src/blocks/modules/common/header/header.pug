@@ -1,0 +1,36 @@
+.header-top
+  .container
+    .header
+      .header__menu
+        .btn-burger
+          i
+          i
+          i
+      .header__logo
+        a(href='/'): +bgimage('/img/common/svg/logo.svg')
+      .header__nav
+        .header__nav-container(data-menu="container")
+          nav
+            ul
+              each item in app.mainMenu
+                li: a(href=item.href)= item.text
+      .header__login
+        span: +icons('#ic_user')
+      .header__cart
+        a(href='#')
+           +icons('#ic_cart')
+           span.header__cart-total 26
+
+.header-search
+  .container
+    .header-find
+        .header-find__form
+          .header-find__input: input(type="text" placeholder="Поиск")
+          .header-find__btn: span: +icons('#ic_search')
+          .header-find__params: span: +icons('#ic_find-params')
+
+.header__nav-mobile
+  .container
+    ul
+      each item in app.mainMenu
+        li: a(href=item.href)= item.text
