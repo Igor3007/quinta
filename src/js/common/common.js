@@ -187,165 +187,45 @@ document.addEventListener("DOMContentLoaded", function (event) {
     selectCustom.init()
 
     /* ================================================
-    user-menu data-user-menu="open"
+    open params search
     ================================================*/
 
-    if (document.querySelector('[data-user-menu="open"]')) {
+    function paramsSearch() {
+        this.openElements = document.querySelectorAll('[data-find-params="open"]');
+        this.containerElement = document.querySelector('[data-find-params="container"]');
 
-
-
-        function userMenu() {
-
-            this.btn = document.querySelector('[data-user-menu="open"]')
-            this.container = document.querySelector('.moderator-aside')
-
-            this.open = function () {
-
-                if (!document.querySelector('.moderator-aside')) {
-                    window.location = this.btn.dataset.link;
-                    return false
-                }
-
-                this.container.classList.add('open')
-                this.btn.classList.add('open')
-
-                if (window.menuInstanse) {
-                    window.menuInstanse.close()
-                }
-
-                document.body.classList.add('hidden-profile')
-
-            }
-
-            this.close = function () {
-                this.container.classList.remove('open')
-                this.btn.classList.remove('open')
-                document.body.classList.remove('hidden-profile')
-
-                //close invite form
-                if (document.querySelector('.moderator-aside__form')) {
-                    document.querySelector('.moderator-aside__form').classList.remove('open')
-                }
-            }
-
-            this.toggle = function () {
-                if (!this.btn.classList.contains('open')) this.open()
-                else this.close()
-
-            }
-
-            this.init = function () {
-                this.btn.addEventListener('click', () => {
-                    this.toggle()
-                })
+        this.init = function () {
+            if (this.containerElement) {
+                this.addEvent()
             }
         }
 
-        window.userMenuInstance = new userMenu()
-        window.userMenuInstance.init()
+        this.open = function () {
+            this.containerElement.classList.add('open')
+        }
+
+        this.close = function () {
+            this.containerElement.classList.remove('open')
+        }
+
+        this.addEvent = function () {
+            this.openElements.forEach(btn => {
+                btn.addEventListener('click', (e) => {
 
 
+                    if (this.containerElement.classList.contains('open')) {
+                        this.close()
+                    } else {
+                        this.open()
+                    }
 
-    }
-
-    /* =========================================
-    datepicker
-    ========================================= */
-
-    window.initDatepicker = function (input, option) {
-
-        // input - input DOM elem
-
-        if (!input.datepicker) {
-            let datepicker = new Datepicker(input, {
-                autohide: true,
-                language: (input.dataset.datepickerLang ? input.dataset.datepickerLang : 'ru')
-            });
-
-            if (option.autoShow) datepicker.show()
-
-            input.addEventListener('changeDate', function (event) {
-                if (event.target.value) {
-                    input.setAttribute('area-valid', 'true')
-                } else {
-                    input.removeAttribute('area-valid')
-                }
+                })
             })
-
-            input.datepicker.picker.element.classList.add('picker-custom-offset');
         }
     }
 
-    if (document.querySelector('[data-datepicker-lang]')) {
-        (function () {
-            Datepicker.locales.ru = {
-                days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
-                daysShort: ["Вск", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Суб"],
-                daysMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
-                months: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
-                monthsShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
-                today: "Сегодня",
-                clear: "Очистить",
-                format: "dd.mm.yyyy",
-                weekStart: 1,
-                monthsTitle: 'Месяцы'
-            }
-        })();
-    }
-
-    if (document.querySelector('.input-datepicker')) {
-
-        document.querySelectorAll('.input-datepicker').forEach(function (input) {
-            input.addEventListener('focus', function (event) {
-
-                window.initDatepicker(input, {
-                    autoShow: true
-                })
-
-            })
-        })
-    }
-
-    /* =========================================
-    копировать в буфер
-    ========================================= */
-
-    document.querySelectorAll('[data-copy]').forEach(function (item) {
-        item.addEventListener('click', function (event) {
-            navigator.clipboard.writeText(event.target.dataset.copy)
-                .then(() => {
-                    window.STATUS.msg('Ссылка скопирована в буфер обмена')
-                })
-                .catch(err => {
-                    console.log('Error', err);
-                });
-        })
-    })
-
-    /* =================================================
-    scroll
-    ================================================= */
-    window.scrollToTargetAdjusted = function (elem) {
-
-        //elem string selector
-
-        if (!document.querySelector(elem)) return false;
-
-        var element = document.querySelector(elem);
-        var headerOffset = -120;
-        var elementPosition = element.offsetTop
-        var offsetPosition = elementPosition - headerOffset;
-
-        window.scrollTo({
-            top: offsetPosition - 100
-        });
-
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-        });
-    }
-
+    const paramsSearchInstanse = new paramsSearch();
+    paramsSearchInstanse.init()
 
 
 

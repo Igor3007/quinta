@@ -69,7 +69,7 @@
         <div class="container">
           <div class="header">
             <div class="header__menu">
-              <div class="btn-burger"><i></i><i></i><i></i></div>
+              <div class="btn-burger" data-menu="btn"><i></i><i></i><i></i></div>
             </div>
             <div class="header__logo"><a href="/"><span class="bgimage lazyload" data-bg="/img/common/svg/logo.svg"></span></a></div>
             <div class="header__nav">
@@ -97,20 +97,283 @@
         </div>
       </div>
       <div class="header-search">
-        <div class="container">
-          <div class="header-find">
-            <div class="header-find__form">
-              <div class="header-find__input">
-                <input type="text" placeholder="Поиск">
+        <div class="header-search-field">
+          <div class="container">
+            <div class="header-find">
+              <div class="header-find__form">
+                <div class="header-find__input">
+                  <input type="text" placeholder="Поиск">
+                </div>
+                <div class="header-find__btn"><span>
+                    <svg width="25" height="25">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_search"></use>
+                    </svg></span></div>
+                <div class="header-find__params" data-find-params="open"><span>
+                    <svg width="25" height="25">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_find-params"></use>
+                    </svg></span></div>
               </div>
-              <div class="header-find__btn"><span>
-                  <svg width="25" height="25">
-                    <use xlink:href="/img/sprites/sprite.svg#ic_search"></use>
-                  </svg></span></div>
-              <div class="header-find__params"><span>
-                  <svg width="25" height="25">
-                    <use xlink:href="/img/sprites/sprite.svg#ic_find-params"></use>
-                  </svg></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="header-search-extend" data-find-params="container">
+          <div class="container">
+            <div class="search-extend">
+              <div class="search-extend__title">Расширенный поиск</div>
+              <div class="search-extend__form">
+                <form action="#" method="POST">
+                  <div class="search-extend__container">
+                    <div class="search-extend__col">
+                            <div class="hs-extend">
+                              <div class="hs-extend__name">Категория</div>
+                              <div class="hs-extend__prop hs-extend__prop--col2">
+                                <ul>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Цветные 3D интерьеры</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Деталировка сидений</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Элементы экстерьера</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Остекление кабин</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Традиционные декали</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Заклепки 3D</span>
+                                    </label>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="hs-extend">
+                              <div class="hs-extend__name">Масштаб</div>
+                              <div class="hs-extend__prop hs-extend__prop--col3">
+                                <ul>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Любой</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">1/32</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">1/35</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">1/48</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">1/72</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">1/144</span>
+                                    </label>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="hs-extend">
+                              <div class="hs-extend__name">Скидки и акции</div>
+                              <div class="hs-extend__prop hs-extend__prop--col3">
+                                <ul>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Скидка</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Новинка</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Хип продаж</span>
+                                    </label>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                    </div>
+                    <div class="search-extend__col">
+                            <div class="hs-extend">
+                              <div class="hs-extend__name">Тип модели</div>
+                              <div class="hs-extend__prop hs-extend__prop--col3">
+                                <ul>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Самолеты</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Вертолеты</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Автомобили</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Бронетехника</span>
+                                    </label>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="hs-extend">
+                              <div class="hs-extend__name">Эпоха</div>
+                              <div class="hs-extend__prop hs-extend__prop--col2">
+                                <ul>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Настоящее время</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Вторая мировая война</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Первая мировая война</span>
+                                    </label>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="hs-extend">
+                              <div class="hs-extend__name">Сложность</div>
+                              <div class="hs-extend__prop hs-extend__prop--col3">
+                                <ul>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Легкая</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Средняя</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Сложная</span>
+                                    </label>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                    </div>
+                    <div class="search-extend__col">
+                            <div class="hs-extend">
+                              <div class="hs-extend__name">Совместимость с моделями</div>
+                              <div class="hs-extend__prop hs-extend__prop--col2">
+                                <ul>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Для любой модели</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Tamiya</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Italeri</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Trumpeter</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Eduard</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Hasegawa</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Dragon</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">HobbyBoss</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Trimaster</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Revell</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">H.G.W.</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Kinetic</span>
+                                    </label>
+                                  </li>
+                                  <li>
+                                    <label class="checkbox">
+                                      <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Звезда</span>
+                                    </label>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                      <div class="search-extend__btn">
+                        <button class="btn">Применить</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
