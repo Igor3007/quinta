@@ -102,7 +102,7 @@
             <div class="header-find">
               <div class="header-find__form">
                 <div class="header-find__input">
-                  <input type="text" placeholder="Поиск">
+                  <input type="text" placeholder="Поиск" data-suggest="input">
                 </div>
                 <div class="header-find__btn"><span>
                     <svg width="25" height="25">
@@ -112,6 +112,13 @@
                     <svg width="25" height="25">
                       <use xlink:href="/img/sprites/sprite.svg#ic_find-params"></use>
                     </svg></span></div>
+              </div>
+              <div class="header-find__suggest" data-suggest="container">
+                <div class="find-suggest">
+                  <div class="find-suggest__list">
+                    <ul data-suggest="result"></ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -393,42 +400,58 @@
     <main> 
     </main>
     <footer>
-      <div class="container">
-        <div class="footer">
-          <div class="footer__logo">
-            <div class="footer__logo-img"><span class="bgimage lazyload" data-bg="/img/common/logo.png"></span>
-            </div>
-            <div class="footer__logo-desc">Международный онлайн кинофестиваль, <br> интегрированный в жизнь Москвы</div>
-          </div>
-          <div class="footer__nav">
-            <nav>
+      <div class="footer">
+        <div class="container">
+          <div class="footer__top">
+            <div class="footer__nav">
               <ul>
-                <li><a href="new.html">Новинки</a></li>
-                <li><a href="airplanes.html">Самолеты</a></li>
-                <li><a href="helicopters.html">Вертолеты</a></li>
-                <li><a href="cars.html">Автомобили</a></li>
-                <li><a href="armored.html">Бронетехника</a></li>
+                <li><a href="#">Каталог</a></li>
+                <li><a href="#">Оптовикам</a></li>
+                <li><a href="#">Оплата и доставка</a></li>
+                <li><a href="#">Возврат</a></li>
+                <li><a href="#">О компании      </a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Блог</a></li>
+                <li><a href="#">Юридическая информация</a></li>
               </ul>
-            </nav>
+            </div>
+            <div class="footer__social">
+              <div class="footer__social-title">Будьте в курсе наших новостей</div>
+              <ul>
+                <li><a href="#"><span class="bgimage lazyload" data-bg="/img/common/svg/ic_vk.svg"></span></a></li>
+                <li><a href="#"><span class="bgimage lazyload" data-bg="/img/common/svg/ic_fb.svg"></span></a></li>
+                <li><a href="#"><span class="bgimage lazyload" data-bg="/img/common/svg/ic_ig.svg"></span></a></li>
+              </ul>
+            </div>
           </div>
-          <div class="footer__social">
-            <ul>
-              <li><a href="#">
-                  <svg width="25" height="25">
-                    <use xlink:href="/img/sprites/sprite.svg#ic_vk"></use>
-                  </svg><span>vkontakte</span></a></li>
-              <li><a href="#">
-                  <svg width="25" height="25">
-                    <use xlink:href="/img/sprites/sprite.svg#ic_tg"></use>
-                  </svg><span>Telegram</span></a></li>
-            </ul>
+          <div class="footer__bottom">
+            <div class="footer__apps">
+              <ul>
+                <li><a href="#"><span class="bgimage lazyload" data-bg="/img/common/svg/apple-store.svg"></span></a></li>
+                <li><a href="#"><span class="bgimage lazyload" data-bg="/img/common/svg/google-store.svg"></span></a></li>
+              </ul>
+            </div>
+            <div class="footer__lang">
+              <div class="change-lang">
+                <div class="change-lang__title"><span>Русский</span>
+                  <svg width="16" height="16">
+                    <use xlink:href="/img/sprites/sprite.svg#ic_network"></use>
+                  </svg>
+                </div>
+                <div class="change-lang__dropdown">
+                  <ul>
+                    <li><a href="#ru">Русский</a></li>
+                    <li><a href="#en">English</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="footer__contact">
-            <ul>
-              <li><a href="tel:+7 (905) 504-73-70">+7 (905) 504-73-70</a></li>
-              <li><a href="mailto:info@patrikifilmfestival.ru">info@patrikifilmfestival.ru</a></li>
-            </ul>
-          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          <div class="footer-copyright__text">© 2022 Quinta Studio’s Company</div>
         </div>
       </div>
     </footer>

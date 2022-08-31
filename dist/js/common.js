@@ -228,5 +228,136 @@ document.addEventListener("DOMContentLoaded", function (event) {
     paramsSearchInstanse.init()
 
 
+    /* ============================================
+    suggest for find
+    ============================================ */
+
+    if (document.querySelector('[data-suggest="input"]')) {
+
+        // $('.header-top__find').on('click', function () {
+        //     $('.header-find').toggleClass('open')
+        //     $('.header-main').toggleClass('open-find')
+        //     $('.header-find input[type="text"]').focus()
+        // })
+
+
+        function getSuggestList(query) {
+
+            this.container = document.querySelector('[data-suggest="container"]');
+            this.result = document.querySelector('[data-suggest="result"]');
+
+
+            this.hide = function () {
+                this.container.style.display = 'none'
+            }
+
+            this.show = function () {
+
+                if (this.result.querySelectorAll('li').length) {
+                    this.container.style.display = 'block'
+                }
+
+
+            }
+
+            this.getResult = function (q) {
+
+                let _this = this
+
+                window.ajax({
+                        type: "GET", //POST на рабочем
+                        url: "/js/suggest.json",
+                        responseType: 'json',
+                        data: {
+                            q
+                        },
+                    },
+                    function (status, response) {
+                        console.log(status)
+                        _this.renderTemplate(response, q)
+                    })
+
+
+            };
+
+            this.renderTemplate = function (response, q) {
+                let template = '';
+
+                if (!response) {
+                    console.log('Пустой ответ')
+                    return false
+                }
+
+
+
+                response.forEach(function (item) {
+
+                    let textRepl = item.link.replace(new RegExp(q, 'gi'), "<span>" + q + "</span>")
+
+                    template += `<li><a href="${item.href}" >${textRepl}</a></li>`
+                })
+
+                this.show()
+                this.result.innerHTML = template
+            }
+
+        }
+
+        function debounce(func, wait, immediate) {
+            var timeout;
+
+            return function () {
+                console.log('A::');
+                var context = this,
+                    args = arguments;
+                var later = function () {
+                    timeout = null;
+                    if (!immediate) {
+                        func.apply(context, args);
+                    }
+                }
+
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) {
+                    func.apply(context, args);
+                }
+            }
+        }
+
+
+
+        let deBouncer = debounce((e) => {
+            if (e.target.value.length >= 2) {
+                SUGGEST_LIST.getResult(e.target.value)
+            } else {
+                SUGGEST_LIST.hide()
+            }
+        }, 300);
+
+        const SUGGEST_LIST = new getSuggestList();
+
+        document.querySelector('[data-suggest="input"]').addEventListener('focus', function () {
+            SUGGEST_LIST.show()
+        })
+
+
+
+        document.querySelector('[data-suggest="input"]').addEventListener('keyup', deBouncer)
+
+
+
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.header-search-field')) {
+                SUGGEST_LIST.hide()
+            }
+        })
+
+
+
+
+    }
+
 
 });

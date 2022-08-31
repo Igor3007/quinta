@@ -124,9 +124,14 @@ mixin hs-extend(data, modify)
     .container
       .header-find
           .header-find__form
-            .header-find__input: input(type="text" placeholder="Поиск")
+            .header-find__input: input(type="text" placeholder="Поиск" data-suggest="input")
             .header-find__btn: span: +icons('#ic_search')
             .header-find__params(data-find-params="open"): span: +icons('#ic_find-params')
+          .header-find__suggest(data-suggest="container")
+            .find-suggest
+              .find-suggest__list
+                ul(data-suggest="result")
+                 
 
   .header-search-extend(data-find-params="container")
     .container

@@ -1,29 +1,36 @@
 include ../main-menu/main-menu.pug
  
-.container
-  .footer
-    .footer__logo
-      .footer__logo-img: +bgimage('/img/common/logo.png')
-      .footer__logo-desc Международный онлайн кинофестиваль, <br> интегрированный в жизнь Москвы
-    .footer__nav
-      nav
-        ul
-          each item in app.mainMenu 
-            li: a(href=item.href)= item.text 
-    .footer__social
-      ul
-        li
-          a(href='#')
-            +icons('#ic_vk')
-            span vkontakte
-        li
-          a(href='#')
-            +icons('#ic_tg')
-            span Telegram
 
-    .footer__contact
-      ul
-        li: a(href='tel:+7 (905) 504-73-70') +7 (905) 504-73-70
-        li: a(href='mailto:info@patrikifilmfestival.ru') info@patrikifilmfestival.ru
+.footer
+  .container
+    .footer__top
+      .footer__nav
+        ul
+          each item in app.footerMenu
+            li: a(href=item.href)= item.text
+      .footer__social
+        .footer__social-title Будьте в курсе наших новостей
+        ul
+            li: a(href="#"): +bgimage('/img/common/svg/ic_vk.svg')
+            li: a(href="#"): +bgimage('/img/common/svg/ic_fb.svg')
+            li: a(href="#"): +bgimage('/img/common/svg/ic_ig.svg')
+    .footer__bottom
+      .footer__apps
+        ul
+          li: a(href='#'): +bgimage('/img/common/svg/apple-store.svg')
+          li: a(href='#'): +bgimage('/img/common/svg/google-store.svg')
+      .footer__lang
+        .change-lang
+          .change-lang__title
+            span Русский
+            +icons('#ic_network', 16)
+          .change-lang__dropdown
+            ul
+              li: a(href='#ru') Русский
+              li: a(href='#en') English
+
+.footer-copyright
+  .container
+    .footer-copyright__text © 2022 Quinta Studio’s Company
 
 
