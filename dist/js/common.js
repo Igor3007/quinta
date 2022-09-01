@@ -234,11 +234,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     if (document.querySelector('[data-suggest="input"]')) {
 
-        // $('.header-top__find').on('click', function () {
-        //     $('.header-find').toggleClass('open')
-        //     $('.header-main').toggleClass('open-find')
-        //     $('.header-find input[type="text"]').focus()
-        // })
+
 
 
         function getSuggestList(query) {
@@ -359,5 +355,29 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
+    /* ============================================
+    data-splide="new-products"
+    ============================================ */
 
+    // var newProducts = new Splide('.splide', {
+
+    // });
+    // newProducts.mount();
+
+
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var splide = new Splide('[data-slider="new-products"]', {
+
+        arrows: false,
+        pagination: false,
+        gap: '30px',
+        autoWidth: true,
+
+
+
+
+    });
+    splide.mount();
 });

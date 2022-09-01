@@ -1,0 +1,19 @@
+.section-new-products {
+    @include section-padding;
+}
+
+.new-products {
+
+    & .splide__track {
+        overflow: visible
+    }
+
+    &__title {
+        @include section-title;
+        padding-bottom: 40px;
+    }
+
+    & .minicard {
+        width: 300px;
+    }
+}

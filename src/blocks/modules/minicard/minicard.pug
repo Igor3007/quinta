@@ -1,0 +1,13 @@
+mixin minicard(data)
+    .minicard
+        .minicard__wrp
+            .minicard__image: +picture(data.image)
+            .minicard__main
+                .minicard__tags
+                    ul
+                        each tag, index in data.tags
+                            li(class=(index == 2 ? 'minicard-tags--gray':'')): a(href='#')= tag
+                .minicard__category
+                    a(href='#')= data.cat
+                .minicard__title
+                    a(href='card-catalog.html')= data.title

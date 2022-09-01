@@ -1,0 +1,28 @@
+.section-advantages-block {
+    @include section-padding;
+    background-color: #fff
+}
+
+
+.advantages-block {
+    &__title {
+        @include section-title;
+        padding-bottom: 40px;
+        text-transform: none;
+    }
+
+    &__list {
+        display: flex;
+    }
+}
+
+.card-advantages {
+    &__image {
+
+        pa & .bgimage {
+            width: 86px;
+            height: 86px;
+            @include bgimage-contain;
+        }
+    }
+}

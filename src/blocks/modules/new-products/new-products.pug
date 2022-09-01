@@ -1,0 +1,21 @@
+include ../minicard/minicard.pug
+
+mixin new-products
+    section.section-new-products
+        .container
+            .new-products 
+                .new-products__title Новинки
+                .new-products__slider
+                    .splide(data-slider="new-products")
+                        .splide__track
+                            .splide__list
+                                each item in app.catalog
+                                    .splide__slide: +minicard(item)
+            
+
+                 
+
+
+
+    
+

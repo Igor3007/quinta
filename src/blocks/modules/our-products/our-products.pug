@@ -1,0 +1,47 @@
+-
+    const homeCategory = [
+
+        {
+            title: 'Цветные <br> 3D интерьеры',
+            image: '/img/common/svg/product/pr1.svg'
+        },
+        {
+            title: 'Элементы <br> экстерьера',
+            image: '/img/common/svg/product/pr2.svg'
+        },
+        {
+            title: 'Остекление <br> кабин',
+            image: '/img/common/svg/product/pr3.svg'
+        },
+        {
+            title: 'Деталировка <br> сидений',
+            image: '/img/common/svg/product/pr4.svg'
+        },
+        {
+            title: 'Металлические <br> заклепки 3D',
+            image: '/img/common/svg/product/pr5.svg'
+        },
+        {
+            title: 'Традиционные <br> декали',
+            image: '/img/common/svg/product/pr6.svg'
+        },
+
+    ]
+
+mixin our-products
+    section.section-our-products
+        .container
+            .our-products 
+                .our-products__title Наша продукция
+                .our-products__list
+                    each item in homeCategory
+                        .our-products__item: +card-category(item)
+
+mixin card-category(data)
+    .card-category
+        .card-category__wrp
+            .card-category__image: +bgimage(data.image)
+            .card-category__title!= data.title
+            .card-category__link
+                a(href='#')= data.title 
+

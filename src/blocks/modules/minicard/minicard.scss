@@ -1,0 +1,103 @@
+.minicard {
+
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 100%;
+
+
+    border: 1px solid transparent;
+
+    &:hover {
+        border-color: #CFD9E0;
+    }
+
+    &__image {
+        & picture {
+            padding-top: 65%;
+            display: block;
+            background-color: $bg-gray;
+            position: relative;
+
+            & img {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                color: $bg-gray;
+            }
+        }
+    }
+
+    &__tags {
+
+        padding-bottom: 20px;
+
+        & ul {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -5px;
+
+            & li {
+
+                margin: 5px;
+
+                & a {
+                    font-size: 12px;
+                    padding: 5px 10px;
+                    border-radius: 3px;
+                    background-color: $bg-gray;
+                    color: rgba(17, 27, 41, 0.5);
+                    transition: 0.3s;
+
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
+
+                &.minicard-tags--gray {
+                    & a {
+                        background-color: #8296A9;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    &__main {
+        padding: 15px;
+    }
+
+    &__category {
+
+        padding-bottom: 13px;
+
+        & a {
+            font-size: 12px;
+            line-height: 133%;
+            color: #156FB0;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__title {
+        & a {
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 133%;
+            color: $black;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
