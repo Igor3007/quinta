@@ -1,0 +1,19 @@
+include ../../modules/minicard/minicard.pug
+
+mixin catalog-list
+    .catalog-list
+        .catalog-list__top
+            .catalog-list__sort
+                .select-list
+                    .select-list__title Сортировать
+                    .select-list__dropdown
+                        ul
+                            li.active: a(href='#') По популярности
+                            li: a(href='#') По цене
+                            li: a(href='#') По размеру скидки
+                            li: a(href='#') По новизне
+            .catalog-list__filter
+                span: +icons('#ic_find-params-dark', 24)
+        .catalog-list__container
+            each item in app.catalog
+                .catalog-list__item: +minicard(item)

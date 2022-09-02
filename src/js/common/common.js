@@ -359,25 +359,92 @@ document.addEventListener("DOMContentLoaded", function (event) {
     data-splide="new-products"
     ============================================ */
 
-    // var newProducts = new Splide('.splide', {
 
-    // });
-    // newProducts.mount();
+    document.addEventListener('DOMContentLoaded', function () {
+        var splide = new Splide('[data-slider="new-products"]', {
 
-
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    var splide = new Splide('[data-slider="new-products"]', {
-
-        arrows: false,
-        pagination: false,
-        gap: '30px',
-        autoWidth: true,
+            arrows: false,
+            pagination: false,
+            gap: '30px',
+            autoWidth: true,
 
 
 
 
+        });
+
+        splide.mount();
     });
-    splide.mount();
-});
+
+    /* ==================================
+    wishlist
+    ================================== */
+
+
+    /* init wishList  */
+
+    const WL = new WishList();
+    WL.init()
+
+    const wishlist = document.querySelectorAll('[data-wishlist]');
+    const arrayWishList = WL.getArray()
+
+    wishlist.forEach(function (item, index) {
+
+        const product_id = item.dataset.wishlist;
+
+        if (arrayWishList.lastIndexOf(product_id) !== -1) {
+            item.classList.add('active')
+        }
+
+        item.addEventListener('click', function (event) {
+            if (this.classList.contains('active')) {
+                WL.remove(product_id)
+                this.classList.remove('active')
+            } else {
+                WL.add(product_id)
+                this.classList.add('active')
+            }
+        })
+    })
+
+    // select list
+
+
+    if (document.querySelector('.select-list') && document.body.clientWidth < 1200) {
+
+        document.querySelectorAll('.select-list').forEach(item => {
+
+            //init
+
+            let textActive = item.querySelector('li.active a').innerHTML
+            item.querySelector('.select-list__title').innerText = textActive
+
+
+            item.querySelectorAll('li').forEach(li => {
+                li.addEventListener('click', e => {
+                    let textActive = li.querySelector('a').innerHTML
+                    item.querySelector('.select-list__title').innerText = textActive
+
+                    e.target.closest('.select-list__dropdown').style.display = 'none'
+
+                    if (document.querySelector('.select-list li.active').classList.contains('active')) {
+                        document.querySelector('.select-list li.active').classList.remove('active')
+                    }
+
+                    li.classList.add('active')
+
+                    setTimeout(() => {
+                        e.target.closest('.select-list__dropdown').style.display = 'block'
+                    }, 300)
+
+                })
+            })
+
+
+
+
+        })
+
+    }
+}); //ready

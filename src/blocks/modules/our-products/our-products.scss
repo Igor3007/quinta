@@ -34,6 +34,15 @@
             padding: 15px;
         }
     }
+
+    &__inscale {
+        padding-top: 30px;
+
+        @media screen and (min-width: $w1200) {
+            padding-top: 50px;
+        }
+    }
+
 }
 
 .card-category {
@@ -96,6 +105,65 @@
             bottom: 0;
             font-size: 0;
             color: transparent;
+        }
+    }
+}
+
+.products-inscale {
+
+    @media screen and (min-width: $w1440) {
+        display: flex;
+    }
+
+    &__title {
+        padding-bottom: 30px;
+        font-weight: 500;
+        font-size: 18px;
+
+        @media screen and (min-width: $w1440) {
+            max-width: 250px;
+            min-width: 220px;
+            margin-top: 10px;
+            padding-right: 25px;
+        }
+    }
+
+    &__list {
+
+        @media screen and (min-width: $w1440) {
+            flex-grow: 1;
+        }
+
+        & ul {
+
+            display: flex;
+            flex-wrap: wrap;
+            margin: -5px;
+
+            & li {
+
+                padding: 5px;
+                flex-grow: 1;
+                flex-basis: 120px;
+
+                @media screen and (min-width: $w760) {
+                    max-width: 120px;
+                }
+
+                & a {
+                    display: block;
+                    background-color: #fff;
+                    padding: 10px;
+                    text-align: center;
+                    font-size: 13px;
+                    border-radius: 3px;
+                    border: 1px solid transparent;
+
+                    &:hover {
+                        border-color: $blue;
+                    }
+                }
+            }
         }
     }
 }

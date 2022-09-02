@@ -1,5 +1,6 @@
 .section-new-products {
     @include section-padding;
+    position: relative;
 }
 
 .new-products {
@@ -15,5 +16,43 @@
 
     & .minicard {
         width: 300px;
+    }
+
+    &__slider {
+
+
+
+        @media screen and (min-width: $w992) {
+            &::before {
+                content: '';
+
+                width: 200px;
+
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                z-index: 2;
+
+                background: linear-gradient(270deg, rgba(240, 242, 243, 0) 0%, #F0F2F3 100%);
+
+            }
+
+            &::after {
+                content: '';
+
+                width: 200px;
+
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: 2;
+
+                background: linear-gradient(270deg, rgba(240, 242, 243, 0) 0%, #F0F2F3 100%);
+                transform: matrix(-1, 0, 0, 1, 0, 0);
+
+            }
+        }
     }
 }

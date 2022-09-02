@@ -21,10 +21,20 @@
                 text-decoration: underline;
                 color: $main;
             }
+
+
+        }
+
+        &:first-child {
+            & a {
+                color: $blue;
+                font-weight: 500;
+            }
+
         }
 
         &::after {
-            content: '-';
+            content: '→';
             margin: 0 rem(10);
             color: #7A808D;
             display: inline-block;

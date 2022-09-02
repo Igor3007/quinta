@@ -36,6 +36,17 @@ mixin our-products
                 .our-products__list
                     each item in homeCategory
                         .our-products__item: +card-category(item)
+                .our-products__inscale
+                    .products-inscale
+                        .products-inscale__title Выбрать мо масштабу
+                        .products-inscale__list
+                            ul
+                                li: a(href='#') 1/32
+                                li: a(href='#') 1/35
+                                li: a(href='#') 1/48
+                                li: a(href='#') 1/72
+                                li: a(href='#') 1/144
+                                li: a(href='#') Все модели
 
 mixin card-category(data)
     .card-category

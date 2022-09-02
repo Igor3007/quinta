@@ -1,0 +1,41 @@
+.tag-box {
+
+    padding-bottom: 30px;
+
+    &__list {
+
+
+
+        & ul {
+
+            display: flex;
+            flex-wrap: wrap;
+            margin: -5px;
+
+            & li {
+
+                padding: 5px;
+                flex-grow: 1;
+                flex-basis: 120px;
+
+                @media screen and (min-width: $w760) {
+                    max-width: 120px;
+                }
+
+                & a {
+                    display: block;
+                    background-color: #fff;
+                    padding: 10px;
+                    text-align: center;
+                    font-size: 13px;
+                    border-radius: 3px;
+                    border: 1px solid transparent;
+
+                    &:hover {
+                        border-color: $blue;
+                    }
+                }
+            }
+        }
+    }
+}

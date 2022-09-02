@@ -1,18 +1,18 @@
 -
     const adv = [
         {
-            image: '',
+            image: '/img/common/svg/Frame.svg',
             title: 'Созданно энтузиастами <br> для энтузиастов',
             desc: 'Разнообразный и богатый опыт дальнейшее развитие различных форм деятельности',
         },
         {
-            image: '',
+            image: '/img/common/svg/Frame-1.svg',
             title: 'Лидеры в производстве <br> деталей для моделирования',
             desc: 'Равным образом дальнейшее развитие деятельности позволяет выполнять важные задания',
         },
         {
-            image: '',
-            title: 'Доставка <br< по всему миру',
+            image: '/img/common/svg/Frame-2.svg',
+            title: 'Доставка <br> по всему миру',
             desc: 'Разнообразный и богатый опыт новая модель организационной деятельности играет важную роль',
         },
     ]
@@ -30,5 +30,5 @@ mixin card-advantages(data)
     .card-advantages
         .card-advantages__image: +bgimage(data.image)
         .card-advantages__title!= data.title
-        .card-advantages__subtitle!= data.subtitle
+        .card-advantages__subtitle!= data.desc
                     

@@ -1,0 +1,24 @@
+extends ../layouts/site
+
+block variables
+  include ../../data/data.pug
+  - const title = "Quinta"
+
+
+block content
+
+  include ../../blocks/modules/new-products/new-products
+  include ../../blocks/modules/our-products/our-products
+  include ../../blocks/modules/advantages-block/advantages-block
+
+
+  +new-products()
+  +our-products()
+  +advantages-block()
+
+
+block scripts
+ 
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")  
+ 
