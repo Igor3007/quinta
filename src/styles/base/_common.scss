@@ -23,6 +23,51 @@
     &__aside {
         display: none;
 
+        &.open {
+            display: block;
+
+            @media screen and (max-width: $w992) {
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                background-color: rgba($color: #000000, $alpha: 0.5);
+                z-index: 100;
+                display: flex;
+
+                & .catalog-filter {
+
+                    margin-top: auto;
+                    width: 100%;
+                    background-color: #fff;
+                    border-radius: 10px 10px 0 0;
+
+
+
+                    &__wrp {
+                        max-height: 80vh;
+                        overflow-y: auto;
+                        padding-top: 15px;
+                    }
+
+
+                    &__total {
+                        padding-left: 20px;
+                        margin-bottom: 0;
+                        padding-top: 2px;
+                        height: 45px;
+
+                        & span {
+                            padding-left: 0.3em;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
         @media screen and (min-width: $w1200) {
             display: block;
             width: 245px;

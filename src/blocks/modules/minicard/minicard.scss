@@ -130,7 +130,7 @@
 
         display: flex;
         align-items: center;
-        width: 40px;
+        width: 30px;
         justify-content: flex-end;
 
 
@@ -182,7 +182,7 @@
 
     &__tags {
 
-        width: calc(100% - 45px);
+        width: calc(100% - 35px);
 
         & ul {
             display: flex;
@@ -195,7 +195,7 @@
 
                 & a {
                     font-size: 12px;
-                    padding: 5px 10px;
+                    padding: 5px 8px;
                     border-radius: 3px;
                     background-color: $bg-gray;
                     color: rgba(17, 27, 41, 0.5);

@@ -88,10 +88,13 @@ mixin catalog-filter
             | 473 
             span модели
         .catalog-filter__wrp
-            each item in searchCatalog
-                .catalog-filter__item
+            each item,index in searchCatalog
+                .catalog-filter__item(class=(index < 5 ? 'open':''))
                     .catalog-filter__title= item.title
                     .catalog-filter__prop
                         ul
                             each li in item.prop
-                                 li: +checkbox(li)
+                                 li: +checkbox(li) 
+            .catalog-filter__submit
+              button.btn.btn-small Показать
+              button.btn.btn-gray.btn-small Сбросить

@@ -1,0 +1,27 @@
+.seo-block {
+
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    &__title {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 28px;
+        color: #111B29;
+        margin-bottom: 1em;
+    }
+
+    &__desc {
+        margin-bottom: 20px;
+        color: rgba(17, 27, 41, 0.5);
+    }
+
+    &__more {
+        & a {
+            color: $blue;
+            font-weight: 600;
+        }
+    }
+
+
+}

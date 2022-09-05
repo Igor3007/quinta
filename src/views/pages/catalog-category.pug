@@ -12,6 +12,9 @@ block content
   include ../../blocks/modules/tag-box/tag-box
   include ../../blocks/modules/catalog-filter/catalog-filter
   include ../../blocks/modules/catalog-list/catalog-list
+  include ../../blocks/modules/seo-block/seo-block
+
+  include ../../blocks/components/pagination/pagination.pug
 
   .page
     .page__top
@@ -29,6 +32,8 @@ block content
             +catalog-filter
           .page__content
             +catalog-list
+            +pagination
+            +seo-block
  
 
 block scripts

@@ -447,4 +447,46 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
 
     }
+
+    //filter slideup
+
+    if (document.querySelectorAll('.catalog-filter__title').length) {
+        document.querySelectorAll('.catalog-filter__title').forEach(item => {
+            item.addEventListener('click', e => {
+                e.target.closest('.catalog-filter__item').classList.toggle('open')
+            })
+        })
+    }
+
+    //data-filter="open"
+
+    if (document.querySelectorAll('[data-filter="open"]').length) {
+        document.querySelectorAll('[data-filter="open"]').forEach(item => {
+
+            item.addEventListener('click', e => {
+                item.classList.toggle('open')
+                document.querySelector('.page__aside').classList.toggle('open')
+
+
+                if (document.querySelector('.page__aside').classList.contains('open')) {
+
+                    let closeElement = document.createElement('div')
+                    closeElement.classList.add('filter-close')
+
+                    closeElement.addEventListener('click', function () {
+                        document.querySelector('.page__aside').classList.remove('open')
+                    })
+
+                    document.querySelector('.catalog-filter__total').append(closeElement)
+                } else {
+                    if (document.querySelector('.filter-close')) {
+                        document.querySelector('.filter-close').remove()
+                    }
+                }
+            })
+
+        })
+    }
+
+
 }); //ready

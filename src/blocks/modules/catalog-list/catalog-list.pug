@@ -13,7 +13,7 @@ mixin catalog-list
                             li: a(href='#') По размеру скидки
                             li: a(href='#') По новизне
             .catalog-list__filter
-                span: +icons('#ic_find-params-dark', 24)
+                span(data-filter="open"): +icons('#ic_find-params-dark', 24)
         .catalog-list__container
             each item in app.catalog
                 .catalog-list__item: +minicard(item)

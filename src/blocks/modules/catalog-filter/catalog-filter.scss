@@ -11,15 +11,58 @@
         padding: 20px 20px;
         border-bottom: 1px solid #eee;
 
+        &.open {
+            & .catalog-filter {
+                &__prop {
+                    max-height: 500px;
+
+                }
+
+                &__title {
+
+                    &::after {
+                        transform: rotate(180deg);
+                        opacity: 0.3;
+                    }
+                }
+            }
+        }
+
     }
 
     &__title {
-        padding-bottom: 20px;
+        padding-bottom: 0;
         font-weight: 500;
         font-size: 16px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            transition: 0.3s ease;
+            background-size: 10px auto;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.39 5.778l4.45-4.45A.543.543 0 0010 .94a.543.543 0 00-.16-.387L9.513.226a.548.548 0 00-.774 0L5.002 3.963 1.262.223a.543.543 0 00-.388-.16.544.544 0 00-.387.16L.16.55A.543.543 0 000 .937c0 .146.057.284.16.387l4.454 4.454c.103.103.241.16.388.16a.544.544 0 00.388-.16z' fill='%23111B29'/%3E%3C/svg%3E");
+        }
     }
 
     &__prop {
+
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.3s;
+
+        & ul {
+            padding-top: 20px;
+        }
+
         & li {
             padding-bottom: 10px;
 
@@ -43,4 +86,20 @@
             color: rgba(17, 27, 41, 0.5);
         }
     }
+
+    &__submit {
+        padding: 20px;
+
+        & .btn {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    }
+}
+
+.filter-close {
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    margin-left: auto;
 }
