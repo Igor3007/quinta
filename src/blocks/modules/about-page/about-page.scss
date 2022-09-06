@@ -1,0 +1,120 @@
+.about-page {
+    max-width: 890px;
+
+    &__title {
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 130%;
+        padding-bottom: 30px;
+
+        @media screen and (min-width: $w992) {
+            font-size: 32px;
+        }
+    }
+
+
+
+}
+
+.project-autor {
+
+    padding-bottom: 30px;
+
+    @media screen and (min-width: $w992) {
+        display: flex;
+        align-items: center;
+    }
+
+    &__image {
+        max-width: 280px;
+        width: 280px;
+        margin: 0 auto;
+        padding-bottom: 30px;
+
+        @media screen and (min-width: $w992) {
+            min-width: 280px;
+        }
+
+        & picture {
+            padding-top: 100%;
+            position: relative;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+
+            & img {
+                position: absolute;
+                left: 10px;
+                top: 10px;
+                width: calc(100% - 20px);
+                height: calc(100% - 20px);
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+        }
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column-reverse;
+
+        @media screen and (min-width: $w992) {
+            flex-direction: column;
+            padding-left: 35px;
+        }
+    }
+
+    &__name {
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        margin-bottom: 20px;
+
+        @media screen and (min-width: $w992) {
+            align-items: flex-start;
+        }
+
+        & strong {
+            display: flex;
+            font-size: 15px;
+            padding-bottom: 10px;
+
+            @media screen and (min-width: $w992) {
+                padding-bottom: 2px;
+            }
+
+        }
+
+        & small {
+            display: flex;
+            font-size: 15px;
+            color: rgba(17, 27, 41, 0.5);
+        }
+    }
+
+    &__sl {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 130%;
+
+        @media screen and (min-width: $w992) {
+            padding-bottom: 30px;
+            font-size: 24px;
+        }
+
+        &::before {
+            content: '';
+            width: 1em;
+            height: 1em;
+            margin-right: 10px;
+            display: inline-block;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 13.7134H5.14285L1.71426 20.5705H6.85711L10.2857 13.7134V3.42773H0V13.7134Z' fill='%230B98CF'/%3E%3Cpath d='M13.7139 3.42773V13.7134H18.8567L15.4281 20.5705H20.571L23.9996 13.7134V3.42773H13.7139Z' fill='%230B98CF'/%3E%3C/svg%3E%0A");
+        }
+    }
+}
