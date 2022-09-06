@@ -14,6 +14,7 @@ mixin catalog-list
                             li: a(href='#') По новизне
             .catalog-list__filter
                 span(data-filter="open"): +icons('#ic_find-params-dark', 24)
+                small(data-filter="counter")
         .catalog-list__container
             each item in app.catalog
                 .catalog-list__item: +minicard(item)

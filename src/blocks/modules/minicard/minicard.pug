@@ -7,8 +7,9 @@ mixin minicard(data)
                         .minicard__badge
                             ul
                                 li: span(class=data.badge.class)= data.badge.text
-                    .minicard__code
-                        span Артикул: QD48294
+                    if data.code
+                        .minicard__code
+                            span Артикул: QD48294
                 .minicard__picture: +picture(data.image)
             .minicard__main
                 .minicard__bar
@@ -16,10 +17,20 @@ mixin minicard(data)
                         ul
                             each tag, index in data.tags
                                 li(class=(index == 2 ? 'minicard-tags--gray':'')): a(href='#')= tag
-                    .minicard__fav
-                        span(data-wishlist=data.id): +icons('#ic_heart-solid')
+                    if data.like
+                        .minicard__fav
+                            span(data-wishlist=data.id): +icons('#ic_heart-solid')
 
                 .minicard__category
                     a(href='#')= data.cat
                 .minicard__title
                     a(href='card-catalog.html')= data.title
+
+                if data.price
+                    .minicard__botton
+                        .minicard__price
+                            .minicard__price-old=data.price+' ₽' 
+                            .minicard__price-current=data.price+' ₽'
+
+                        .minicard__buy
+                            button.btn.btn-small Купить

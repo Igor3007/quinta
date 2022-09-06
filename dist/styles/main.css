@@ -3608,6 +3608,42 @@ footer {
   padding-bottom: 20px;
 }
 
+.minicard__botton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.minicard__price {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -4px;
+}
+
+.minicard__price-current {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 4px;
+}
+
+.minicard__price-old {
+  color: rgba(17, 27, 41, 0.5);
+  text-decoration: line-through;
+  padding: 4px;
+}
+
+.minicard__buy {
+  margin-left: auto;
+}
+
+.minicard__buy .btn {
+  height: 34px;
+  max-width: 100px;
+  min-width: 100px;
+  padding-top: 9px;
+}
+
 .tag-box {
   padding-bottom: 30px;
 }
@@ -3709,6 +3745,7 @@ footer {
 
 .catalog-filter__total span {
   color: rgba(17, 27, 41, 0.5);
+  margin-left: 5px;
 }
 
 .catalog-filter__submit {
@@ -3723,8 +3760,16 @@ footer {
 .filter-close {
   width: 25px;
   height: 25px;
-  background-color: #eee;
+  border-radius: 3px;
   margin-left: auto;
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13 1L1 13' stroke='%2392919F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M1 1L13 13' stroke='%2392919F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+  background-size: 16px auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.filter-close:hover {
+  cursor: pointer;
 }
 
 .catalog-list__container {
@@ -3736,6 +3781,28 @@ footer {
 .catalog-list__item {
   padding: 15px;
   width: 100%;
+}
+
+.catalog-list__filter {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.catalog-list__filter small {
+  font-size: 11px;
+  color: #fff;
+  background-color: #0B98CF;
+  line-height: 11px;
+  padding: 2px;
+  min-width: 17px;
+  margin-top: -3px;
+  border-radius: 12px;
+  text-align: center;
+  color: #fff;
+  height: 17px;
+  letter-spacing: -0.5px;
+  margin-left: 5px;
 }
 
 .catalog-list__top {

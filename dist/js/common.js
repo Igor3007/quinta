@@ -360,21 +360,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
     ============================================ */
 
 
-    document.addEventListener('DOMContentLoaded', function () {
+    if (document.querySelector('[data-slider="new-products"]')) {
         var splide = new Splide('[data-slider="new-products"]', {
 
             arrows: false,
             pagination: false,
             gap: '30px',
             autoWidth: true,
-
-
-
+            start: 0
 
         });
 
         splide.mount();
-    });
+    }
+
 
     /* ==================================
     wishlist
@@ -475,17 +474,44 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                     closeElement.addEventListener('click', function () {
                         document.querySelector('.page__aside').classList.remove('open')
+                        closeElement.remove()
                     })
 
                     document.querySelector('.catalog-filter__total').append(closeElement)
-                } else {
-                    if (document.querySelector('.filter-close')) {
-                        document.querySelector('.filter-close').remove()
-                    }
                 }
             })
 
         })
+    }
+
+    /* ==============================================
+    count selected filter
+    ==============================================*/
+
+    if (document.querySelectorAll('.catalog-filter').length) {
+
+        function changeCounter() {
+            let count = document.querySelectorAll('.catalog-filter input:checked')
+
+            if (document.querySelector('.catalog-list__filter small')) {
+                if (count.length) {
+                    document.querySelector('.catalog-list__filter small').style.display = 'block'
+                    document.querySelector('.catalog-list__filter small').innerHTML = count.length
+                } else {
+                    document.querySelector('.catalog-list__filter small').style.display = 'none'
+                }
+            }
+        }
+
+        changeCounter()
+
+        document.querySelectorAll('.catalog-filter input').forEach(item => {
+            item.addEventListener('change', e => {
+                changeCounter()
+            })
+        })
+
+
     }
 
 

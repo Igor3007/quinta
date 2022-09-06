@@ -21,7 +21,30 @@
 
     &__filter {
 
-        & svg {}
+        position: relative;
+        display: flex;
+        align-items: center;
+
+
+
+        & small {
+            font-size: 11px;
+            color: #fff;
+            background-color: #0B98CF;
+            line-height: 11px;
+
+
+            padding: 2px;
+            min-width: 17px;
+            margin-top: -3px;
+
+            border-radius: 12px;
+            text-align: center;
+            color: #fff;
+            height: 17px;
+            letter-spacing: -0.5px;
+            margin-left: 5px;
+        }
 
         @media screen and (min-width: $w1200) {
             display: none;
