@@ -1,0 +1,47 @@
+.section-questions-block {
+    background-color: #fff;
+    @include section-padding;
+
+    margin-bottom: -30px;
+    margin-top: 60px;
+
+}
+
+.questions-block {
+    &__title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    &__desc {
+        margin-bottom: 20px;
+    }
+
+    &__form {
+        & .btn {
+            width: 100%;
+        }
+
+        & .form {
+            &__note {
+                font-size: 11px;
+                line-height: 150%;
+            }
+
+            &__item {
+                @media screen and (min-width: $w760) {
+                    flex-wrap: wrap;
+                }
+            }
+
+            &__subitem {
+                @media screen and (min-width: $w760) {
+                    flex-basis: 300px;
+                }
+            }
+        }
+    }
+
+
+}

@@ -410,31 +410,31 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // select list
 
 
-    if (document.querySelector('.select-list') && document.body.clientWidth < 1200) {
+    if (document.querySelector('.ul-select-list') && document.body.clientWidth < 1200) {
 
-        document.querySelectorAll('.select-list').forEach(item => {
+        document.querySelectorAll('.ul-select-list').forEach(item => {
 
             //init
 
             let textActive = item.querySelector('li.active a').innerHTML
-            item.querySelector('.select-list__title').innerText = textActive
+            item.querySelector('.ul-select-list__title').innerText = textActive
 
 
             item.querySelectorAll('li').forEach(li => {
                 li.addEventListener('click', e => {
                     let textActive = li.querySelector('a').innerHTML
-                    item.querySelector('.select-list__title').innerText = textActive
+                    item.querySelector('.ul-select-list__title').innerText = textActive
 
-                    e.target.closest('.select-list__dropdown').style.display = 'none'
+                    e.target.closest('.ul-select-list__dropdown').style.display = 'none'
 
-                    if (document.querySelector('.select-list li.active').classList.contains('active')) {
-                        document.querySelector('.select-list li.active').classList.remove('active')
+                    if (document.querySelector('.ul-select-list li.active').classList.contains('active')) {
+                        document.querySelector('.ul-select-list li.active').classList.remove('active')
                     }
 
                     li.classList.add('active')
 
                     setTimeout(() => {
-                        e.target.closest('.select-list__dropdown').style.display = 'block'
+                        e.target.closest('.ul-select-list__dropdown').style.display = 'block'
                     }, 300)
 
                 })
@@ -512,6 +512,170 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
 
 
+    }
+
+    /* ===========================================
+    input material
+    =========================================== */
+
+    function materialInput() {
+        this.init = function () {
+
+            let _this = this
+
+            document.querySelectorAll('.input-material input').forEach(function (input) {
+
+                if (input.value.length) {
+                    input.setAttribute('area-valid', '')
+                }
+
+                _this.addEvent(input)
+            })
+        }
+
+        this.reset = function () {
+
+            let _this = this
+
+            document.querySelectorAll('.input-material input').forEach(function (input) {
+
+                if (!input.value.length) {
+                    input.removeAttribute('area-valid')
+                } else {
+                    input.setAttribute('area-valid', '')
+                }
+
+
+            })
+        }
+
+        this.addEvent = function (input) {
+            input.addEventListener('keyup', function (event) {
+                if (event.target.value.length) {
+                    event.target.setAttribute('area-valid', 'true')
+                } else {
+                    event.target.removeAttribute('area-valid')
+                }
+            })
+
+        }
+
+
+    }
+
+    const MATERIAL_INPUT = new materialInput()
+    MATERIAL_INPUT.init()
+
+
+    /* ===============================================
+    form-open
+    ===============================================*/
+
+    if (document.querySelector('[data-form-open]')) {
+
+        const formContainerElement = document.querySelector('[data-form-container]')
+        const formSuccessElement = document.querySelector('[data-form-success]')
+        let cooperation = new customModal()
+
+        function submitForm(form) {
+            form.addEventListener('submit', function (event) {
+                event.preventDefault()
+                event.target.querySelector('[type="submit"]').classList.add('btn-loading')
+
+
+                //ajax send data
+
+                setTimeout(() => {
+
+                    cooperation.close()
+                    cooperation.open(formSuccessElement.outerHTML, function (instanse) {
+                        instanse.querySelector('.btn').addEventListener('click', function () {
+                            cooperation.close()
+                        })
+                    })
+
+                }, 1000)
+
+            })
+        }
+
+        submitForm(formContainerElement.querySelector('form'))
+
+        document.querySelector('[data-form-open]').addEventListener('click', function () {
+
+
+
+            if (document.body.clientWidth < 992) {
+                formContainerElement.classList.toggle('open')
+            } else {
+
+
+
+                cooperation.open(formContainerElement.outerHTML, function (instanse) {
+
+
+                    //init material input
+                    cooperation.modal.querySelectorAll('input[type=text], input[type=tel], input[type=email]').forEach(function (input) {
+                        if (MATERIAL_INPUT) MATERIAL_INPUT.addEvent(input)
+                        if (input.value) input.setAttribute('area-valid', true)
+                    })
+
+                    //init select
+
+
+                    console.log(document.querySelector('.af-popup select'))
+
+
+                    selectCustom.reinit(instanse.querySelector('.af-popup select'))
+
+                    //init submit form
+
+                    let form = document.querySelector('.af-popup form')
+
+                    submitForm(form)
+
+                })
+
+            }
+
+
+        })
+    }
+
+    /* ================================================
+    form question
+    ================================================*/
+
+    if (document.querySelector('[data-form="question"]')) {
+        document.querySelector('[data-form="question"]').addEventListener('submit', function (event) {
+
+            const successPopup = new customModal()
+            const formSuccessElement = document.querySelector('[data-form-success]')
+
+            event.preventDefault()
+            event.target.querySelector('[type="submit"]').classList.add('btn-loading')
+
+
+            //ajax send data
+
+            setTimeout(() => {
+
+                event.target.querySelector('[type="submit"]').classList.remove('btn-loading')
+                event.target.reset()
+                MATERIAL_INPUT.reset()
+
+
+
+                successPopup.open(formSuccessElement.outerHTML, function (instanse) {
+                    instanse.querySelector('.btn').addEventListener('click', function () {
+                        successPopup.close()
+
+                    })
+                })
+
+            }, 1000)
+
+        })
     }
 
 

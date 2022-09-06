@@ -1,0 +1,51 @@
+mixin cooperation-block
+    .cooperation-block
+        .cooperation-block__btn
+            button.btn(data-form-open="cooperation") Начать сотрудничество 
+
+        .cooperation-block__form(data-form-container="cooperation" )
+            .cooperation-block__title Начать сотрудничество
+
+            form(action='hendler.php' method='POST' data-form="ajax")
+                .form
+                  .form__label Как вас зовут?
+                  .form__item: .form__subitem: +input-material("text", "Имя") 
+                  .form__item: .form__subitem: +input-material("text", "Фамилия") 
+                  .form__label Ваша страна?
+                  .form__item: .form__subitem: +select('Страна', ['Россия','Украина','Казахстан'])
+                  .form__item: .form__subitem: +input-material("tel", "Телефон") 
+                  .form__item: .form__subitem: +input-material("email", "E-mail") 
+                  .form__item
+                    .form__subitem
+                        +checkbox('Оффлайн-продажи')
+                    .form__subitem
+                        +checkbox('Онайн-продажи')
+                  .form__item
+                    .form__subitem
+                        textarea(placeholder="Комментарий")
+                  .form__item
+                    .form__subitem
+                        button.btn(type="submit") Отправить заявку
+                  .form__item
+                    .form__subitem
+                        .form__note 
+                            | Нажимая кнопку вы соглашаетесь с 
+                            a(href='#') Условиями обработки персональных данных, 
+                            | а так же с 
+                            a(href='#') Политикой в отношении персональных данных
+        
+        +popup-success({})
+
+
+mixin popup-success(data)
+    .popup-success(data-form-success="cooperation")
+        .popup-success__icons
+            +icons('#ic_mail-ok', 96)
+        if(data.title)
+            .popup-success__title= data.title
+        else
+            .popup-success__title Спасибо! <br> Ваша заявка принята
+        .popup-success__desc Наш менеджер свяжется с Вами <br> в ближайшее время
+        .popup-success__btn
+            button.btn.btn-small Закрыть
+            

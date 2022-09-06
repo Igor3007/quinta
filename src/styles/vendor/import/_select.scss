@@ -1,6 +1,6 @@
 $background: none;
 $select-color: #fff;
-$select-background: #eeecf2;
+$select-background: $bg-gray;
 $select-width: 100%;
 $select-height: auto;
 
@@ -62,7 +62,7 @@ select {
     // right: 0;
     // bottom: 0;
     // left: 0;
-    background-color: transparent;
+    background-color: $bg-gray;
     padding: rem(8) rem(15);
     transition: all 0.2s ease-in;
     border: 1px solid transparent;
@@ -74,6 +74,7 @@ select {
     display: flex;
     justify-content: space-between;
     height: 100%;
+    border-radius: 4px;
 
     @media screen and (max-width: $w1200) {
         // padding: rem(8) 0;

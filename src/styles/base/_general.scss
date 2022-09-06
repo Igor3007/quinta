@@ -159,7 +159,7 @@ input[type="date"] {
     & h6 {
         margin-bottom: 25px;
         line-height: 120%;
-        color: $main;
+        color: $black;
         font-weight: 600;
     }
 
@@ -255,14 +255,14 @@ input[type="date"] {
     }
 
     & a {
-        color: $main;
+        color: $blue;
         text-decoration: underline;
     }
 
     & div:not([class]),
     & p {
         margin: 20px 0;
-        color: #666;
+        color: $black;
         line-height: 150%;
 
         @media screen and (min-width: $w760) {
@@ -287,7 +287,7 @@ input[type="date"] {
 
             @media screen and (min-width: $w760) {
                 font-size: 16px;
-                padding-left: 25px;
+                padding-left: 18px;
             }
 
             &:last-child {
@@ -296,14 +296,14 @@ input[type="date"] {
 
             &::before {
                 content: '';
-                width: 6px;
-                height: 6px;
+                width: 5px;
+                height: 5px;
                 display: block;
                 position: absolute;
                 left: 0;
-                top: 0.45em;
+                top: 0.6em;
                 border-radius: 50%;
-                background-color: $main;
+                background-color: $blue;
             }
         }
     }
@@ -351,7 +351,7 @@ input[type="date"] {
     }
 
     & strong {
-        color: $main;
+        color: $black;
     }
 }
 

@@ -96,7 +96,7 @@ mixin radio-desc(label, desc, name, val, check)
 
 mixin input-material(type, placeholder, value)
   .input-material
-    input(type=''+type+'' value=(value?value:''))
+    input(type=''+type+'' value=(value?value:'') required="")
     label= placeholder 
 
 mixin input-material-date(type, placeholder, value)

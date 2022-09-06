@@ -1,0 +1,38 @@
+extends ../layouts/site
+
+block variables
+  include ../../data/data.pug
+  - const title = "Quinta" 
+
+
+block content
+
+  include ../../blocks/components/breadcrumb/breadcrumb.pug
+
+  include ../../blocks/modules/cooperation-block/cooperation-block
+
+ 
+
+  .page
+    .page__top
+      .container
+        .page__breadcrumb: +breadcrumb([ 
+          'Главная',
+          'Оптовикам',
+        ])
+        .page__title: h1 Оптовикам
+    .page__main
+      .container
+          .page__text
+            .formated-text
+              p Мы приглашаем к сотрудничеству. Практика показывает, что консультация с широким активом позволяет выполнять важные задания по разработке соответствующий условий активизации. 
+              p Задача организации, в особенности же дальнейшее развитие различных форм деятельности позволяет выполнять важные задания по разработке существенных финансовых и административных условий.
+ 
+
+          +cooperation-block()
+
+block scripts
+ 
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")  
+ 

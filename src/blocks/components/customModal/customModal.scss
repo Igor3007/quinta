@@ -18,7 +18,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(240, 242, 243, 0.6);
     overflow-x: auto;
     z-index: 100;
 
@@ -65,6 +65,8 @@
     border-radius: 4px;
     background: #fff;
     padding: 10px;
+    box-shadow: 0px 5px 80px rgba(17, 27, 41, 0.3);
+    border-radius: 6px;
 }
 
 .af-popup__container {
@@ -85,18 +87,20 @@
     height: 24px;
     text-align: right;
     position: absolute;
-    bottom: calc(100% + 15px);
-    right: 0;
+    bottom: calc(100%);
+    right: 10px;
     cursor: pointer;
     z-index: 101;
-    top: 11px;
+    top: 60px;
+
+
 }
 
 .af-popup__close svg {
-    fill: #fff;
+    fill: #000;
     width: 24px;
     height: 24px;
-    stroke: #fff;
+    stroke: #000;
     stroke-width: 2px;
 }
 

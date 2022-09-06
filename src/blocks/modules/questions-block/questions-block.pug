@@ -1,0 +1,26 @@
+include ../../modules/cooperation-block/cooperation-block.pug
+
+mixin questions-block
+    section.section-questions-block
+        .container
+            .questions-block
+                .questions-block__title Есть вопросы?
+                .questions-block__desc Вы можете задать вопрос или проконсультироваться с нашим менеджером.
+                .questions-block__form
+                    form(action='#' method='POST' data-form="question")
+                        .form
+                            .form
+                              .form__item
+                                .form__subitem: +input-material('text', 'Ваше имя')
+                                .form__subitem: +input-material('email', 'E-mail')
+                                .form__subitem
+                                    button.btn(type="submit") Свяжитесь со мной
+                                .form__subitem
+                                    .form__note 
+                                        | Нажимая кнопку вы соглашаетесь с 
+                                        a(href='#') Условиями обработки персональных данных, 
+                                        | а так же с 
+                                        a(href='#') Политикой в отношении персональных данных
+            +popup-success({
+                title: 'Сообщение отправлено!'
+            })

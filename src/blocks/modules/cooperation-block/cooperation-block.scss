@@ -1,0 +1,107 @@
+.cooperation-block {
+
+    &__btn {
+        & .btn {
+            width: 100%;
+
+            @media screen and (min-width: $w480) {
+                width: auto;
+            }
+        }
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 20px;
+    }
+
+    &__form {
+
+        background-color: #fff;
+        margin: 0 -20px;
+        padding: 20px;
+        margin-top: 40px;
+
+        &:not(.open) {
+            display: none;
+        }
+
+
+
+        @media screen and (min-width: $w480) {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        & .btn {
+            width: 100%;
+
+        }
+
+        & .checkbox {
+            margin: 15px 0;
+        }
+    }
+
+
+}
+
+.af-popup {
+    & .cooperation-block {
+
+
+
+        &__form {
+            display: block;
+            max-width: 410px;
+            margin-top: 0;
+        }
+
+        padding: 40px;
+    }
+
+    & textarea {
+        height: 80px;
+        min-height: 80px;
+    }
+
+    & .popup-success {
+        display: block;
+    }
+}
+
+.popup-success {
+    display: none;
+    padding: 30px 40px;
+
+    &__icons {
+        padding-bottom: 25px;
+
+        display: flex;
+        justify-content: center;
+
+    }
+
+    &__title {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 15px;
+        line-height: 133%;
+    }
+
+    &__desc {
+        padding-bottom: 25px;
+        text-align: center;
+        color: rgba(17, 27, 41, 0.5);
+
+
+    }
+
+    &__btn {
+        & .btn {
+            margin: 0 auto;
+        }
+    }
+}

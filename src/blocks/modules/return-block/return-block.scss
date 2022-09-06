@@ -1,0 +1,72 @@
+.return-block {
+
+    padding-top: 40px;
+
+    &__btn {
+        & .btn {
+            width: 100%;
+
+            @media screen and (min-width: $w480) {
+                width: auto;
+            }
+        }
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 20px;
+    }
+
+    &__form {
+
+        background-color: #fff;
+        margin: 0 -20px;
+        padding: 20px;
+        margin-top: 40px;
+
+        &:not(.open) {
+            display: none;
+        }
+
+
+
+        @media screen and (min-width: $w480) {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        & .btn {
+            width: 100%;
+
+        }
+
+        & .checkbox {
+            margin: 15px 0;
+        }
+    }
+
+
+}
+
+.af-popup {
+    & .return-block {
+
+        &__form {
+            display: block;
+            max-width: 410px;
+            margin-top: 0;
+        }
+
+        padding: 40px;
+    }
+
+    & textarea {
+        height: 80px;
+        min-height: 80px;
+    }
+
+    & .popup-success {
+        display: block;
+    }
+}
