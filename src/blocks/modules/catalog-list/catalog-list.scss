@@ -77,7 +77,7 @@
         & .ul-select-list {
             &__dropdown {
                 opacity: 1;
-                transform: translateY(0);
+                transform: none;
                 visibility: visible;
             }
         }
@@ -187,7 +187,15 @@
                 & li {
                     padding: 10px;
 
-                    &:hover,
+                    &:hover {
+
+                        & a {
+
+                            color: $black;
+                            font-weight: 500;
+                        }
+                    }
+
                     &.avtive {
                         & a {
                             font-weight: 500;

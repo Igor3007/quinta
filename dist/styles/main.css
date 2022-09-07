@@ -3682,9 +3682,14 @@ footer {
   border-color: #0B98CF;
 }
 
+.tag-box--more .tag-box__list ul.open {
+  flex-wrap: wrap;
+}
+
 .tag-box--more .tag-box__list ul li {
   max-width: none;
   flex-grow: 0;
+  flex-basis: auto;
 }
 
 .tag-box--more .tag-box__list ul li a {
@@ -3704,6 +3709,11 @@ footer {
   padding-left: 1em;
   padding-right: 1em;
   background-color: #8296A9;
+  display: none;
+}
+
+.tag-box--more .tag-box__more .btn.open {
+  display: block;
 }
 
 .catalog-filter__wrp {
@@ -3851,7 +3861,7 @@ footer {
 
 .ul-select-list:hover .ul-select-list__dropdown {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
   visibility: visible;
 }
 
@@ -4351,6 +4361,10 @@ footer {
   text-decoration: underline;
 }
 
+.blog-list {
+  padding-bottom: 60px;
+}
+
 .blog-list__row {
   display: flex;
   flex-wrap: wrap;
@@ -4359,6 +4373,10 @@ footer {
 
 .blog-list__item {
   padding: 15px;
+}
+
+.blog-list__sort {
+  padding-bottom: 25px;
 }
 
 .card-post {
@@ -4399,6 +4417,10 @@ footer {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.card-post__title a:hover {
+  text-decoration: underline;
 }
 
 .card-post__desc {
@@ -5066,7 +5088,11 @@ footer {
     padding: 10px;
   }
 
-  .ul-select-list__dropdown ul li:hover a,
+  .ul-select-list__dropdown ul li:hover a {
+    color: #111B29;
+    font-weight: 500;
+  }
+
   .ul-select-list__dropdown ul li.avtive a {
     font-weight: 500;
     color: #111B29;

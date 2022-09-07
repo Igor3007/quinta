@@ -414,7 +414,7 @@
           <div class="container">
                   <div class="tag-box tag-box--more">
                     <div class="tag-box__list">
-                      <ul>
+                      <ul data-tagbox="container">
                         <li class="active"><a href="#" title="Все">Все</a></li>
                         <li><a href="#" title="Вторая мировая война">Вторая мировая война</a></li>
                         <li><a href="#" title="Традиционные декали">Традиционные декали</a></li>
@@ -425,168 +425,189 @@
                         <li><a href="#" title="Авиация">Авиация</a></li>
                         <li><a href="#" title="Автомобили">Автомобили</a></li>
                         <li><a href="#" title="Бронетехника">Бронетехника</a></li>
+                        <li><a href="#" title="Моделизм">Моделизм</a></li>
+                        <li><a href="#" title="Покраска">Покраска</a></li>
+                        <li><a href="#" title="Диорама">Диорама</a></li>
+                        <li><a href="#" title="Цветные 3D интерьеры">Цветные 3D интерьеры</a></li>
+                        <li><a href="#" title="Авиация">Авиация</a></li>
+                        <li><a href="#" title="Автомобили">Автомобили</a></li>
+                        <li><a href="#" title="Бронетехника">Бронетехника</a></li>
                       </ul>
                     </div>
                     <div class="tag-box__more">
-                      <button class="btn small">Показать еще</button>
+                      <button class="btn btn-small" data-tagbox="open" data-lang-show="Показать еще" data-lang-hide="Свернуть">Показать еще</button>
                     </div>
                   </div>
-                  <div class="blog-list__sort"></div>
-                  <div class="blog-list__row">
-                    <div class="blog-list__item">
-                            <div class="card-post">
-                              <div class="card-post__image">
-                                <picture>
-                                  <source srcset="/img/common/catalog/cat2.webp" type="image/webp"/><img src="/img/common/catalog/cat2.jpg" loading="lazy" alt="image"/>
-                                </picture>
+                  <div class="blog-list"> 
+                    <div class="blog-list__sort">
+                      <div class="ul-select-list">
+                        <div class="ul-select-list__title">Сортировать</div>
+                        <div class="ul-select-list__dropdown">
+                          <ul>
+                            <li class="active"><a href="#">По популярности</a></li>
+                            <li><a href="#">Сначала новые</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="blog-list__row">
+                      <div class="blog-list__item">
+                              <div class="card-post">
+                                <div class="card-post__image">
+                                  <picture>
+                                    <source srcset="/img/common/catalog/cat5.webp" type="image/webp"/><img src="/img/common/catalog/cat5.jpg" loading="lazy" alt="image"/>
+                                  </picture>
+                                </div>
+                                <div class="card-post__main">
+                                  <div class="card-post__prop">
+                                    <div class="card-post__date">15 апреля 2022</div>
+                                    <div class="card-post__hits"><span>237</span></div>
+                                  </div>
+                                  <div class="card-post__title"><a href="#">Мой первый самолет. С чего начать?</a></div>
+                                  <div class="card-post__desc"><span>Наше замечательное хобби привлекает все больше новых людей, но многие из желающих заняться моделизмом сталкиваются с непониманием с чего..</span></div>
+                                  <div class="card-post__tags">
+                                    <ul>
+                                      <li><a href="#">Авиация</a></li>
+                                      <li><a href="#">Стендовый моделизм</a></li>
+                                      <li><a href="#">Покраска</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
                               </div>
-                              <div class="card-post__main">
-                                <div class="card-post__prop">
-                                  <div class="card-post__date">15 апреля 2022</div>
-                                  <div class="card-post__hits">237</div>
+                      </div>
+                      <div class="blog-list__item">
+                              <div class="card-post">
+                                <div class="card-post__image">
+                                  <picture>
+                                    <source srcset="/img/common/catalog/cat6.webp" type="image/webp"/><img src="/img/common/catalog/cat6.jpg" loading="lazy" alt="image"/>
+                                  </picture>
                                 </div>
-                                <div class="card-post__title"><a href="#">Мой первый самолет. С чего начать?</a></div>
-                                <div class="card-post__desc"><span>Наше замечательное хобби привлекает все больше новых людей, но многие из желающих заняться моделизмом сталкиваются с непониманием с чего..</span></div>
-                                <div class="card-post__tags">
-                                  <ul>
-                                    <li><a href="#">Авиация</a></li>
-                                    <li><a href="#">Стендовый моделизм</a></li>
-                                    <li><a href="#">Покраска</a></li>
-                                  </ul>
+                                <div class="card-post__main">
+                                  <div class="card-post__prop">
+                                    <div class="card-post__date">19 июля 2022</div>
+                                    <div class="card-post__hits"><span>185</span></div>
+                                  </div>
+                                  <div class="card-post__title"><a href="#">ГАЗ-233014 - СТС «Тигр». Новый 3D интерьер от Quinta Studio</a></div>
+                                  <div class="card-post__desc"><span>Наше замечательное хобби привлекает все больше новых людей, но многие из желающих...</span></div>
+                                  <div class="card-post__tags">
+                                    <ul>
+                                      <li><a href="#">Цветные 3D интерьеры</a></li>
+                                      <li><a href="#">Автомобили</a></li>
+                                    </ul>
+                                  </div>
                                 </div>
+                              </div>
+                      </div>
+                      <div class="blog-list__item">
+                              <div class="card-post">
+                                <div class="card-post__image">
+                                  <picture>
+                                    <source srcset="/img/common/catalog/cat5.webp" type="image/webp"/><img src="/img/common/catalog/cat5.jpg" loading="lazy" alt="image"/>
+                                  </picture>
+                                </div>
+                                <div class="card-post__main">
+                                  <div class="card-post__prop">
+                                    <div class="card-post__date">15 апреля 2022</div>
+                                    <div class="card-post__hits"><span>237</span></div>
+                                  </div>
+                                  <div class="card-post__title"><a href="#">Мой первый самолет. С чего начать?</a></div>
+                                  <div class="card-post__desc"><span>Наше замечательное хобби привлекает все больше новых людей, но многие из желающих заняться моделизмом сталкиваются с непониманием с чего..</span></div>
+                                  <div class="card-post__tags">
+                                    <ul>
+                                      <li><a href="#">Авиация</a></li>
+                                      <li><a href="#">Стендовый моделизм</a></li>
+                                      <li><a href="#">Покраска</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                      </div>
+                      <div class="blog-list__item">
+                              <div class="card-post">
+                                <div class="card-post__image">
+                                  <picture>
+                                    <source srcset="/img/common/catalog/cat6.webp" type="image/webp"/><img src="/img/common/catalog/cat6.jpg" loading="lazy" alt="image"/>
+                                  </picture>
+                                </div>
+                                <div class="card-post__main">
+                                  <div class="card-post__prop">
+                                    <div class="card-post__date">19 июля 2022</div>
+                                    <div class="card-post__hits"><span>185</span></div>
+                                  </div>
+                                  <div class="card-post__title"><a href="#">ГАЗ-233014 - СТС «Тигр». Новый 3D интерьер от Quinta Studio</a></div>
+                                  <div class="card-post__desc"><span>Наше замечательное хобби привлекает все больше новых людей, но многие из желающих...</span></div>
+                                  <div class="card-post__tags">
+                                    <ul>
+                                      <li><a href="#">Цветные 3D интерьеры</a></li>
+                                      <li><a href="#">Автомобили</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                      </div>
+                      <div class="blog-list__item">
+                              <div class="card-post">
+                                <div class="card-post__image">
+                                  <picture>
+                                    <source srcset="/img/common/catalog/cat5.webp" type="image/webp"/><img src="/img/common/catalog/cat5.jpg" loading="lazy" alt="image"/>
+                                  </picture>
+                                </div>
+                                <div class="card-post__main">
+                                  <div class="card-post__prop">
+                                    <div class="card-post__date">15 апреля 2022</div>
+                                    <div class="card-post__hits"><span>237</span></div>
+                                  </div>
+                                  <div class="card-post__title"><a href="#">Мой первый самолет. С чего начать?</a></div>
+                                  <div class="card-post__desc"><span>Наше замечательное хобби привлекает все больше новых людей, но многие из желающих заняться моделизмом сталкиваются с непониманием с чего..</span></div>
+                                  <div class="card-post__tags">
+                                    <ul>
+                                      <li><a href="#">Авиация</a></li>
+                                      <li><a href="#">Стендовый моделизм</a></li>
+                                      <li><a href="#">Покраска</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                      </div>
+                      <div class="blog-list__item">
+                              <div class="card-post">
+                                <div class="card-post__image">
+                                  <picture>
+                                    <source srcset="/img/common/catalog/cat6.webp" type="image/webp"/><img src="/img/common/catalog/cat6.jpg" loading="lazy" alt="image"/>
+                                  </picture>
+                                </div>
+                                <div class="card-post__main">
+                                  <div class="card-post__prop">
+                                    <div class="card-post__date">19 июля 2022</div>
+                                    <div class="card-post__hits"><span>185</span></div>
+                                  </div>
+                                  <div class="card-post__title"><a href="#">ГАЗ-233014 - СТС «Тигр». Новый 3D интерьер от Quinta Studio</a></div>
+                                  <div class="card-post__desc"><span>Наше замечательное хобби привлекает все больше новых людей, но многие из желающих...</span></div>
+                                  <div class="card-post__tags">
+                                    <ul>
+                                      <li><a href="#">Цветные 3D интерьеры</a></li>
+                                      <li><a href="#">Автомобили</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                      </div>
+                    </div>
+                    <div class="blog-list__pagination">
+                            <div class="pagination">
+                              <div class="pagination__all">
+                                <button class="btn btn-small">Показать еще</button>
+                              </div>
+                              <div class="pagination__page">
+                                <ul>
+                                  <li class="active"><a href="#1">1</a></li>
+                                  <li><a href="#2">2</a></li>
+                                  <li><a href="#3">3</a></li>
+                                  <li><a href="#4">...</a></li>
+                                  <li><a href="#50">50</a></li>
+                                </ul>
                               </div>
                             </div>
-                    </div>
-                    <div class="blog-list__item">
-                            <div class="card-post">
-                              <div class="card-post__image">
-                                <picture>
-                                  <source srcset="/img/common/catalog/cat3.webp" type="image/webp"/><img src="/img/common/catalog/cat3.jpg" loading="lazy" alt="image"/>
-                                </picture>
-                              </div>
-                              <div class="card-post__main">
-                                <div class="card-post__prop">
-                                  <div class="card-post__date">19 июля 2022</div>
-                                  <div class="card-post__hits">185</div>
-                                </div>
-                                <div class="card-post__title"><a href="#">ГАЗ-233014 - СТС «Тигр». Новый 3D интерьер от Quinta Studio</a></div>
-                                <div class="card-post__desc"><span>Наше замечательное хобби привлекает все больше новых людей, но многие из желающих...</span></div>
-                                <div class="card-post__tags">
-                                  <ul>
-                                    <li><a href="#">Цветные 3D интерьеры</a></li>
-                                    <li><a href="#">Автомобили</a></li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                    </div>
-                    <div class="blog-list__item">
-                            <div class="card-post">
-                              <div class="card-post__image">
-                                <picture>
-                                  <source srcset="/img/common/catalog/cat2.webp" type="image/webp"/><img src="/img/common/catalog/cat2.jpg" loading="lazy" alt="image"/>
-                                </picture>
-                              </div>
-                              <div class="card-post__main">
-                                <div class="card-post__prop">
-                                  <div class="card-post__date">15 апреля 2022</div>
-                                  <div class="card-post__hits">237</div>
-                                </div>
-                                <div class="card-post__title"><a href="#">Мой первый самолет. С чего начать?</a></div>
-                                <div class="card-post__desc"><span>Наше замечательное хобби привлекает все больше новых людей, но многие из желающих заняться моделизмом сталкиваются с непониманием с чего..</span></div>
-                                <div class="card-post__tags">
-                                  <ul>
-                                    <li><a href="#">Авиация</a></li>
-                                    <li><a href="#">Стендовый моделизм</a></li>
-                                    <li><a href="#">Покраска</a></li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                    </div>
-                    <div class="blog-list__item">
-                            <div class="card-post">
-                              <div class="card-post__image">
-                                <picture>
-                                  <source srcset="/img/common/catalog/cat3.webp" type="image/webp"/><img src="/img/common/catalog/cat3.jpg" loading="lazy" alt="image"/>
-                                </picture>
-                              </div>
-                              <div class="card-post__main">
-                                <div class="card-post__prop">
-                                  <div class="card-post__date">19 июля 2022</div>
-                                  <div class="card-post__hits">185</div>
-                                </div>
-                                <div class="card-post__title"><a href="#">ГАЗ-233014 - СТС «Тигр». Новый 3D интерьер от Quinta Studio</a></div>
-                                <div class="card-post__desc"><span>Наше замечательное хобби привлекает все больше новых людей, но многие из желающих...</span></div>
-                                <div class="card-post__tags">
-                                  <ul>
-                                    <li><a href="#">Цветные 3D интерьеры</a></li>
-                                    <li><a href="#">Автомобили</a></li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                    </div>
-                    <div class="blog-list__item">
-                            <div class="card-post">
-                              <div class="card-post__image">
-                                <picture>
-                                  <source srcset="/img/common/catalog/cat2.webp" type="image/webp"/><img src="/img/common/catalog/cat2.jpg" loading="lazy" alt="image"/>
-                                </picture>
-                              </div>
-                              <div class="card-post__main">
-                                <div class="card-post__prop">
-                                  <div class="card-post__date">15 апреля 2022</div>
-                                  <div class="card-post__hits">237</div>
-                                </div>
-                                <div class="card-post__title"><a href="#">Мой первый самолет. С чего начать?</a></div>
-                                <div class="card-post__desc"><span>Наше замечательное хобби привлекает все больше новых людей, но многие из желающих заняться моделизмом сталкиваются с непониманием с чего..</span></div>
-                                <div class="card-post__tags">
-                                  <ul>
-                                    <li><a href="#">Авиация</a></li>
-                                    <li><a href="#">Стендовый моделизм</a></li>
-                                    <li><a href="#">Покраска</a></li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                    </div>
-                    <div class="blog-list__item">
-                            <div class="card-post">
-                              <div class="card-post__image">
-                                <picture>
-                                  <source srcset="/img/common/catalog/cat3.webp" type="image/webp"/><img src="/img/common/catalog/cat3.jpg" loading="lazy" alt="image"/>
-                                </picture>
-                              </div>
-                              <div class="card-post__main">
-                                <div class="card-post__prop">
-                                  <div class="card-post__date">19 июля 2022</div>
-                                  <div class="card-post__hits">185</div>
-                                </div>
-                                <div class="card-post__title"><a href="#">ГАЗ-233014 - СТС «Тигр». Новый 3D интерьер от Quinta Studio</a></div>
-                                <div class="card-post__desc"><span>Наше замечательное хобби привлекает все больше новых людей, но многие из желающих...</span></div>
-                                <div class="card-post__tags">
-                                  <ul>
-                                    <li><a href="#">Цветные 3D интерьеры</a></li>
-                                    <li><a href="#">Автомобили</a></li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                    </div>
-                  </div>
-                  <div class="pagination">
-                    <div class="pagination__all">
-                      <button class="btn btn-small">Показать еще</button>
-                    </div>
-                    <div class="pagination__page">
-                      <ul>
-                        <li class="active"><a href="#1">1</a></li>
-                        <li><a href="#2">2</a></li>
-                        <li><a href="#3">3</a></li>
-                        <li><a href="#4">...</a></li>
-                        <li><a href="#50">50</a></li>
-                      </ul>
                     </div>
                   </div>
           </div>

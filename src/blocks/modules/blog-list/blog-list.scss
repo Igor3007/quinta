@@ -1,4 +1,7 @@
 .blog-list {
+
+    padding-bottom: 60px;
+
     &__row {
         display: flex;
         flex-wrap: wrap;
@@ -15,6 +18,10 @@
         @media screen and (min-width: $w760) {
             flex-basis: 50%;
         }
+    }
+
+    &__sort {
+        padding-bottom: 25px;
     }
 }
 
@@ -53,6 +60,10 @@
             font-weight: bold;
             font-size: 16px;
             @include line-clamp(2);
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 

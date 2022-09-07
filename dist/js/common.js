@@ -678,5 +678,52 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
     }
 
+    /* =========================================
+    data-tagbox="container"
+    =========================================*/
+
+    if (document.querySelector('[data-tagbox="open"]')) {
+
+        //если больше 10
+        if (document.querySelectorAll('[data-tagbox="container"] li').length >= 10) {
+
+            //add more button
+            document.querySelector('[data-tagbox="open"]').classList.toggle('open')
+
+            // hide > 10 elems
+            document.querySelectorAll('[data-tagbox="container"] li').forEach((li, index) => {
+                if (index >= 10) {
+                    li.style.display = 'none';
+                }
+            })
+        }
+
+        //add click event
+        document.querySelectorAll('[data-tagbox="open"]').forEach(item => {
+            item.addEventListener('click', function () {
+                document.querySelector('[data-tagbox="container"]').classList.toggle('open')
+
+
+                document.querySelectorAll('[data-tagbox="container"] li').forEach((li, index) => {
+
+                    if (!document.querySelector('[data-tagbox="container"]').classList.contains('open')) {
+
+                        item.innerText = item.dataset.langShow
+
+                        if (index >= 10) {
+                            li.style.display = 'none';
+                        }
+                    } else {
+                        li.style.display = 'block'
+
+                        item.innerText = item.dataset.langHide
+
+                    }
+
+                })
+            })
+        })
+    }
+
 
 }); //ready
