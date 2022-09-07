@@ -1,0 +1,46 @@
+extends ../layouts/site
+
+block variables
+  include ../../data/data.pug
+  - const title = "Quinta" 
+
+
+block content
+
+  include ../../blocks/components/breadcrumb/breadcrumb.pug
+  include ../../blocks/modules/tag-box/tag-box
+  include ../../blocks/modules/blog-details/blog-details.pug
+  
+
+  .page
+    .page__top
+      .container
+        .page__breadcrumb: +breadcrumb([ 
+          'Главная',
+          'Блог',
+          'Мой первый самолет. С чего начать?',
+        ])
+        .page__title: h1 Мой первый самолет. С чего начать?
+    .page__main
+      .container
+        +tag-box-line([
+          'Цветные 3D интерьеры',
+          'Авиация',
+          'Вторая мировая война',
+          'Моделизм',
+          'Покраска'
+        ])
+        
+        +blog-details
+
+        
+
+
+block scripts
+ 
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")  
+
+
+
+ 

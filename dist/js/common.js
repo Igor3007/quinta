@@ -725,5 +725,44 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
     }
 
+    /* ==============================================
+    blog gallery
+    ==============================================*/
+
+    if (document.querySelector('[data-slider="gallery-main"]')) {
+        var main = new Splide('[data-slider="gallery-main"]', {
+            type: 'fade',
+            heightRatio: 0.64,
+            pagination: true,
+            arrows: false,
+            cover: true,
+        });
+
+        var thumbnails = new Splide('[data-slider="gallery-thumb"]', {
+            rewind: true,
+            // fixedWidth: 104,
+            // fixedHeight: 58,
+            isNavigation: true,
+            gap: 10,
+            focus: 'center',
+            pagination: false,
+            cover: true,
+            dragMinThreshold: {
+                mouse: 4,
+                touch: 10,
+            },
+            breakpoints: {
+                640: {
+                    fixedWidth: 66,
+                    fixedHeight: 38,
+                },
+            },
+        });
+
+        main.sync(thumbnails);
+        main.mount();
+        thumbnails.mount();
+    }
+
 
 }); //ready

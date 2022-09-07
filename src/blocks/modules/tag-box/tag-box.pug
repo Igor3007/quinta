@@ -9,6 +9,13 @@ mixin tag-box
                 li: a(href='#') 1/144
                 li: a(href='#') Все модели
 
+mixin tag-box-line(data)
+    .tag-box.tag-box--line
+        .tag-box__list
+            ul
+               each item, index in data
+                    li(class=!index ? 'active':''): a(href='#' title=item)= item 
+
 
 mixin tag-box-array(data)
     .tag-box.tag-box--more

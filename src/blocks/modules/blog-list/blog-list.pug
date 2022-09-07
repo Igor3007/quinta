@@ -94,13 +94,15 @@ mixin blog-list
 
 mixin card-post(data)
     .card-post
-        .card-post__image: +picture(data.image)
+        .card-post__image   
+            a(href='blog-details.html')
+                +picture(data.image)
         .card-post__main
             .card-post__prop
                 .card-post__date= data.date
                 .card-post__hits: span= data.hits
             .card-post__title
-                a(href='#')= data.title
+                a(href='blog-details.html')= data.title
             .card-post__desc
                 span= data.desc
             .card-post__tags

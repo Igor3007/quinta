@@ -1,0 +1,197 @@
+.blog-details {
+
+    @media screen and (min-width: $w992) {
+        display: flex;
+    }
+
+    &__left {
+        @media screen and (min-width: $w992) {
+            flex-basis: 66%;
+            max-width: 850px;
+        }
+    }
+
+    &__right {
+        @media screen and (min-width: $w992) {
+            flex-basis: 34%;
+            padding-left: 30px;
+            padding-top: 34px;
+        }
+    }
+
+    &__image {
+
+
+
+        padding-bottom: 30px;
+
+        & picture {
+            position: relative;
+            padding-top: 64%;
+            display: block;
+            background-color: #eee;
+
+            & img {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    &__prop {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 15px;
+    }
+
+    &__date {
+        font-size: 12px;
+        color: rgba(17, 27, 41, 0.5);
+
+    }
+
+    &__hits {
+        color: rgba(17, 27, 41, 0.5);
+
+        & span {
+
+            display: flex;
+            align-items: center;
+
+            &::before {
+                content: '';
+                width: 15px;
+                height: 11px;
+                @include bgimage-contain;
+                margin-right: 7px;
+                background-image: url("data:image/svg+xml,%3Csvg width='15' height='11' viewBox='0 0 15 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.49956 3.45508C6.37114 3.45508 5.4541 4.37211 5.4541 5.50053C5.4541 6.62895 6.37114 7.54599 7.49956 7.54599C8.62798 7.54599 9.54501 6.62895 9.54501 5.50053C9.54501 4.37211 8.62795 3.45508 7.49956 3.45508Z' fill='%23111B29' fill-opacity='0.3'/%3E%3Cpath d='M7.50002 0.386719C4.09091 0.386719 1.17956 2.50715 0 5.50036C1.17956 8.49353 4.09091 10.614 7.50002 10.614C10.9125 10.614 13.8205 8.49353 15 5.50036C13.8205 2.50715 10.9125 0.386719 7.50002 0.386719ZM7.50002 8.90943C5.6182 8.90943 4.09091 7.38215 4.09091 5.50033C4.09091 3.61851 5.6182 2.09125 7.50002 2.09125C9.38184 2.09125 10.9091 3.61854 10.9091 5.50036C10.9091 7.38218 9.38184 8.90943 7.50002 8.90943Z' fill='%23111B29' fill-opacity='0.3'/%3E%3C/svg%3E%0A");
+
+            }
+        }
+    }
+
+    &__preview {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 150%;
+        color: #111B29;
+        padding-bottom: 30px;
+
+        @media screen and (min-width: $w992) {
+            font-size: 18px;
+            line-height: 167%;
+        }
+    }
+}
+
+.model-props {
+
+    padding-bottom: 25px;
+
+    & ul {
+        display: table;
+        border: 1px solid #CFD9E0;
+        border-radius: 3px;
+        width: 100%;
+        padding: 10px;
+
+        @media screen and (min-width: $w992) {
+            padding: 20px;
+        }
+
+        & li {
+            display: table-row;
+
+            & span {
+                display: table-cell;
+                font-size: 13px;
+                padding: 5px 10px;
+
+                &:first-child {
+
+                    /* Font grey */
+                    color: rgba(17, 27, 41, 0.5);
+
+
+                }
+            }
+        }
+    }
+}
+
+.blog-lineup {
+    background-color: #fff;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+
+    @media screen and (min-width: $w992) {
+        padding: 30px;
+    }
+
+    & ul {
+        & li {
+
+            padding: 5px 0;
+
+            @media screen and (min-width: $w992) {
+                font-size: 7px;
+            }
+
+            & a {
+                font-size: 14px;
+                font-weight: bold;
+                color: $link-blue;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    &__label {
+        font-weight: bold;
+        font-size: 15px;
+        padding-bottom: 1em;
+
+        @media screen and (min-width: $w992) {
+            font-size: 20px;
+        }
+    }
+}
+
+.blog-content {
+
+    max-width: 850px;
+
+    & p {
+        line-height: 150%;
+    }
+}
+
+.blog-gallery {
+    &__slide {
+
+        padding-bottom: 30px;
+
+        & picture {
+            position: relative;
+            padding-top: 64%;
+            display: block;
+            background-color: #eee;
+
+            & img {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
