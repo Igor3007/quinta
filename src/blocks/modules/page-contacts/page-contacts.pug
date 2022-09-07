@@ -1,0 +1,57 @@
+include ../cooperation-block/cooperation-block.pug
+
+mixin page-contacts
+    .page-contacts
+        .page-contacts__data
+            .contacts-data
+                .contacts-data__item.contacts-data__item--phone
+                    .contacts-data__label Телефон
+                    .contacts-data__value: a(href='tel:+7 800 320 55 77') +7 800 320 55 77
+                .contacts-data__item.contacts-data__item--email
+                    .contacts-data__label Телефон
+                    .contacts-data__value: a(href='mailto:quinta.studio@mail.ru') quinta.studio@mail.ru
+                .contacts-data__item.contacts-data__item--social
+                    .contacts-data__label Мы в социальных сетях 
+                    .contacts-data__value
+                        ul
+                            li: a(href='#'): +bgimage('/img/common/svg/vk.svg')
+                            li: a(href='#'): +bgimage('/img/common/svg/fb.svg')
+                            li: a(href='#'): +bgimage('/img/common/svg/ig.svg')
+
+            .contacts-requisites
+                .contacts-requisites__title  Реквизиты компании
+                .contacts-requisites__list
+                    ul
+                        li ИП Трофимов Александр Николаевич 440039, РФ, Пензенская область,
+                        li г. Пенза, ул. Ленина, д.11,
+                        li ИНН 583405218968
+                        li ОГРНИП 320583500031417
+                        li info@quinta-studio.com
+                .contacts-requisites__dl
+                    a(href='#download') Скачать реквизиты
+
+                
+
+        .page-contacts__form
+            .page-contacts__title Обратная связь
+
+            form(action='#' method='POST' data-form="question")
+                .form
+                  .form__item
+                    .form__subitem: +input-material('text', 'Ваше Имя')
+                    .form__subitem: +input-material('text', 'Телефон или email')
+                  .form__item
+                    .form__subitem
+                        textarea(placeholder="Сообщение")
+                  .form__item
+                    .form__subitem: button.btn(type="submit") Отправить
+                    .form__subitem
+                        .form__note 
+                            | Нажимая кнопку вы соглашаетесь с 
+                            a(href='#') Условиями обработки персональных данных, 
+                            | а так же с 
+                            a(href='#') Политикой в отношении персональных данных
+            
+            +popup-success({
+                title: 'Сообщение доставлено!'
+            })

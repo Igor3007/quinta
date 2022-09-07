@@ -1,0 +1,182 @@
+.page-contacts {
+
+    @media screen and (min-width: $w992) {
+        display: flex;
+        margin: -15px;
+    }
+
+
+
+    &__data {
+        padding-bottom: 40px;
+        background-color: #FFF;
+        padding: 30px;
+        margin-bottom: 30px;
+
+        @media screen and (min-width: $w992) {
+            margin: 15px;
+            max-width: 410px;
+        }
+    }
+
+
+    &__form {
+        background-color: #FFF;
+        padding: 30px;
+
+        @media screen and (min-width: $w992) {
+            margin: 15px;
+            flex-grow: 1;
+        }
+
+        & .btn {
+            width: 100%;
+        }
+
+        & textarea {
+            min-height: 180px;
+
+            @media screen and (min-width: $w992) {
+                min-height: 250px;
+            }
+        }
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: bold;
+        padding-bottom: 25px;
+
+        @media screen and (min-width: $w992) {
+            font-size: 24px;
+        }
+    }
+}
+
+/* ======================= */
+
+.contacts-data {
+
+    &__label {
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 18px;
+        color: rgba(17, 27, 41, 0.5);
+        padding-bottom: 8px;
+    }
+
+    &__value {
+        & a {
+            color: #156FB0;
+            font-size: 18px;
+
+            &:hover {
+                color: $link-blue !important;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__item {
+        padding-bottom: 10px;
+
+        &--phone {
+            .contacts-data {
+                &__value {
+                    & a {
+                        font-size: 24px;
+                        color: $black;
+                    }
+                }
+            }
+        }
+
+        &--social {
+
+            padding-bottom: 20px;
+
+            .contacts-data {
+                &__value {
+                    & ul {
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        & li {
+                            padding: 5px;
+
+                            & .bgimage {
+                                width: 32px;
+                                height: 32px;
+                                @include bgimage-contain;
+                                transition: 0.3s ease;
+
+                                &:hover {
+                                    transform: scale(1.2);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+
+}
+
+.contacts-requisites {
+    &__title {
+        font-weight: bold;
+        padding-bottom: 5px;
+        font-size: 18px;
+    }
+
+    &__list {
+        & ul {
+
+            padding: 20px 0;
+
+            @media screen and (min-width: $w760) {
+                padding-top: 20px;
+            }
+
+            & li {
+
+                position: relative;
+                padding-left: 20px;
+                font-size: 14px;
+                padding-bottom: 12px;
+
+
+
+                &:last-child {
+                    padding-bottom: 0;
+                }
+
+                &::before {
+                    content: '';
+                    width: 5px;
+                    height: 5px;
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: 0.5em;
+                    border-radius: 50%;
+                    background-color: $blue;
+                }
+            }
+        }
+    }
+
+    &__dl {
+        & a {
+            font-weight: bold;
+            color: $link-blue;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+mixin documents-block
+    .documents-block
+        .documents-block__list
+            each iten in [1,2,2,2,2,2,2,2,2,2,2,2]
+                .documents-block__item: +card-document()
+
+
+mixin card-document
+    .card-document
+        .card-document__name Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        .card-document__action
+            .card-document__prop PDF, рамер файла: (234,87kb)
+
+            .card-document__dl
+                a(href='#dl') Скачать
+            

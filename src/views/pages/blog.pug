@@ -1,0 +1,54 @@
+extends ../layouts/site
+
+block variables
+  include ../../data/data.pug
+  - const title = "Quinta" 
+
+
+block content
+
+  include ../../blocks/components/breadcrumb/breadcrumb.pug
+
+  include ../../blocks/modules/tag-box/tag-box
+  include ../../blocks/modules/blog-list/blog-list.pug
+  
+ 
+ 
+
+  include ../../blocks/components/pagination/pagination.pug
+
+  .page
+    .page__top
+      .container
+        .page__breadcrumb: +breadcrumb([ 
+          'Главная',
+          'Блог',
+        ])
+        .page__title: h1 Блог
+    .page__main
+      .container
+        +tag-box-array([
+          'Все',
+          'Вторая мировая война',
+          'Традиционные декали',
+          'Моделизм',
+          'Покраска',
+          'Диорама',
+          'Цветные 3D интерьеры',
+          'Авиация',
+          'Автомобили',
+          'Бронетехника',
+        ])
+        +blog-list
+
+        +pagination()
+ 
+
+block scripts
+ 
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")  
+
+
+
+ 

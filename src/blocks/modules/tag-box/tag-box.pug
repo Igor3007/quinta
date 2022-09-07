@@ -8,3 +8,14 @@ mixin tag-box
                 li: a(href='#') 1/72
                 li: a(href='#') 1/144
                 li: a(href='#') Все модели
+
+
+mixin tag-box-array(data)
+    .tag-box.tag-box--more
+        .tag-box__list
+            ul
+                each item, index in data
+                    li(class=!index ? 'active':''): a(href='#' title=item)= item 
+        .tag-box__more
+            button.btn.small Показать еще
+                   

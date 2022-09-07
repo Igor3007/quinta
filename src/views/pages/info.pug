@@ -1,0 +1,38 @@
+extends ../layouts/site
+
+block variables
+  include ../../data/data.pug
+  - const title = "Quinta" 
+
+
+block content
+
+  include ../../blocks/components/breadcrumb/breadcrumb.pug
+  include ../../blocks/modules/documents-block/documents-block
+
+ 
+
+  .page
+    .page__top
+      .container
+        .page__breadcrumb: +breadcrumb([ 
+          'Главная',
+          'Юридические документы',
+        ])
+        .page__title: h1 Юридические документы
+    .page__main
+      .container
+          +documents-block
+
+          
+
+block scripts
+ 
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")  
+ 
+
+
+
+
+
