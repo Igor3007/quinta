@@ -1,10 +1,10 @@
 include ../minicard/minicard.pug
 
-mixin new-products
+mixin new-products(data)
     section.section-new-products
         .container
             .new-products 
-                .new-products__title Новинки
+                .new-products__title= data.title
                 .new-products__slider
                     .splide(data-slider="new-products")
                         .splide__track

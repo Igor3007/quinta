@@ -1,0 +1,36 @@
+extends ../layouts/site
+
+block variables
+  include ../../data/data.pug
+  - const title = "Карточка товара - Quinta" 
+
+
+block content
+
+  include ../../blocks/components/breadcrumb/breadcrumb.pug
+  include ../../blocks/modules/card-product/card-product
+  include ../../blocks/modules/new-products/new-products
+
+ 
+  .page
+    .page__top
+      .container
+        .page__breadcrumb: +breadcrumb([ 
+          'Главная',
+          'Цветные 3D интерьеры ',
+          '3D Декаль интерьера кабины Ил-2 1943 (двухместный)',
+        ])
+        
+    .page__main
+      .container
+        +card-product()
+      +new-products({
+        title: 'Смотрите так же'
+      })
+ 
+
+block scripts
+ 
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")  
+ 

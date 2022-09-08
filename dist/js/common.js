@@ -732,7 +732,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if (document.querySelector('[data-slider="gallery-main"]')) {
         var main = new Splide('[data-slider="gallery-main"]', {
             type: 'fade',
-            heightRatio: 0.64,
+            //heightRatio: 0.64,
             pagination: true,
             arrows: false,
             cover: true,
@@ -763,6 +763,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
         main.sync(thumbnails);
         main.mount();
         thumbnails.mount();
+    }
+
+    /* ====================================================
+    popup mode on gallery
+    ====================================================*/
+
+    if (document.querySelector('.card-gallery__main')) {
+        document.querySelector('.card-gallery__main').addEventListener('click', function (e) {
+            e.target.closest('.card-gallery').classList.toggle('popup-mode')
+
+            main.refresh();
+
+        })
     }
 
 
@@ -826,6 +839,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
     }
+
+
 
 
 }); //ready

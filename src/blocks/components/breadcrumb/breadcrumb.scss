@@ -14,7 +14,9 @@
     & li {
 
         & a {
-            color: #7A808D;
+
+            color: $blue;
+            font-weight: 500;
             font-size: 14px;
 
             &:hover {
@@ -25,10 +27,12 @@
 
         }
 
-        &:first-child {
+        &:last-child {
+
+            & span,
             & a {
-                color: $blue;
-                font-weight: 500;
+                color: #7A808D;
+                font-weight: normal;
             }
 
         }

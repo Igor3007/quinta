@@ -1,0 +1,88 @@
+mixin card-product
+    .card-product
+        .card-product__left
+            .card-gallery
+                .card-gallery__slider
+                    .card-gallery__main
+                        .splide(data-slider="gallery-main")
+                            .splide__track
+                                ul.splide__list
+                                    each item in [1,2,3,4,5,6]
+                                        li.splide__slide
+                                            .card-gallery__slide: +picture('/img/gallery/'+item)
+                                    
+                    .card-gallery__thumb
+                        .splide(data-slider="gallery-thumb")
+                            .splide__track
+                                ul.splide__list
+                                    each item in [1,2,3,4,5,6]
+                                        li.splide__slide
+                                            .card-gallery__slide: +picture('/img/gallery/'+item)
+        .card-product__right
+            .card-details
+                .card-details__code Артикул: QD48294
+                .card-details__title: h1 3D Декаль интерьера кабины Ил-2 1943 (двухместный)
+                .card-details__tags
+                    ul
+                        li: a(href='#') 1/48
+                        li: a(href='#') Авиация
+                        li: a(href='#') Звезда
+                        li.active: a(href='#') Вторая мировая война
+                        li: a(href='#') Легкая
+                .card-details__props
+                    +dots-prop([
+                        {name: 'Масштаб', value: '1/48'},
+                        {name: 'Тип модели', value: 'Самолет'},
+                        {name: 'Эпоха', value: 'Вторая мировая война'},
+                        {name: 'Сложность', value: 'Легкая'},
+                    ])
+                .card-details__action
+                    .card-details__price
+                        .card-details__price-old 1 200 ₽
+                        .card-details__price-current 980 ₽
+                    .card-details__fav
+                        span(data-wishlist='5446')
+                            +icons('#ic_heart-solid')
+                        small В избранное
+
+                .card-details__buy
+                    .card-details__total-mobile
+                        span 
+                        |980 ₽
+                    .card-details__counter
+                        .card-details__counter-inc: +icons('#ic_plus', 24)
+                        .card-details__counter-input
+                            input(type="text" value="1")
+                        .card-details__counter-dec: +icons('#ic_minus', 24)
+                    .card-details__order
+                        button.btn
+                            span.btn-order-desktop
+                                | Купить
+                                small 980 ₽
+                            span.btn-order-modile Оформить 
+                .card-details__shiping
+                    ul
+                        li
+                            span
+                                | Доставка 
+                                a(href='#') Бельгия
+                            span от 14 дней
+                        li
+                            span Economy International Shipping
+                            span 8€
+    .desc-product
+        .desc-product__title Описание
+        .desc-product__text
+            .formated-text 3D – декали проще в работе, чем интерьеры, выполненные по традиционным технологиям. Вам нет необходимости заниматься тщательной подгонкой и окраской (как в случае со смоляными изделиями). Или собирать «бутерброд» из нескольких слоев, самому изображая остекление в приборах. На 3D-декалях мы сделали рельефными такие детали, как утопленные циферблаты приборов и их выступающие рамки, блоки и тумблеры, кнопки и сигнальные лампы, рычаги и рукоятки, клепки и головки винтов. Кроме того, там где это уместно, мы изображаем складки и фактуру тканевых поверхностей.
+ 
+            
+                             
+                         
+
+
+mixin dots-prop(data)
+    .dots-prop
+        each item in data
+            .dots-prop__item
+                .dots-prop__name= item.name
+                .dots-prop__value= item.value
