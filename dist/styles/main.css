@@ -3192,7 +3192,6 @@ footer {
   font-weight: bold;
   font-size: 24px;
   line-height: 133%;
-  text-transform: uppercase;
   color: #111B29;
   padding-bottom: 40px;
 }
@@ -3209,7 +3208,6 @@ footer {
   font-weight: bold;
   font-size: 24px;
   line-height: 133%;
-  text-transform: uppercase;
   color: #111B29;
   padding-bottom: 40px;
 }
@@ -3318,7 +3316,6 @@ footer {
   font-weight: bold;
   font-size: 24px;
   line-height: 133%;
-  text-transform: uppercase;
   color: #111B29;
   padding-bottom: 40px;
   text-transform: none;
@@ -4399,6 +4396,7 @@ footer {
 
 .card-post {
   background-color: #fff;
+  height: 100%;
 }
 
 .card-post__image picture {
@@ -4610,6 +4608,7 @@ footer {
   background-color: #fff;
   padding: 15px 20px;
   margin-bottom: 30px;
+  display: none;
 }
 
 .blog-lineup ul li {
@@ -4640,8 +4639,16 @@ footer {
   line-height: 150%;
 }
 
-.blog-gallery__slide {
+.blog-gallery {
   padding-bottom: 30px;
+}
+
+.blog-gallery__title {
+  padding-bottom: 2em;
+}
+
+.blog-gallery__title h2 {
+  font-size: 22px;
 }
 
 .blog-gallery__slide picture {
@@ -4658,6 +4665,120 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.blog-gallery__main .splide__pagination {
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 12px;
+}
+
+.blog-gallery__main .splide__pagination__page {
+  width: 5px;
+  height: 5px;
+  transition: 0.3s ease;
+  background: rgba(17, 27, 41, 0.2);
+}
+
+.blog-gallery__main .splide__pagination__page.is-active {
+  width: 15px;
+  height: 5px;
+  transform: scale(1);
+  border-radius: 5px;
+  background: #0B98CF;
+}
+
+.blog-gallery__thumb .splide__track {
+  max-width: 100%;
+  margin: 0 auto;
+  padding-bottom: 2px;
+}
+
+.blog-gallery__thumb .splide__arrow {
+  display: none;
+}
+
+.blog-gallery__thumb .splide__arrow svg {
+  fill: #111B29;
+}
+
+.blog-gallery__thumb .splide__slide {
+  padding: 5px;
+  border: 1px solid #CFD9E0 !important;
+  border-radius: 3px;
+}
+
+.blog-gallery__thumb .splide__slide.is-active {
+  border: 2px solid #0B98CF !important;
+}
+
+.box-share {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.box-share__title {
+  font-size: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.box-share__title strong {
+  font-weight: 500;
+}
+
+.box-share__link ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box-share__link ul li {
+  padding: 5px;
+}
+
+.box-share__link ul li .bgimage {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  transition: 0.3s ease;
+}
+
+.box-share__link ul li .bgimage:hover {
+  transform: scale(1.2);
+}
+
+.similar-block {
+  padding: 50px 0;
+}
+
+.similar-block__title {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 133%;
+  color: #111B29;
+  padding-bottom: 25px;
+}
+
+.similar-block__list {
+  display: flex;
+  margin: -5px;
+  overflow-x: auto;
+  margin-right: -20px;
+}
+
+.similar-block__item {
+  padding: 5px;
+  min-width: 285px;
+}
+
+.similar-block__item .card-post__desc {
+  display: none;
 }
 
 @media screen and (min-width: 480px) {
@@ -4690,6 +4811,10 @@ footer {
 
   .return-block__form {
     margin-left: 0;
+    margin-right: 0;
+  }
+
+  .similar-block__list {
     margin-right: 0;
   }
 }
@@ -4839,6 +4964,14 @@ footer {
 
   .blog-list__item {
     flex-basis: 50%;
+  }
+
+  .blog-gallery__thumb .splide__track {
+    max-width: 80%;
+  }
+
+  .blog-gallery__thumb .splide__arrow {
+    display: block;
   }
 }
 
@@ -5072,6 +5205,31 @@ footer {
 
   .blog-lineup__label {
     font-size: 20px;
+  }
+
+  .box-share {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .box-share__title {
+    padding-bottom: 0;
+  }
+
+  .similar-block__list {
+    flex-wrap: wrap;
+    margin: -15px;
+  }
+
+  .similar-block__item {
+    min-width: 33.33%;
+    width: 33.33%;
+    padding: 15px;
+  }
+
+  .similar-block__item .card-post__desc {
+    display: block;
   }
 }
 
@@ -5343,6 +5501,10 @@ footer {
   }
 
   .advantages-block__title {
+    font-size: 32px;
+  }
+
+  .similar-block__title {
     font-size: 32px;
   }
 }

@@ -1,0 +1,9 @@
+include ../blog-list/blog-list.pug
+
+mixin similar-block
+    .similar-block
+        .similar-block__title  Читайте так же
+        .similar-block__list
+            each item,index in app.blogList
+                if (index < 3)
+                    .similar-block__item: +card-post(item)

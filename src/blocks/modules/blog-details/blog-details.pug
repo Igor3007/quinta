@@ -1,3 +1,5 @@
+include ../similar-block/similar-block.pug
+
 mixin blog-details
     .blog-details
         .blog-details__left
@@ -5,7 +7,7 @@ mixin blog-details
                 .blog-details__date 15 апреля 2022
                 .blog-details__hits: span 158
             .blog-details__image
-                +picture('/img/common/catalog/cat2')
+                +picture('/img/common/catalog/cat7')
           
             .blog-details__preview Друзья! Наше замечательное хобби привлекает все больше новых людей, но многие из желающих заняться моделизмом сталкиваются с непониманием с чего начать свой путь. Мы решили написать небольшую статью о первых шагах в моделизме.
         .blog-details__right
@@ -30,11 +32,7 @@ mixin blog-details
                 .blog-lineup__label Содержание
                 .blog-lineup__list
                     ul
-                        li: a(href='#') Как выбрать модель?
-                        li: a(href='#') Какие инструменты понадобятся для сборки?
-                        li: a(href='#') А как же красить?
-                        li: a(href='#') А как строить первую модель?
-                        li: a(href='#') Галерея
+                         
 
     .blog-content
         .formated-text
@@ -70,4 +68,13 @@ mixin blog-details
                                 each item in [1,2,3,4,5,6]
                                     li.splide__slide
                                         .blog-gallery__slide: +picture('/img/gallery/'+item)
+
+        .box-share
+            .box-share__title <strong>Понравилась статья?</strong> Поделись с друзьями!
+            .box-share__link
+                ul
+                    li: a(href='#'): +bgimage('/img/common/svg/vk.svg')
+                    li: a(href='#'): +bgimage('/img/common/svg/fb.svg')
+                    li: a(href='#'): +bgimage('/img/common/svg/ig.svg')
                                 
+    +similar-block()

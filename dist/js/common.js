@@ -739,22 +739,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
 
         var thumbnails = new Splide('[data-slider="gallery-thumb"]', {
-            rewind: true,
-            // fixedWidth: 104,
+            //rewind: true,
+            fixedWidth: 104,
             // fixedHeight: 58,
             isNavigation: true,
             gap: 10,
-            focus: 'center',
+            //focus: 'center',
             pagination: false,
-            cover: true,
-            dragMinThreshold: {
-                mouse: 4,
-                touch: 10,
-            },
+            //cover: true,
+            arrowPath: 'M10.3088 21.0138H27.8752L24.5842 24.3048C23.6389 25.2501 25.0568 26.668 26.0022 25.7227L28.9994 22.7208L31.0002 20.7169C31.388 20.3268 31.388 19.6968 31.0002 19.3067L26.0022 14.3028C25.812 14.1074 25.5503 13.9978 25.2775 14C24.3773 14.0001 23.9356 15.0966 24.5842 15.7208L27.883 19.0119H10.2571C8.87066 19.0807 8.97418 21.0828 10.3088 21.0138Z',
+            // dragMinThreshold: {
+            //     mouse: 4,
+            //     touch: 10,
+            // },
             breakpoints: {
                 640: {
-                    fixedWidth: 66,
-                    fixedHeight: 38,
+                    fixedWidth: 75,
+                    //fixedHeight: 38,
                 },
             },
         });
@@ -762,6 +763,68 @@ document.addEventListener("DOMContentLoaded", function (event) {
         main.sync(thumbnails);
         main.mount();
         thumbnails.mount();
+    }
+
+
+
+    /* ===================================================
+    Плавный скролл
+    ===================================================*/
+
+    function smoothScroll() {
+        document.querySelectorAll('a[href^="#"').forEach(link => {
+
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                let href = this.getAttribute('href').substring(1);
+
+                const scrollTarget = document.getElementById(href);
+
+                //const topOffset = document.querySelector('.scrollto').offsetHeight;
+                const topOffset = 20; // если не нужен отступ сверху 
+                const elementPosition = scrollTarget.getBoundingClientRect().top;
+                const offsetPosition = elementPosition - topOffset;
+
+                window.scrollBy({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    }
+
+    /* ===================================================
+    Содержание новости
+    ===================================================*/
+
+    if (document.querySelector('.blog-content')) {
+
+        const headers = document.querySelectorAll('.blog-content h1, .blog-content h2')
+
+        if (headers.length) {
+            document.querySelector('.blog-lineup').style.display = 'block'
+        }
+
+        headers.forEach((item, index) => {
+
+            // add anchor
+
+            item.setAttribute('id', 'anchor_' + index)
+
+
+            //create li
+
+            let li = document.createElement('li')
+            li.innerHTML = '<a href="#anchor_' + index + '" >' + item.innerText + '</a>'
+
+            document.querySelector('.blog-lineup__list ul').append(li)
+
+        })
+
+        smoothScroll()
+
+
     }
 
 

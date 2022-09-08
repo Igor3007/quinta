@@ -1,0 +1,46 @@
+.similar-block {
+
+    padding: 50px 0;
+
+    &__title {
+        @include section-title;
+        padding-bottom: 25px;
+    }
+
+    &__list {
+        display: flex;
+        margin: -5px;
+        overflow-x: auto;
+        margin-right: -20px;
+
+        @media screen and (min-width: $w480) {
+            margin-right: 0;
+        }
+
+        @media screen and (min-width: $w992) {
+            flex-wrap: wrap;
+            margin: -15px;
+        }
+    }
+
+    &__item {
+        padding: 5px;
+        min-width: 285px;
+
+        @media screen and (min-width: $w992) {
+            min-width: 33.33%;
+            width: 33.33%;
+            padding: 15px;
+        }
+
+        & .card-post {
+            &__desc {
+                display: none;
+
+                @media screen and (min-width: $w992) {
+                    display: block;
+                }
+            }
+        }
+    }
+}
