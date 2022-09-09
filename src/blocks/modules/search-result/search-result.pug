@@ -1,0 +1,29 @@
+include ../minicard/minicard
+include ../../components/pagination/pagination.pug
+
+mixin search-result
+    .search-result 
+        .search-result__total Найдено <span>273</span> модели
+        .search-result__tags 
+            ul
+                li.active: a(href='#') Очистить поиск
+                li: a(href='#') Цветные 3D интерьеры
+                li: a(href='#') 1/32
+                li: a(href='#') Самолеты
+                li: a(href='#') Вторая мировая война
+        .search-result__list
+            each item in app.catalog
+                .search-result__item: +minicard(item)
+        .search-result__pagination
+            +pagination
+
+
+mixin search-result-empty
+    .search-empty 
+        .search-empty__image: +bgimage('/img/common/svg/search-empty.svg')
+        .search-empty__title Ничего не найдено
+        .search-empty__desc Попробуйте поиск ещё раз, либо <br> вернитесь на главную
+        .search-empty__btn
+          a(href='#'): button.btn Перейти на главную
+
+            

@@ -788,6 +788,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         document.querySelector('.card-gallery__close').addEventListener('click', function (e) {
             e.target.closest('.card-gallery').classList.toggle('popup-mode')
             document.body.classList.remove('hidden')
+            main.refresh();
         })
     }
 
