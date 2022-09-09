@@ -3,6 +3,9 @@ mixin card-product
         .card-product__left
             .card-gallery
                 .card-gallery__slider
+                    .card-gallery__head
+                        .card-gallery__title 3D Декаль интерьера кабины Ил-2 1943 (двухместный)
+                        .card-gallery__close: +icons('#ic_cross', 19)
                     .card-gallery__main
                         .splide(data-slider="gallery-main")
                             .splide__track
@@ -39,27 +42,31 @@ mixin card-product
                 .card-details__action
                     .card-details__price
                         .card-details__price-old 1 200 ₽
-                        .card-details__price-current 980 ₽
+                        .card-details__price-current(data-counter-cost="980") 980 ₽
                     .card-details__fav
                         span(data-wishlist='5446')
                             +icons('#ic_heart-solid')
                         small В избранное
 
-                .card-details__buy
+                .card-details__buy-mobile
+                    button.btn(data-buy="mobile") Купить <span>980</span> ₽
+
+                .card-details__buy(data-buy="desktop")
                     .card-details__total-mobile
-                        span 
-                        |980 ₽
+                        span(data-counter="total-price") 980 
+                        |₽
                     .card-details__counter
-                        .card-details__counter-inc: +icons('#ic_plus', 24)
+                        .card-details__counter-dec(data-counter="dec"): +icons('#ic_minus', 24)
                         .card-details__counter-input
-                            input(type="text" value="1")
-                        .card-details__counter-dec: +icons('#ic_minus', 24)
+                            input(type="text" value="1" data-counter="input")
+                        .card-details__counter-inc(data-counter="inc"): +icons('#ic_plus', 24)
+                        
                     .card-details__order
                         button.btn
                             span.btn-order-desktop
                                 | Купить
-                                small 980 ₽
-                            span.btn-order-modile Оформить 
+                                small(data-text="за" data-currency="₽" data-counter="total-price") 980 
+                            span.btn-order-mobile Оформить 
                 .card-details__shiping
                     ul
                         li

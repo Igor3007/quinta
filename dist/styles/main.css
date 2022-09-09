@@ -4785,6 +4785,7 @@ footer {
 
 .card-product {
   margin: 0 -15px;
+  margin-top: -5px;
 }
 
 .card-gallery {
@@ -4807,6 +4808,10 @@ footer {
   margin: 0 auto;
 }
 
+.card-gallery.popup-mode .card-gallery__head {
+  display: flex;
+}
+
 .card-gallery.popup-mode .card-gallery__thumb {
   padding-top: 20px;
 }
@@ -4824,12 +4829,47 @@ footer {
   display: none;
 }
 
-.card-gallery__title {
-  padding-bottom: 2em;
+.card-gallery.popup-mode .card-gallery__main .splide__slide picture {
+  padding-top: 0;
+  background-color: transparent;
+  height: calc(100vh - 220px);
 }
 
-.card-gallery__title h2 {
-  font-size: 22px;
+.card-gallery.popup-mode .card-gallery__main .splide__slide picture img {
+  object-fit: contain;
+}
+
+.card-gallery__head {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  display: none;
+}
+
+.card-gallery__close {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.card-gallery__close svg:not(:hover) {
+  fill: #000;
+  filter: grayscale(1) brightness(0);
+}
+
+.card-gallery__title {
+  font-size: 18px;
+  font-weight: bold;
+  width: calc(100% - 40px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 1em;
 }
 
 .card-gallery__slide picture {
@@ -4884,7 +4924,7 @@ footer {
 }
 
 .card-gallery__thumb .splide__slide {
-  padding: 5px;
+  padding: 3px;
   border: 1px solid #CFD9E0 !important;
   border-radius: 3px;
 }
@@ -4931,6 +4971,7 @@ footer {
   font-size: 13px;
   margin-left: 5px;
   color: rgba(17, 27, 41, 0.5);
+  margin-top: -2px;
 }
 
 .card-details__fav span {
@@ -5084,6 +5125,19 @@ footer {
   padding: 4px;
 }
 
+.card-details__buy-mobile {
+  padding-bottom: 15px;
+}
+
+.card-details__buy-mobile .btn {
+  width: 100%;
+}
+
+.card-details__buy-mobile .btn span {
+  margin: 0 0.3em;
+  display: block;
+}
+
 .card-details__buy {
   display: flex;
   align-items: center;
@@ -5091,6 +5145,11 @@ footer {
   padding: 10px 5px;
   margin-bottom: 20px;
   border-radius: 3px;
+  display: none;
+}
+
+.card-details__buy.open {
+  display: flex;
 }
 
 .card-details__buy > div {
@@ -5126,11 +5185,28 @@ footer {
   display: none;
 }
 
+.card-details__order .btn-order-desktop small {
+  margin-left: 0.3em;
+  font-size: inherit;
+  font-weight: 300;
+}
+
+.card-details__order .btn-order-desktop small::before {
+  content: attr(data-text);
+  margin-right: 0.3em;
+}
+
+.card-details__order .btn-order-desktop small::after {
+  content: attr(data-currency);
+  margin-left: 0.3em;
+}
+
+.card-details__order .btn-order-mobile {
+  display: inline;
+}
+
 .card-details__order .btn {
   height: 30px;
-  background-color: transparent;
-  color: #0B98CF;
-  padding: 0;
   margin: 0 auto;
   min-width: auto;
 }
@@ -5406,6 +5482,18 @@ footer {
 
   .card-gallery__thumb .splide__arrow {
     display: block;
+  }
+
+  .card-gallery__thumb .splide__slide {
+    padding: 5px;
+  }
+
+  .card-details__buy-mobile {
+    display: none;
+  }
+
+  .card-details__buy {
+    display: flex;
   }
 
   .desc-product {
@@ -5916,17 +6004,49 @@ footer {
   }
 
   .card-gallery.popup-mode .card-gallery__main .splide__slide picture {
-    height: calc(100vh - 143px);
-    padding-top: 0;
-    background-color: transparent;
+    height: calc(100vh - 220px);
   }
 
-  .card-gallery.popup-mode .card-gallery__main .splide__slide picture img {
-    object-fit: contain;
+  .card-gallery__title {
+    visibility: hidden;
   }
 
   .card-details__shiping ul {
     padding: 20px;
+  }
+
+  .card-details__buy {
+    border: none;
+  }
+
+  .card-details__counter {
+    border: 2px solid #0B98CF;
+    padding: 8px 12px;
+    border-radius: 5px;
+    width: auto !important;
+  }
+
+  .card-details__order {
+    flex-grow: 1;
+    padding-left: 15px;
+  }
+
+  .card-details__order .btn-order-desktop {
+    display: inline;
+  }
+
+  .card-details__order .btn-order-mobile {
+    display: none;
+  }
+
+  .card-details__order .btn {
+    padding: 0 2em;
+    height: 54px;
+    width: 100%;
+  }
+
+  .card-details__total-mobile {
+    display: none;
   }
 
   .dots-prop {
@@ -6011,6 +6131,12 @@ footer {
 
   .select-options li {
     font-size: 13px;
+  }
+
+  .card-details__order .btn {
+    background-color: transparent;
+    color: #0B98CF;
+    padding: 0;
   }
 }
 

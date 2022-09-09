@@ -414,6 +414,14 @@
                     <div class="card-product__left">
                       <div class="card-gallery">
                         <div class="card-gallery__slider">
+                          <div class="card-gallery__head">
+                            <div class="card-gallery__title">3D Декаль интерьера кабины Ил-2 1943 (двухместный)</div>
+                            <div class="card-gallery__close">
+                              <svg width="19" height="19">
+                                <use xlink:href="/img/sprites/sprite.svg#ic_cross"></use>
+                              </svg>
+                            </div>
+                          </div>
                           <div class="card-gallery__main">
                             <div class="splide" data-slider="gallery-main">
                               <div class="splide__track">
@@ -555,32 +563,35 @@
                         <div class="card-details__action">
                           <div class="card-details__price">
                             <div class="card-details__price-old">1 200 ₽</div>
-                            <div class="card-details__price-current">980 ₽</div>
+                            <div class="card-details__price-current" data-counter-cost="980">980 ₽</div>
                           </div>
                           <div class="card-details__fav"><span data-wishlist="5446">
                               <svg width="25" height="25">
                                 <use xlink:href="/img/sprites/sprite.svg#ic_heart-solid"></use>
                               </svg></span><small>В избранное</small></div>
                         </div>
-                        <div class="card-details__buy">
-                          <div class="card-details__total-mobile"><span> </span>980 ₽</div>
+                        <div class="card-details__buy-mobile">
+                          <button class="btn" data-buy="mobile">Купить <span>980</span> ₽</button>
+                        </div>
+                        <div class="card-details__buy" data-buy="desktop">
+                          <div class="card-details__total-mobile"><span data-counter="total-price">980 </span>₽</div>
                           <div class="card-details__counter">
-                            <div class="card-details__counter-inc">
-                              <svg width="24" height="24">
-                                <use xlink:href="/img/sprites/sprite.svg#ic_plus"></use>
-                              </svg>
-                            </div>
-                            <div class="card-details__counter-input">
-                              <input type="text" value="1">
-                            </div>
-                            <div class="card-details__counter-dec">
+                            <div class="card-details__counter-dec" data-counter="dec">
                               <svg width="24" height="24">
                                 <use xlink:href="/img/sprites/sprite.svg#ic_minus"></use>
                               </svg>
                             </div>
+                            <div class="card-details__counter-input">
+                              <input type="text" value="1" data-counter="input">
+                            </div>
+                            <div class="card-details__counter-inc" data-counter="inc">
+                              <svg width="24" height="24">
+                                <use xlink:href="/img/sprites/sprite.svg#ic_plus"></use>
+                              </svg>
+                            </div>
                           </div>
                           <div class="card-details__order">
-                            <button class="btn"><span class="btn-order-desktop">Купить<small>980 ₽</small></span><span class="btn-order-modile">Оформить </span></button>
+                            <button class="btn"><span class="btn-order-desktop">Купить<small data-text="за" data-currency="₽" data-counter="total-price">980 </small></span><span class="btn-order-mobile">Оформить </span></button>
                           </div>
                         </div>
                         <div class="card-details__shiping">

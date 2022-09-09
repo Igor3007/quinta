@@ -1,6 +1,8 @@
 .card-product {
 
     margin: 0 -15px;
+    margin-top: -5px;
+
 
     @media screen and (min-width: $w480) {
         margin: 0;
@@ -39,7 +41,8 @@
 }
 
 .card-gallery {
-
+    padding: 20px;
+    background-color: #fff;
 
     &.popup-mode {
         position: fixed;
@@ -54,6 +57,10 @@
             &__slider {
                 max-width: 1300px;
                 margin: 0 auto;
+            }
+
+            &__head {
+                display: flex;
             }
 
             &__thumb {
@@ -91,17 +98,18 @@
 
 
                         & picture {
+                            padding-top: 0;
+                            background-color: transparent;
+                            height: calc(100vh - 220px);
 
                             @media screen and (min-width: $w1200) {
-                                height: calc(100vh - 143px);
-                                padding-top: 0;
-                                background-color: transparent;
+                                height: calc(100vh - 220px);
 
-                                & img {
-                                    object-fit: contain;
-                                }
                             }
 
+                            & img {
+                                object-fit: contain;
+                            }
 
                         }
                     }
@@ -112,16 +120,46 @@
     }
 
 
-    padding: 20px;
-    background-color: #fff;
 
+    &__head {
+        display: flex;
+        align-items: center;
+        padding-bottom: 20px;
+        display: none;
+    }
+
+    &__close {
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        & svg {
+            &:not(:hover) {
+                fill: #000;
+                filter: grayscale(1) brightness(0);
+            }
+        }
+
+    }
 
 
     &__title {
-        padding-bottom: 2em;
+        font-size: 18px;
+        font-weight: bold;
 
-        & h2 {
-            font-size: 22px;
+        width: calc(100% - 40px);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: 1em;
+
+        @media screen and (min-width: $w1200) {
+            visibility: hidden;
         }
     }
 
@@ -210,9 +248,13 @@
             }
 
             &__slide {
-                padding: 5px;
+                padding: 3px;
                 border: 1px solid #CFD9E0 !important;
                 border-radius: 3px;
+
+                @media screen and (min-width: $w760) {
+                    padding: 5px;
+                }
 
                 &.is-active {
                     border: 2px solid $blue !important;
@@ -273,7 +315,7 @@
             font-size: 13px;
             margin-left: 5px;
             color: rgba(17, 27, 41, 0.5);
-
+            margin-top: -2px;
         }
 
         & span {
@@ -463,6 +505,24 @@
         }
     }
 
+    &__buy-mobile {
+
+        padding-bottom: 15px;
+
+        @media screen and (min-width: $w760) {
+            display: none;
+        }
+
+        & .btn {
+            width: 100%;
+
+            & span {
+                margin: 0 0.3em;
+                display: block;
+            }
+        }
+    }
+
     &__buy {
         display: flex;
         align-items: center;
@@ -470,6 +530,20 @@
         padding: 10px 5px;
         margin-bottom: 20px;
         border-radius: 3px;
+        display: none;
+
+        &.open {
+            display: flex;
+        }
+
+        @media screen and (min-width: $w760) {
+            display: flex;
+        }
+
+        @media screen and (min-width: $w1200) {
+            border: none;
+
+        }
 
         &>div {
             width: 33.33%;
@@ -482,6 +556,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+
+
+        @media screen and (min-width: $w1200) {
+            border: 2px solid $blue;
+            padding: 8px 12px;
+            border-radius: 5px;
+            width: auto !important;
+        }
 
         &-input {
 
@@ -506,17 +589,65 @@
     }
 
     &__order {
+
+
+
+        @media screen and (min-width: $w1200) {
+            flex-grow: 1;
+            padding-left: 15px;
+
+        }
+
         & .btn-order-desktop {
             display: none;
+
+            & small {
+                margin-left: 0.3em;
+                font-size: inherit;
+                font-weight: 300;
+
+                &::before {
+                    content: attr(data-text);
+                    margin-right: 0.3em;
+                }
+
+                &::after {
+                    content: attr(data-currency);
+                    margin-left: 0.3em;
+                }
+
+            }
+
+            @media screen and (min-width: $w1200) {
+                display: inline;
+            }
+        }
+
+        & .btn-order-mobile {
+            display: inline;
+
+            @media screen and (min-width: $w1200) {
+                display: none;
+            }
         }
 
         & .btn {
             height: 30px;
-            background-color: transparent;
-            color: $blue;
-            padding: 0;
             margin: 0 auto;
             min-width: auto;
+
+
+            @media screen and (max-width: $w1200) {
+                background-color: transparent;
+                color: $blue;
+                padding: 0;
+            }
+
+            @media screen and (min-width: $w1200) {
+                padding: 0 2em;
+                height: 54px;
+                width: 100%;
+            }
         }
     }
 
@@ -524,6 +655,11 @@
         &-mobile {
             text-align: center;
             font-size: 18px;
+
+            @media screen and (min-width: $w1200) {
+                display: none;
+            }
+
         }
     }
 }

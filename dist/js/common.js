@@ -365,9 +365,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             arrows: false,
             pagination: false,
-            gap: '30px',
+            gap: 30,
             autoWidth: true,
-            start: 0
+            start: 0,
+
+            breakpoints: {
+                760: {
+                    fixedWidth: 75,
+                    gap: 15,
+                },
+            },
 
         });
 
@@ -726,12 +733,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     /* ==============================================
-    blog gallery
+    blog gallery, blog gallery
     ==============================================*/
 
     if (document.querySelector('[data-slider="gallery-main"]')) {
         var main = new Splide('[data-slider="gallery-main"]', {
-            type: 'fade',
+            //type: 'fade',
             //heightRatio: 0.64,
             pagination: true,
             arrows: false,
@@ -753,9 +760,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
             //     touch: 10,
             // },
             breakpoints: {
-                640: {
+                760: {
                     fixedWidth: 75,
-                    //fixedHeight: 38,
+                    gap: 5,
                 },
             },
         });
@@ -772,9 +779,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if (document.querySelector('.card-gallery__main')) {
         document.querySelector('.card-gallery__main').addEventListener('click', function (e) {
             e.target.closest('.card-gallery').classList.toggle('popup-mode')
+            document.body.classList.toggle('hidden')
 
             main.refresh();
 
+        })
+
+        document.querySelector('.card-gallery__close').addEventListener('click', function (e) {
+            e.target.closest('.card-gallery').classList.toggle('popup-mode')
+            document.body.classList.remove('hidden')
         })
     }
 
@@ -839,6 +852,79 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
     }
+
+    /* ============================================
+    card product
+    ============================================*/
+
+    if (document.querySelector('[data-buy="mobile"]')) {
+        document.querySelector('[data-buy="mobile"]').addEventListener('click', function () {
+            this.remove()
+            document.querySelector('[data-buy="desktop"]').classList.add('open')
+        })
+    }
+
+    function productCounter() {
+
+        this.buttonInc = document.querySelector('[data-counter="inc"]')
+        this.buttonDec = document.querySelector('[data-counter="dec"]')
+        this.buttonInput = document.querySelector('[data-counter="input"]')
+        this.productPrice = document.querySelector('[data-counter-cost]')
+        this.resultElem = document.querySelectorAll('[data-counter="total-price"]')
+
+        this.total = 1
+        this.cost = 0
+
+        this.init = function () {
+            this.addEvent()
+            this.cost = this.getTotalPrice()
+        }
+
+        this.inc = function () {
+            this.total = this.total + 1;
+            this.render()
+        }
+
+        this.dec = function () {
+            if (this.total > 1) {
+                this.total = this.total - 1;
+            }
+            this.render()
+        }
+
+        this.getTotalPrice = function () {
+
+            console.log(this.productPrice.dataset.counterCost)
+            console.log(this.total)
+
+            return (Number(this.productPrice.dataset.counterCost) * Number(this.total)).toFixed(0)
+
+
+
+        }
+
+        this.render = function () {
+            this.buttonInput.value = this.total
+
+            this.resultElem.forEach(item => {
+                item.innerText = this.getTotalPrice()
+            })
+
+        }
+
+        this.addEvent = function () {
+            this.buttonInc.addEventListener('click', e => {
+                this.inc()
+            })
+            this.buttonDec.addEventListener('click', e => {
+                this.dec()
+            })
+        }
+
+    }
+
+    const instanseProductCounter = new productCounter();
+    instanseProductCounter.init()
 
 
 
