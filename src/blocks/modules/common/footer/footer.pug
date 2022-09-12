@@ -1,5 +1,8 @@
 include ../main-menu/main-menu.pug
+include ../../registration/registration.pug
+include ./check-lang
  
+
 
 .footer
   .container
@@ -20,17 +23,13 @@ include ../main-menu/main-menu.pug
           li: a(href='#'): +bgimage('/img/common/svg/apple-store.svg')
           li: a(href='#'): +bgimage('/img/common/svg/google-store.svg')
       .footer__lang
-        .change-lang
-          .change-lang__title
-            span Русский
-            +icons('#ic_network', 16)
-          .change-lang__dropdown
-            ul
-              li: a(href='#ru') Русский
-              li: a(href='#en') English
+        +change-lang
 
 .footer-copyright
   .container
     .footer-copyright__text © 2022 Quinta Studio’s Company
+    
++popup-signin()
+
 
 

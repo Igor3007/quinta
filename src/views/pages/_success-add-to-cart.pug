@@ -1,0 +1,10 @@
+include ../helpers/mixins.pug
+
+.popup-success(data-form-success="to-cart")
+    .popup-success__icons
+        +icons('#ic_cart-large', 96)
+    .popup-success__title Товар добавлен <br> в корзину
+    .popup-success__btn
+        a(href='cart.html'): button.btn.btn-small Перейти в корзину
+    .popup-success__close
+        span(data-to-cart="close") Продолжить покупки

@@ -94,7 +94,7 @@ mixin hs-extend(data, modify)
   .container
     .header
       .header__menu
-        .btn-burger(data-menu="btn")
+        .btn-burger(data-menu="btn") 
           i
           i
           i
@@ -107,7 +107,7 @@ mixin hs-extend(data, modify)
               each item in app.mainMenu
                 li: a(href=item.href)= item.text
       .header__login
-        span: +icons('#ic_user')
+        span(data-register="open-popup"): +icons('#ic_user')
       .header__cart
         a(href='#')
            +icons('#ic_cart')

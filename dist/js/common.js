@@ -371,7 +371,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             breakpoints: {
                 760: {
-                    fixedWidth: 75,
+
                     gap: 15,
                 },
             },
@@ -380,6 +380,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         splide.mount();
     }
+
 
 
     /* ==================================
@@ -676,7 +677,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 successPopup.open(formSuccessElement.outerHTML, function (instanse) {
                     instanse.querySelector('.btn').addEventListener('click', function () {
                         successPopup.close()
-
                     })
                 })
 
@@ -924,8 +924,174 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
-    const instanseProductCounter = new productCounter();
-    instanseProductCounter.init()
+    if (document.querySelector('[data-counter]')) {
+        const instanseProductCounter = new productCounter();
+        instanseProductCounter.init()
+    }
+
+
+    /* ================================================
+    signup
+    ================================================*/
+
+
+
+
+    if (document.querySelector('[data-register="close-popup"]')) {
+
+
+        function userAuthorization() {
+
+            this.popup = document.querySelector('[data-register="popup"]')
+            this.popupCloseElement = document.querySelector('[data-register="close-popup"]')
+            this.popupOpenElement = document.querySelector('[data-register="open-popup"]')
+            this.backToNumber = document.querySelector('[data-register="back-to-number"]')
+            this.inputCode = document.querySelector('[data-register="input-code"]')
+
+
+            this.formLogin = document.querySelector('[data-register-form="login"]')
+            this.formVerification = document.querySelector('[data-register-form="verification"]')
+            this.formData = document.querySelector('[data-register-form="userdata"]')
+
+
+            this.instanseSlider = null;
+
+            this.init = function () {
+                this.initSlider()
+                this.addEvent()
+                this.initMask()
+            }
+
+            this.closePopup = function () {
+                this.popup.classList.toggle('open')
+                document.body.classList.remove('hidden')
+            }
+            this.openPopup = function () {
+                this.popup.classList.toggle('open')
+                document.body.classList.add('hidden')
+            }
+
+            this.addEvent = function () {
+                this.popupCloseElement.addEventListener('click', e => {
+                    this.closePopup()
+                })
+
+                this.popupOpenElement.addEventListener('click', e => {
+                    this.openPopup()
+                })
+
+                this.backToNumber.addEventListener('click', e => {
+                    this.instanseSlider.go(0)
+                })
+
+                // form
+
+
+                this.formLogin.addEventListener('submit', e => {
+                    e.preventDefault()
+
+
+                    let form = e.target
+
+                    form.querySelector('[type="submit"]').classList.add('btn-loading')
+
+                    setTimeout(() => {
+                        form.querySelector('[type="submit"]').classList.remove('btn-loading')
+                        this.instanseSlider.go(1)
+                        //this.inputCode.focus()
+                    }, 1000)
+
+                })
+
+                this.formVerification.addEventListener('submit', e => {
+                    e.preventDefault()
+                    let form = e.target
+
+                    form.querySelector('[type="submit"]').classList.add('btn-loading')
+
+                    setTimeout(() => {
+                        form.querySelector('[type="submit"]').classList.remove('btn-loading')
+                        this.instanseSlider.go(2)
+                    }, 1000)
+                })
+
+                // this.inputCode.addEventListener('keyup', e => {
+                //     // if (e.target.value.length >= 6) {
+                //     //     this.formVerification.submit()
+                //     // }
+                // })
+
+            }
+
+            this.initSlider = function () {
+                this.instanseSlider = new Splide('[data-slider="signup"]', {
+
+                    perPage: 1,
+
+                    arrows: false,
+                    pagination: false,
+                    gap: 30,
+                    autoHeight: true,
+                    start: 0,
+                    drag: false,
+                    rewindByDrag: false
+
+                });
+
+                this.instanseSlider.mount();
+            }
+
+            this.initMask = function () {
+                var mask = Maska.create(this.inputCode, {
+                    mask: '######'
+                });
+            }
+
+        }
+
+        const instanseUserAuthorization = new userAuthorization();
+        instanseUserAuthorization.init()
+
+
+    }
+
+
+    /* =======================================
+    добавить товар в корзину
+    =======================================*/
+
+    if (document.querySelector('[data-add-to-cart]')) {
+        document.querySelectorAll('[data-add-to-cart]').forEach(item => {
+            item.addEventListener('click', (e) => {
+                const product_id = e.target.dataset.addToCart
+
+                e.target.classList.add('btn-loading')
+
+                //ajax request
+
+
+
+                window.ajax({
+                        type: "GET", //POST на рабочем
+                        url: "_success-add-to-cart.html",
+                    },
+                    function (status, response) {
+
+                        e.target.classList.remove('btn-loading')
+
+                        const successPopup = new customModal()
+
+                        successPopup.open(response, function (instanse) {
+                            instanse.querySelector('[data-to-cart="close"]').addEventListener('click', function () {
+                                successPopup.close()
+                            })
+                        })
+
+                    })
+
+            })
+        })
+    }
 
 
 

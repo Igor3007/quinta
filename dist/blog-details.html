@@ -65,7 +65,7 @@
         <div class="container">
           <div class="header">
             <div class="header__menu">
-              <div class="btn-burger" data-menu="btn"><i></i><i></i><i></i></div>
+              <div class="btn-burger" data-menu="btn"> <i></i><i></i><i></i></div>
             </div>
             <div class="header__logo"><a href="/"><span class="bgimage lazyload" data-bg="/img/common/svg/logo.svg"></span></a></div>
             <div class="header__nav">
@@ -81,7 +81,7 @@
                 </nav>
               </div>
             </div>
-            <div class="header__login"><span>
+            <div class="header__login"><span data-register="open-popup">
                 <svg width="25" height="25">
                   <use xlink:href="/img/sprites/sprite.svg#ic_user"></use>
                 </svg></span></div>
@@ -696,19 +696,19 @@
               </ul>
             </div>
             <div class="footer__lang">
-              <div class="change-lang">
-                <div class="change-lang__title"><span>Русский</span>
-                  <svg width="16" height="16">
-                    <use xlink:href="/img/sprites/sprite.svg#ic_network"></use>
-                  </svg>
-                </div>
-                <div class="change-lang__dropdown">
-                  <ul>
-                    <li><a href="#ru">Русский</a></li>
-                    <li><a href="#en">English</a></li>
-                  </ul>
-                </div>
-              </div>
+                    <div class="change-lang">
+                      <div class="change-lang__title"><span>Русский</span>
+                        <svg width="16" height="16">
+                          <use xlink:href="/img/sprites/sprite.svg#ic_network"></use>
+                        </svg>
+                      </div>
+                      <div class="change-lang__dropdown">
+                        <ul>
+                          <li><a href="#ru">Русский</a></li>
+                          <li><a href="#en">English </a></li>
+                        </ul>
+                      </div>
+                    </div>
             </div>
           </div>
         </div>
@@ -718,6 +718,192 @@
           <div class="footer-copyright__text">© 2022 Quinta Studio’s Company</div>
         </div>
       </div>
+            <div class="popup-signin" data-register="popup">
+              <div class="popup-signin__wrp">
+                <div class="popup-signin__form">
+                  <div class="popup-signin__inner">
+                    <div class="popup-signin__close"><span data-register="close-popup">
+                        <svg width="20" height="20">
+                          <use xlink:href="/img/sprites/sprite.svg#ic_cross"></use>
+                        </svg></span></div>
+                    <div class="popup-signin__lang">
+                            <div class="change-lang">
+                              <div class="change-lang__title"><span>Русский</span>
+                                <svg width="16" height="16">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_network"></use>
+                                </svg>
+                              </div>
+                              <div class="change-lang__dropdown">
+                                <ul>
+                                  <li><a href="#ru">Русский</a></li>
+                                  <li><a href="#en">English </a></li>
+                                </ul>
+                              </div>
+                            </div>
+                    </div>
+                    <div class="popup-signin__slider">
+                      <div class="splide" data-slider="signup">
+                        <div class="splide__track">
+                          <div class="splide__list">
+                            <div class="splide__slide">
+                                    <div class="login-user">
+                                      <div class="login-user__head">
+                                        <div class="login-user__icon"><span class="bgimage lazyload" data-bg="/img/common/svg/account.svg"></span>
+                                        </div>
+                                        <div class="login-user__title">Вход в личный кабинет</div>
+                                      </div>
+                                      <div class="login-user__desc">Введите ваш личный телефон или e-mail, мы вышлем вам код подтверждения SMS или на почту. Если вы авторизуетесь первый раз, мы автоматически создадим вам личный кабинет</div>
+                                      <div class="login-user__form">
+                                        <form action="#" method="POST" data-register-form="login">
+                                          <div class="form">
+                                            <div class="form__item">
+                                              <div class="form__subitem">
+                                                <div class="input-material">
+                                                  <input type="text" value="" required=""/>
+                                                  <label>Телефон или e-mail</label>
+                                                </div>
+                                                <div class="error" style="display:none;">Номер или Email не существует</div>
+                                              </div>
+                                            </div>
+                                            <div class="form__item">
+                                              <div class="form__subitem">
+                                                <button class="btn" type="submit">Продолжить</button>
+                                              </div>
+                                            </div>
+                                            <div class="form__item">
+                                              <div class="form__subitem">
+                                                <div class="form__note">
+                                                   Нажимая кнопку вы соглашаетесь с <a href="#">Условиями обработки персональных данных, </a>а так же с <a href="#">Политикой в отношении персональных данных</a></div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </form>
+                                      </div>
+                                    </div>
+                            </div>
+                            <div class="splide__slide">
+                                    <div class="verification">
+                                      <div class="verification__head">
+                                        <div class="verification__icon"><span class="bgimage lazyload" data-bg="/img/common/svg/account.svg"></span>
+                                        </div>
+                                        <div class="verification__title">Введите код подтверждения</div>
+                                      </div>
+                                      <div class="verification__form">
+                                        <form action="#" method="POST" data-register-form="verification">
+                                          <div class="form">
+                                            <div class="form__item">
+                                              <div class="form__subitem">
+                                                <input type="tel" placeholder="000000" required data-register="input-code">
+                                                <div class="verification__back">
+                                                  <div class="verification__back-number">Выслали код на <span>+7 903 456 78 90</span></div>
+                                                  <div class="verification__back-link"><a href="#" data-register="back-to-number">Изменить</a></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="form__item">
+                                              <div class="form__subitem">
+                                                <button class="btn" type="submit">Подтвердить</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </form>
+                                      </div>
+                                      <div class="verification__desc"><strong>Не приходит код?</strong>
+                                        <ol> 
+                                          <li>Проверьте корректность телефона;</li>
+                                          <li>Если привязана почта, попробуйте войти с ее помощью;</li>
+                                          <li>Если ни чего не получается, напишите нам <br> <a href="mailto:help@quinta-studio.com" >help@quinta-studio.com</a></li>
+                                        </ol>
+                                      </div>
+                                    </div>
+                            </div>
+                            <div class="splide__slide">
+                                    <div class="register-user">
+                                      <div class="register-user__head">
+                                        <div class="register-user__icon"><span class="bgimage lazyload" data-bg="/img/common/svg/account.svg"></span>
+                                        </div>
+                                        <div class="register-user__title">Спасибо <br> за регистрацию</div>
+                                      </div>
+                                      <div class="register-user__desc">Заполните пожалуйста ваши данные, чтобы мы знали, куда нам отправлять посылки.</div>
+                                      <div class="register-user__form">
+                                        <form action="#" method="POST" data-register-form="userdata">
+                                          <div class="form">
+                                            <div class="form__label">Ваша страна</div>
+                                            <div class="form__item">
+                                              <div class="form__subitem">
+                                                <select placeholder="">
+                                                  <option value="0">Выберите</option>
+                                                  <option value="1">Россия</option>
+                                                  <option value="2">Беларусь</option>
+                                                  <option value="3">Украина</option>
+                                                </select>
+                                              </div>
+                                            </div>
+                                            <div class="form__label">Как вас зовут</div>
+                                            <div class="form__item">
+                                              <div class="form__subitem">
+                                                <div class="input-material">
+                                                  <input type="text" value="" required=""/>
+                                                  <label>Имя</label>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="form__item">
+                                              <div class="form__subitem">
+                                                <div class="input-material">
+                                                  <input type="text" value="" required=""/>
+                                                  <label>Фамилия</label>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="form__item">
+                                              <div class="form__subitem">
+                                                <div class="input-material">
+                                                  <input type="text" value="" required=""/>
+                                                  <label>Отчество, если есть*</label>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="form__item">
+                                              <div class="form__subitem">
+                                                <div class="form__note">* требуется для отправки Почтой России</div>
+                                              </div>
+                                            </div>
+                                            <div class="form__item">
+                                              <div class="form__subitem">
+                                                <button class="btn" type="submit">Перейти в личный кабинет</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </form>
+                                      </div>
+                                    </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="popup-signin__link">
+                      <ul>
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Блог</a></li>
+                        <li><a href="#">Юридическая информация</a></li>
+                      </ul>
+                    </div>
+                    <div class="popup-signin__social">
+                      <ul>
+                        <li><a href="#"><span class="bgimage lazyload" data-bg="/img/svg/ic_vk.svg"></span></a></li>
+                        <li><a href="#"><span class="bgimage lazyload" data-bg="/img/svg/ic_fb.svg"></span></a></li>
+                        <li><a href="#"><span class="bgimage lazyload" data-bg="/img/svg/ic_ig.svg"></span></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="popup-signin__image"><span class="bgimage lazyload" data-bg="/img/common/registration.jpg"></span>
+                </div>
+              </div>
+            </div>
     </footer>
     <script src="/js/vendor.js"> </script>
     <script src="/js/common.js"> </script>

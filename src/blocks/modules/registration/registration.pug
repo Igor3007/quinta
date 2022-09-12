@@ -1,0 +1,104 @@
+
+
+mixin login-user
+    .login-user
+        .login-user__head
+            .login-user__icon: +bgimage('/img/common/svg/account.svg')
+            .login-user__title Вход в личный кабинет
+        .login-user__desc Введите ваш личный телефон или e-mail, мы вышлем вам код подтверждения SMS или на почту. Если вы авторизуетесь первый раз, мы автоматически создадим вам личный кабинет
+        .login-user__form
+            form(action='#' method='POST' data-register-form="login")
+                .form
+                    .form__item: .form__subitem
+                        +input-material('text', 'Телефон или e-mail')
+                        .error(style="display:none;") Номер или Email не существует
+                    .form__item: .form__subitem: button(type="submit").btn Продолжить
+                    .form__item
+                        .form__subitem
+                            .form__note 
+                                | Нажимая кнопку вы соглашаетесь с 
+                                a(href='#') Условиями обработки персональных данных, 
+                                | а так же с 
+                                a(href='#') Политикой в отношении персональных данных
+
+            
+
+mixin verification-user
+    .verification
+        .verification__head
+            .verification__icon: +bgimage('/img/common/svg/account.svg')
+            .verification__title Введите код подтверждения
+        .verification__form
+            form(action='#' method='POST' data-register-form="verification")
+                .form
+                    .form__item: .form__subitem
+                        input(type="tel" placeholder="000000" required data-register="input-code")
+                        .verification__back
+                            .verification__back-number Выслали код на <span>+7 903 456 78 90</span>
+                            .verification__back-link: a(href='#' data-register="back-to-number") Изменить
+                    .form__item: .form__subitem: button(type="submit").btn Подтвердить
+                     
+        .verification__desc
+            strong Не приходит код?
+            ol 
+                li Проверьте корректность телефона;
+                li Если привязана почта, попробуйте войти с ее помощью;
+                li Если ни чего не получается, напишите нам <br> <a href="mailto:help@quinta-studio.com" >help@quinta-studio.com</a>
+
+mixin register-user
+    .register-user
+        
+        .register-user__head
+            .register-user__icon: +bgimage('/img/common/svg/account.svg')
+            .register-user__title Спасибо <br> за регистрацию
+        .register-user__desc Заполните пожалуйста ваши данные, чтобы мы знали, куда нам отправлять посылки.
+        .register-user__form
+            form(action='#' method='POST' data-register-form="userdata")
+                .form
+                    .form__label Ваша страна
+                    .form__item: .form__subitem: +select(false, [
+                        'Выберите',
+                        'Россия',
+                        'Беларусь',
+                        'Украина'
+                    ])
+                    .form__label Как вас зовут
+                    .form__item: .form__subitem: +input-material('text', 'Имя')
+                    .form__item: .form__subitem: +input-material('text', 'Фамилия')
+                    .form__item: .form__subitem: +input-material('text', 'Отчество, если есть*')
+                    .form__item: .form__subitem: .form__note * требуется для отправки Почтой России
+                    .form__item: .form__subitem: button(type="submit").btn Перейти в личный кабинет
+                     
+
+
+
+mixin popup-signin
+    .popup-signin(data-register="popup")
+        .popup-signin__wrp
+            
+            .popup-signin__form
+                .popup-signin__inner
+                    .popup-signin__close: span(data-register="close-popup"): +icons('#ic_cross', 20)
+                    .popup-signin__lang: +change-lang
+                        
+                    .popup-signin__slider
+                        .splide(data-slider="signup")
+                            .splide__track
+                                .splide__list
+                                    .splide__slide: +login-user
+                                    .splide__slide: +verification-user
+                                    .splide__slide: +register-user
+
+                    .popup-signin__link
+                        ul
+                            li: a(href='#') О компании
+                            li: a(href='#') Контакты
+                            li: a(href='#') Блог
+                            li: a(href='#') Юридическая информация
+                    .popup-signin__social
+                        ul
+                            li: a(href='#'): +bgimage('/img/svg/ic_vk.svg')
+                            li: a(href='#'): +bgimage('/img/svg/ic_fb.svg') 
+                            li: a(href='#'): +bgimage('/img/svg/ic_ig.svg')
+
+            .popup-signin__image: +bgimage('/img/common/registration.jpg')

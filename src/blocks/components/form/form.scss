@@ -19,11 +19,18 @@ input {
         font-size: 14px;
         padding-left: rem(15);
         padding-right: rem(15);
-        border: 1px solid #BCBCBC;
+        border: 1px solid #F0F2F3;
+        border-radius: 5px;
+        background: #F0F2F3;
         box-sizing: border-box;
         border-radius: 5px;
         width: auto;
         flex-grow: 1;
+
+
+
+
+
 
         &::placeholder {
             color: $main;
@@ -109,7 +116,10 @@ input {
 
         & a {
             color: $blue;
-            text-decoration: underline;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
 
         &--col2 {
