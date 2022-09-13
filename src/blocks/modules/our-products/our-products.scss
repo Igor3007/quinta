@@ -1,12 +1,17 @@
 .section-our-products {
-    @include section-padding;
+    padding-top: 10px;
+    padding-bottom: 50px
 }
 
 
 .our-products {
     &__title {
         @include section-title;
-        padding-bottom: 40px;
+        padding-bottom: 16px;
+
+        @media screen and (min-width: $w992) {
+            padding-bottom: 35px;
+        }
     }
 
     &__list {
@@ -116,7 +121,7 @@
     }
 
     &__title {
-        padding-bottom: 30px;
+        padding-bottom: 18px;
         font-weight: 500;
         font-size: 18px;
 
@@ -125,6 +130,11 @@
             min-width: 220px;
             margin-top: 10px;
             padding-right: 25px;
+
+        }
+
+        @media screen and (min-width: $w992) {
+            padding-bottom: 30px;
         }
     }
 

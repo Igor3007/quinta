@@ -11,7 +11,11 @@
 
     &__title {
         @include section-title;
-        padding-bottom: 40px;
+        padding-bottom: 16px;
+
+        @media screen and (min-width: $w992) {
+            padding-bottom: 35px;
+        }
     }
 
     & .minicard {

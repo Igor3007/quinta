@@ -160,6 +160,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             if (this.state == 'close') this.open()
             else this.close()
         }
+
+
     }
 
     window.menuInstanse = new mobileMenu({
@@ -170,6 +172,49 @@ document.addEventListener("DOMContentLoaded", function (event) {
     elButton.addEventListener('click', function () {
         window.menuInstanse.toggle()
     })
+
+    document.querySelector('[data-menu="close"]').addEventListener('click', (e) => {
+        window.menuInstanse.close()
+    })
+
+
+    // второй уровень меню
+
+    if (document.querySelector('[data-menu="nav"]')) {
+
+        const li = document.querySelectorAll('[data-menu="nav"] li')
+        const right = document.querySelectorAll('[data-menu="nav"] li')
+
+        li.forEach(item => {
+            if (item.querySelector('.submenu')) {
+
+                let arrow = document.createElement('span')
+                arrow.classList.add('menu-arrow')
+
+                item.append(arrow)
+                item.classList.add('is-sub')
+
+                item.addEventListener('click', (e) => {
+
+                    if (document.querySelector('[data-menu="nav"] li.open')) {
+                        document.querySelector('[data-menu="nav"] li.open').classList.remove('open')
+                    }
+
+                    item.classList.add('open')
+
+                    document.querySelector('[data-menu="sub"]').innerHTML = '<div class="main-menu__back" >Каталог</div><div class="main-menu__sub" >' + item.querySelector('.submenu').outerHTML + '</div>'
+
+                    document.querySelector('.main-menu__back').addEventListener('click', e => {
+                        e.target.closest('[data-menu="sub"]').innerHTML = ''
+                    })
+
+                })
+            }
+        })
+
+    }
+
+
 
     /* ==============================================
     select

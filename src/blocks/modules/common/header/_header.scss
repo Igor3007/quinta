@@ -204,7 +204,7 @@ header {
 
 .header-top {
     background-color: $black;
-    padding: 10px 0;
+    padding: 9px 0;
 }
 
 .header-search {
@@ -305,6 +305,11 @@ header {
         & svg {
             width: 20px;
             height: 20px;
+
+            @media screen and (min-width: $w1200) {
+                width: 24px;
+                height: 24px;
+            }
         }
     }
 
@@ -339,6 +344,8 @@ header {
 
             @media screen and (min-width: $w1200) {
                 fill: #555;
+                width: 23px;
+                height: 23px;
             }
         }
     }

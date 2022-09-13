@@ -195,7 +195,7 @@
 
                 & a {
                     font-size: 12px;
-                    padding: 5px 8px;
+                    padding: 4px 8px;
                     border-radius: 3px;
                     background-color: $bg-gray;
                     color: rgba(17, 27, 41, 0.5);
@@ -279,7 +279,7 @@
         &-old {
             color: rgba(17, 27, 41, 0.5);
             text-decoration: line-through;
-            padding: 4px;
+            padding: 1px 4px 4px 4px;
         }
     }
 

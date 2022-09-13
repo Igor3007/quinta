@@ -101,7 +101,7 @@ mixin hs-extend(data, modify)
       .header__logo
         a(href='/'): +bgimage('/img/common/svg/logo.svg')
       .header__nav
-        .header__nav-container(data-menu="container")
+        .header__nav-container
           nav
             ul
               each item in app.mainMenu
