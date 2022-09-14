@@ -1,0 +1,70 @@
+mixin cart
+    .cart
+        .cart__wrp
+            .cart__content
+                .cart__topbar
+                    .cart__select-all: +checkbox('Выбрать все')
+                    .cart__remove-select: span(data-cart="remove-selected") Удилить выбранные
+                .cart__list
+                    each item in app.catalog
+                        .cart__item: +cart-item(item)
+
+            .cart__aside: +cart-aside()
+
+mixin cart-item(item)
+    .cart-item(data-product-id=item.id data-product-price=item.price)
+        .cart-item__wrp
+            .cart-item__action
+                .cart-item__check: +checkbox('select')
+                .cart-item__remove(data-cart="remove"): +icons('#ic_cart-remove', 24)
+            .cart-item__main
+                .cart-item__image: +picture(item.image)
+                .cart-item__inner
+                    .cart-item__title: a(href='#')= item.title
+                    .cart-item__tags
+                        ul
+                            each tag,index in item.tags 
+                                li(class=(index==2 ? 'active':'')): a(href='#')= tag
+                .cart-item__prop
+                    .cart-item__price
+                        .cart-item__price-old= item.price+' ₽'
+                        .cart-item__price-current
+                            span(data-cart="price-current")= item.price
+                            | ₽
+                    .cart-item__counter
+                        .cart-item__counter-dec(data-cart="count-dec"): +icons('#ic_minus', 24)
+                        .cart-item__counter-input
+                            input(type="text" value="1" data-cart="count-input")
+                        .cart-item__counter-inc(data-cart="count-inc"): +icons('#ic_plus', 24)
+
+mixin cart-aside
+    .cart-aside
+        .cart-aside__wrp
+            .cart-aside__promocode
+                form(action='#' method='POST')
+                    .form
+                        .cart-aside__input: input(type="text" placeholder="Промокод")
+                        .cart-aside__send: span(data-text="Применить")
+                    .error Промокод не найден
+
+            .cart-aside__checkout
+                .cart-aside__btn: button.btn Перейти к оформлению
+                .cart-aside__note Доступные способы и время доставки можно выбрать при оформлении заказа
+
+            .cart-aside__details
+                .cart-aside__title Ваша корзина
+                .cart-aside__more
+                    ul
+                        li
+                            span(data-cart="total-product") 4 товара
+                            strong 7 420 ₽
+                        li
+                            span Скидка
+                            strong(class="cart-red") - 60 ₽ 
+            
+
+            .cart-aside__total
+                span Общая стоимость
+                strong(data-currency="₽" data-cart="total-price") 7 360 
+
+            

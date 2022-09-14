@@ -206,6 +206,7 @@
                     }
                 }
 
+                &.active,
                 &.minicard-tags--gray {
                     & a {
                         background-color: #8296A9;
@@ -294,4 +295,6 @@
             padding-top: 9px;
         }
     }
+
+
 }

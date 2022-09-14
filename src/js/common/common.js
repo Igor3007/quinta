@@ -939,14 +939,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
 
         this.getTotalPrice = function () {
-
-            console.log(this.productPrice.dataset.counterCost)
-            console.log(this.total)
-
             return (Number(this.productPrice.dataset.counterCost) * Number(this.total)).toFixed(0)
-
-
-
         }
 
         this.render = function () {
@@ -1137,6 +1130,172 @@ document.addEventListener("DOMContentLoaded", function (event) {
             })
         })
     }
+
+    /* =============================================
+    корзина
+    =============================================*/
+
+    class Cart {
+        constructor() {
+            this.products = document.querySelectorAll('[data-product-id]');
+            this.totalPriceElement = document.querySelectorAll('[data-cart="total-price"]');
+            this.totalProductElement = document.querySelectorAll('[data-cart="total-product"]');
+            this.removeSelectedElement = document.querySelector('[data-cart="remove-selected"]');
+            this.cartArray = new Array();
+            this.init()
+        }
+
+        init() {
+            this.createCartObject();
+            this.addEvent()
+            this.setAsideData()
+        }
+
+        createCartObject() {
+            this.products.forEach(item => {
+                this.cartArray.push({
+                    id: item.dataset.productId,
+                    price: item.dataset.productPrice,
+                    total: 1
+                })
+            })
+        }
+
+        initCounter(item, idProduct) {
+
+
+
+            let objProduct = this.cartArray.find((el, index, array) => {
+                if (el.id == item.dataset.productId) {
+                    return el;
+                }
+            })
+
+            item.querySelector('[data-cart="count-inc"]').addEventListener('click', e => {
+                objProduct.total = objProduct.total + 1
+
+                this.render()
+            })
+
+            item.querySelector('[data-cart="count-dec"]').addEventListener('click', e => {
+                if (objProduct.total > 1) {
+                    objProduct.total = objProduct.total - 1
+                }
+
+                this.render()
+            })
+        }
+
+        render() {
+            this.products.forEach(item => {
+                let objProduct = this.cartArray.find((el, index, array) => {
+                    if (el.id == item.dataset.productId) {
+                        return el;
+                    }
+                })
+
+                //console.log(objProduct)
+
+                if (objProduct) {
+                    item.querySelector('[data-cart="count-input"]').value = objProduct.total
+                    item.querySelector('[data-cart="price-current"]').innerText = (Number(objProduct.total) * Number(objProduct.price)).toFixed(0)
+                } else {
+                    item.parentNode.classList.add('fade-out')
+                    setTimeout(() => {
+                        item.parentNode.remove()
+                        console.log('delete')
+                    }, 500)
+                }
+
+
+            })
+
+            this.setAsideData()
+        }
+
+        removeProducts(arrayProductId) {
+            // this.cartArray.forEach((product, index) => {
+            //     if (arrayProductId.indexOf(Number(product.id)) !== -1) {
+
+            //         console.log(arrayProductId)
+            //         console.log(index)
+
+
+            //         this.cartArray.splice(index, 1)
+            //     }
+
+            //     console.log(this.cartArray)
+            // })
+
+            arrayProductId.forEach(id => {
+                this.cartArray.forEach((product, index) => {
+
+                    if (product.id == id) {
+                        this.cartArray.splice(index, 1)
+                    }
+
+
+                })
+
+                console.log(this.cartArray)
+            })
+
+            this.render()
+        }
+
+        getTotalPrice() {
+            let initialValue = 0
+
+            this.cartArray.forEach(item => {
+                initialValue += (Number(item.total) * Number(item.price))
+            })
+
+            return initialValue
+        }
+
+        addEvent() {
+            this.products.forEach(item => {
+                this.initCounter(item, item.dataset.productId)
+
+                item.querySelector('[data-cart="remove"]').addEventListener('click', (e) => {
+                    this.removeProducts([Number(item.dataset.productId)])
+                })
+
+            })
+
+            // remove selected
+
+            this.removeSelectedElement.addEventListener('click', (e) => {
+
+                let idArray = [];
+
+                this.products.forEach(item => {
+                    if (item.querySelector('input[type="checkbox"]:checked')) {
+                        idArray.push(Number(item.dataset.productId))
+                    }
+                })
+
+                console.log(idArray)
+
+
+
+                if (idArray) {
+                    this.removeProducts(idArray)
+                }
+            })
+        }
+
+        setAsideData() {
+            this.totalPriceElement[0].innerText = this.getTotalPrice()
+        }
+
+
+
+    }
+
+    const instanseCart = new Cart()
+
+    console.log(instanseCart)
 
 
 

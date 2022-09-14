@@ -1,0 +1,30 @@
+extends ../layouts/site
+
+block variables
+  include ../../data/data.pug
+  - const title = "Категория каталога - Quinta" 
+
+
+block content
+
+  include ../../blocks/components/breadcrumb/breadcrumb.pug
+  include ../../blocks/modules/cart/cart
+
+  .page
+    .page__top
+      .container
+        .page__breadcrumb: +breadcrumb([ 
+          'Главная',
+          'Корзина',
+        ])
+        .page__title: h1 Корзина
+    .page__main
+      .container
+        +cart
+ 
+
+block scripts
+ 
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")  
+ 

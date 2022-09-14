@@ -1,0 +1,32 @@
+extends ../layouts/site
+
+block variables
+  include ../../data/data.pug 
+  - const title = "Quinta"
+
+
+block content
+
+  include ../../blocks/modules/cart-empty/cart-empty
+  include ../../blocks/components/breadcrumb/breadcrumb.pug
+
+  .page
+    .page__top
+      .container
+        .page__breadcrumb: +breadcrumb([ 
+          'Главная',
+          'Корзина',
+        ])
+        .page__title: h1 Корзина
+
+    .page__main
+      .container
+       +cart-empty()
+  
+
+
+block scripts
+ 
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")  
+ 
