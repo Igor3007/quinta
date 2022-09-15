@@ -1,0 +1,110 @@
+mixin profile
+    .profile
+        .profile__wrp
+            .profile__aside: +profile-aside()
+            .profile__content 
+
+                .profile__userdata
+                    .profile-userdata
+                        .profile-userdata__title Мои данные
+                        .profile-userdata__form
+                            form(action='#' method='POST')
+                                .u-form.form
+                                    .u-form__col
+                                        .u-form__item
+                                            .u-form__label Ваша страна
+                                            .u-form__input: +select(false, [ 'Выберите', 'Бельгия'  ])
+                                        .u-form__item
+                                            .u-form__label Как вас зовут?
+                                            .u-form__input: input(type="text" placeholder="Имя" value="Georges")
+                                            .u-form__input: input(type="text" placeholder="Фамилия" value="Simenon")
+                                    .u-form__col
+                                        .u-form__item
+                                            .u-form__label Ваш телефон <span>Подтвердить</span>
+                                            .u-form__input: input(type="text" placeholder="Телефон" class="status--no-verify" value="7(989)999-99-99")
+                                        .u-form__item
+                                            .u-form__label Ваша почта <span>Сменить</span>
+                                            .u-form__input: input(type="text" placeholder="Телефон" class="status--success" value="georgesmodelist@gmail.com")
+                                            .u-form__input: button.btn Сохранить изменения
+                .profile__address
+                    .profile-address
+                        .profile-address__title
+                            span Ваши адреса
+                            a(href='#')
+                                +icons('#ic_plus', 32)
+                                | Добавить новый адрес  
+                        .profile-address__list
+                            .profile-address__item
+                                .card-address.card-address--default
+                                    .card-address__street Desire Toeffaertstraat 2, 9050 Gent
+                                    .card-address__country Бельгия
+                                    .card-address__action
+                                        .card-address__default По умолчанию
+                                        .card-address__remove: a(href='#') Удалить
+                            .profile-address__item
+                                .card-address
+                                    .card-address__street Jovastraat 23, 9050 Gent
+                                    .card-address__country Бельгия
+                                    .card-address__action
+                                        .card-address__default: a(href='#') Назначить по умолчанию
+                                        .card-address__remove: a(href='#') Удалить 
+                .profile__orders
+                    .profile-orders
+                        .profile-orders__title
+                            span Ваши заказы 
+                            a(href='#') Все заказы
+                        .profile-orders__list
+                            each item in app.orders
+                                .profile-orders__item
+                                    +card-order(item)
+                .profile__info
+                    +profile-info()
+                         
+mixin card-order(data)
+    .card-order                          
+        .card-order__number!= data.number + '<span>'+data.created+'</span>'
+        .card-order__price
+            small= 'товаров ' + data.total 
+            strong= data.price + '₽'         
+        .card-order__delivery= data.delivery              
+        .card-order__status
+            span(class='order-status--'+data.status)=data.statusText            
+                                        
+
+
+
+mixin profile-aside
+    .profile-aside
+        .profile-dashbord
+            .profile-dashbord__user
+                .profile-dashbord__image: +bgimage('/img/common/svg/account.svg')
+                .profile-dashbord__main
+                    .profile-dashbord__name Georges Simenon
+                    .profile-dashbord__phone +32 529 703 83 40
+                    .profile-dashbord__edit: a(href='#') 
+                        +icons('#ic_user-edit', 18)
+                        span Управление личными данными
+            .profile-dashbord__nav
+                .dashbord-nav
+                    .dashbord-nav__title Избранное
+                    .dashbord-nav__value
+                        +icons('#ic_heart-blue')
+                        span 4
+                    .dashbord-nav__link: a(href='profile-wishlist.html')
+                .dashbord-nav
+                    .dashbord-nav__title Ваши адреса
+                    .dashbord-nav__value
+                        +icons('#ic_pen-blue')
+                        span 2 адреса
+
+        +profile-info()
+
+
+mixin profile-info
+    .profile-info
+        .profile-info__title Полезная информация
+        .profile-info__links 
+            ul 
+                li: a(href='#') Оптовикам
+                li: a(href='#') Оплата и доставка
+                li: a(href='#') Возврат
