@@ -59,6 +59,10 @@
 
     &__order {
 
+        @media screen and (min-width: $w1200) {
+            width: calc(50% - 15px);
+        }
+
         @media screen and (min-width: $w760) {
             width: calc(50% - 2px);
         }
