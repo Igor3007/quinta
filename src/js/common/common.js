@@ -1141,6 +1141,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.totalPriceElement = document.querySelectorAll('[data-cart="total-price"]');
             this.totalProductElement = document.querySelectorAll('[data-cart="total-product"]');
             this.removeSelectedElement = document.querySelector('[data-cart="remove-selected"]');
+            this.selectAllElement = document.querySelector('[data-cart="select-all"]');
             this.cartArray = new Array();
             this.init()
         }
@@ -1162,8 +1163,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
 
         initCounter(item, idProduct) {
-
-
 
             let objProduct = this.cartArray.find((el, index, array) => {
                 if (el.id == item.dataset.productId) {
@@ -1214,33 +1213,39 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
 
         removeProducts(arrayProductId) {
-            // this.cartArray.forEach((product, index) => {
-            //     if (arrayProductId.indexOf(Number(product.id)) !== -1) {
 
-            //         console.log(arrayProductId)
-            //         console.log(index)
+            this.confirm((event, modal) => {
+                arrayProductId.forEach(id => {
+                    this.cartArray.forEach((product, index) => {
+                        if (product.id == id) {
+                            this.cartArray.splice(index, 1)
+                        }
+                    })
 
-
-            //         this.cartArray.splice(index, 1)
-            //     }
-
-            //     console.log(this.cartArray)
-            // })
-
-            arrayProductId.forEach(id => {
-                this.cartArray.forEach((product, index) => {
-
-                    if (product.id == id) {
-                        this.cartArray.splice(index, 1)
-                    }
-
-
+                    console.log(this.cartArray)
                 })
 
-                console.log(this.cartArray)
+                modal.close()
+                this.render()
+
+
+                //ajax requets on remove
+
+                window.ajax({
+                    url: '/js/suggest.json',
+                    type: 'GET', //заменить на POST
+                    data: {
+                        ids: arrayProductId
+                    }
+
+                }, function (status, response) {
+                    if (response) {
+                        console.log('remove')
+                    }
+                })
+
             })
 
-            this.render()
         }
 
         getTotalPrice() {
@@ -1275,18 +1280,68 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     }
                 })
 
-                console.log(idArray)
-
-
-
                 if (idArray) {
                     this.removeProducts(idArray)
                 }
             })
+
+            // selectAll
+
+            this.selectAllElement.querySelector('input').addEventListener('change', (e) => {
+
+                this.products.forEach(item => {
+                    let checkbox = item.querySelector('input[type="checkbox"]')
+                    checkbox.checked = (e.target.checked ? true : false)
+                })
+            })
         }
 
         setAsideData() {
+
+            function declination(num, ed, mn, rod) {
+
+                var $full = true;
+                if (num == 0)
+                    return '';
+                if ($full) {
+                    if ((num == "0") || ((num >= "5") && (num <= "20")) || num.toString().match(/[056789]$/)) {
+                        return num + ' ' + rod;
+                    }
+                }
+                if (num.toString().match(/[1]$/)) {
+                    return num + ' ' + ed;
+                }
+                if (num.toString().match(/[234]$/)) {
+                    return num + ' ' + mn;
+                }
+
+                return "";
+            }
+
             this.totalPriceElement[0].innerText = this.getTotalPrice()
+            let wordsArray = this.totalProductElement[0].dataset.declination.split(',')
+            this.totalProductElement[0].innerText = declination(this.cartArray.length, wordsArray[0], wordsArray[1], wordsArray[2])
+        }
+
+        confirm(success, cancel) {
+
+            const confirmPopup = new customModal({
+                mobileInBottom: true
+            })
+            const popupHtmlElement = document.querySelector('[data-form-success="remove"]')
+
+            confirmPopup.open(popupHtmlElement.outerHTML, function (instanse) {
+                instanse.querySelector('.btn-gray').addEventListener('click', function () {
+                    confirmPopup.close()
+                })
+
+                //click
+                instanse.querySelector('[data-dialog="success"]').addEventListener('click', (e) => {
+                    success(e, confirmPopup);
+                })
+            })
+
+
         }
 
 
@@ -1294,10 +1349,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     const instanseCart = new Cart()
-
-    console.log(instanseCart)
-
-
 
 
 }); //ready

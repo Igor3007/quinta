@@ -3,13 +3,15 @@ mixin cart
         .cart__wrp
             .cart__content
                 .cart__topbar
-                    .cart__select-all: +checkbox('Выбрать все')
+                    .cart__select-all(data-cart="select-all"): +checkbox('Выбрать все')
                     .cart__remove-select: span(data-cart="remove-selected") Удилить выбранные
                 .cart__list
                     each item in app.catalog
                         .cart__item: +cart-item(item)
 
             .cart__aside: +cart-aside()
+
+    +popup-success-remove({})
 
 mixin cart-item(item)
     .cart-item(data-product-id=item.id data-product-price=item.price)
@@ -48,7 +50,7 @@ mixin cart-aside
                     .error Промокод не найден
 
             .cart-aside__checkout
-                .cart-aside__btn: button.btn Перейти к оформлению
+                .cart-aside__btn: a(href='./checkout.html'): button.btn Перейти к оформлению
                 .cart-aside__note Доступные способы и время доставки можно выбрать при оформлении заказа
 
             .cart-aside__details
@@ -56,7 +58,7 @@ mixin cart-aside
                 .cart-aside__more
                     ul
                         li
-                            span(data-cart="total-product") 4 товара
+                            span(data-cart="total-product" data-declination="товар,товара,товаров") 0
                             strong 7 420 ₽
                         li
                             span Скидка
@@ -67,4 +69,17 @@ mixin cart-aside
                 span Общая стоимость
                 strong(data-currency="₽" data-cart="total-price") 7 360 
 
+
+mixin popup-success-remove(data)
+    .popup-success(data-form-success="remove")
+        .popup-success__icons
+            +icons('#ic_dialog', 96)
+        if(data.title)
+            .popup-success__title= data.title
+        else
+            .popup-success__title Внимание!
+        .popup-success__desc Вы действительно хотите <br> удалить?
+        .popup-success__btns
+            button.btn.btn-small(data-dialog="success") Удалить
+            button.btn.btn-small.btn-gray Отмена
             

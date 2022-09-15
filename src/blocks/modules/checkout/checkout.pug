@@ -1,0 +1,94 @@
+mixin checkout
+    .checkout
+        .checkout__wrp
+            .checkout__content
+
+                
+
+                .checkout__address
+                    .checkout-radio
+                        .checkout-radio__title Адрес доставки
+                        .checkout-radio__option
+                            ul
+                                +radio-card([
+                                    {name: 'address', title: 'Desire Toeffaertstraat 2, 9050 GentБельгия', image:false},
+                                    {name: 'address', title: 'Jovastraat 23, 9050 Gent Бельгия', image:false}
+                                ])
+
+                .checkout__user
+                    .checkout-user
+                        .checkout-user__data
+                            .checkout-user__image: +bgimage('/img/common/svg/account.svg')
+                            .checkout-user__name Georges Simenon <span>+32 529 703 83 40</span>
+                        .checkout-user__profile
+                            a(href='#')
+                                span Личный кабинет
+                                +icons('#ic_arr-right', 10)
+
+                .checkout__delivery
+                    .checkout-radio
+                        .checkout-radio__title Доставка
+                        .checkout-radio__option
+                            ul
+                                +radio-card([
+                                    {name: 'delivery', title: 'Economy International Shipping +8€', image:false},
+                                    {name: 'delivery', title: 'DHL International Shipping +45€', image:'/img/common/dhl.jpg'}
+                                ])
+                .checkout__payment
+                    .checkout-radio
+                        .checkout-radio__title Оплата
+                        .checkout-radio__option
+                            ul
+                                +radio-card([
+                                    {name: 'payment', title: 'Credit Card', image:'/img/common/credit-card.png'},
+                                    {name: 'payment', title: 'PayPal', image:'/img/common/paypal.jpg'}
+                                ])
+
+                .checkout__order
+                    .checkout__btn: button.btn Оплатить
+                    .checkout__note
+                        | Нажимая кнопку вы соглашаетесь с 
+                        a(href='#') Условиями обработки персональных данных, 
+                        | а так же с 
+                        a(href='#') Политикой в отношении персональных данных
+                
+                 
+
+            .checkout__aside: +checkout-aside()
+
+
+mixin checkout-aside
+    .checkout-aside
+        .checkout-aside__wrp
+            .checkout-aside__details
+                .checkout-aside__title Ваш заказ
+                .checkout-aside__more
+                    ul
+                        li
+                            span(data-checkout="total-product" data-declination="товар,товара,товаров") 0
+                            strong 7 420 ₽
+                        li
+                            span Скидка
+                            strong(class="checkout-red") - 60 ₽ 
+                        li
+                            span Доставка
+                            strong 480 ₽ 
+            
+
+            .checkout-aside__total
+                span Общая стоимость
+                strong(data-currency="₽" data-cart="total-price") 7 360 
+
+
+mixin radio-card(array)
+
+    each data in array
+        li
+            .radio-card
+                label
+                    input(type="radio" name=data.name)
+                    .radio-card__wrp
+                        .radio-card__input
+                            span.radio-card-elem
+                            span.radio-card-text= data.title
+                        .radio-card__image: img(src=data.image)

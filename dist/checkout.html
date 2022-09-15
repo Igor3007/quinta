@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Quinta</title>
+    <title>Оформлене заказа</title>
     <meta name="theme-color" content="#fff">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -401,24 +401,152 @@
                     <div class="breadcrumb">
                       <ul>
                         <li><a href="/">Главная</a></li>
-                        <li><span>Результат поиска</span></li>
+                        <li><a href="#">Корзина</a></li>
+                        <li><span>Оформлене заказа</span></li>
                       </ul>
                     </div>
             </div>
             <div class="page__title">
-              <h1>Результат поиска</h1>
+              <h1>Оформлене заказа</h1>
             </div>
           </div>
         </div>
         <div class="page__main">
           <div class="container">
-                  <div class="search-empty"> 
-                    <div class="search-empty__image"><span class="bgimage lazyload" data-bg="/img/common/svg/search-empty.svg"></span>
+                  <div class="checkout">
+                    <div class="checkout__wrp">
+                      <div class="checkout__content">
+                        <div class="checkout__address">
+                          <div class="checkout-radio">
+                            <div class="checkout-radio__title">Адрес доставки</div>
+                            <div class="checkout-radio__option">
+                              <ul>
+                                      <li>
+                                        <div class="radio-card">
+                                          <label>
+                                            <input type="radio" name="address">
+                                            <div class="radio-card__wrp">
+                                              <div class="radio-card__input"><span class="radio-card-elem"></span><span class="radio-card-text">Desire Toeffaertstraat 2, 9050 GentБельгия</span></div>
+                                              <div class="radio-card__image"><img></div>
+                                            </div>
+                                          </label>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="radio-card">
+                                          <label>
+                                            <input type="radio" name="address">
+                                            <div class="radio-card__wrp">
+                                              <div class="radio-card__input"><span class="radio-card-elem"></span><span class="radio-card-text">Jovastraat 23, 9050 Gent Бельгия</span></div>
+                                              <div class="radio-card__image"><img></div>
+                                            </div>
+                                          </label>
+                                        </div>
+                                      </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="checkout__user">
+                          <div class="checkout-user">
+                            <div class="checkout-user__data">
+                              <div class="checkout-user__image"><span class="bgimage lazyload" data-bg="/img/common/svg/account.svg"></span>
+                              </div>
+                              <div class="checkout-user__name">Georges Simenon <span>+32 529 703 83 40</span></div>
+                            </div>
+                            <div class="checkout-user__profile"><a href="#"><span>Личный кабинет</span>
+                                <svg width="10" height="10">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_arr-right"></use>
+                                </svg></a></div>
+                          </div>
+                        </div>
+                        <div class="checkout__delivery">
+                          <div class="checkout-radio">
+                            <div class="checkout-radio__title">Доставка</div>
+                            <div class="checkout-radio__option">
+                              <ul>
+                                      <li>
+                                        <div class="radio-card">
+                                          <label>
+                                            <input type="radio" name="delivery">
+                                            <div class="radio-card__wrp">
+                                              <div class="radio-card__input"><span class="radio-card-elem"></span><span class="radio-card-text">Economy International Shipping +8€</span></div>
+                                              <div class="radio-card__image"><img></div>
+                                            </div>
+                                          </label>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="radio-card">
+                                          <label>
+                                            <input type="radio" name="delivery">
+                                            <div class="radio-card__wrp">
+                                              <div class="radio-card__input"><span class="radio-card-elem"></span><span class="radio-card-text">DHL International Shipping +45€</span></div>
+                                              <div class="radio-card__image"><img src="/img/common/dhl.jpg"></div>
+                                            </div>
+                                          </label>
+                                        </div>
+                                      </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="checkout__payment">
+                          <div class="checkout-radio">
+                            <div class="checkout-radio__title">Оплата</div>
+                            <div class="checkout-radio__option">
+                              <ul>
+                                      <li>
+                                        <div class="radio-card">
+                                          <label>
+                                            <input type="radio" name="payment">
+                                            <div class="radio-card__wrp">
+                                              <div class="radio-card__input"><span class="radio-card-elem"></span><span class="radio-card-text">Credit Card</span></div>
+                                              <div class="radio-card__image"><img src="/img/common/credit-card.png"></div>
+                                            </div>
+                                          </label>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="radio-card">
+                                          <label>
+                                            <input type="radio" name="payment">
+                                            <div class="radio-card__wrp">
+                                              <div class="radio-card__input"><span class="radio-card-elem"></span><span class="radio-card-text">PayPal</span></div>
+                                              <div class="radio-card__image"><img src="/img/common/paypal.jpg"></div>
+                                            </div>
+                                          </label>
+                                        </div>
+                                      </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="checkout__order">
+                          <div class="checkout__btn">
+                            <button class="btn">Оплатить</button>
+                          </div>
+                          <div class="checkout__note">Нажимая кнопку вы соглашаетесь с <a href="#">Условиями обработки персональных данных, </a>а так же с <a href="#">Политикой в отношении персональных данных</a></div>
+                        </div>
+                      </div>
+                      <div class="checkout__aside">
+                              <div class="checkout-aside">
+                                <div class="checkout-aside__wrp">
+                                  <div class="checkout-aside__details">
+                                    <div class="checkout-aside__title">Ваш заказ</div>
+                                    <div class="checkout-aside__more">
+                                      <ul>
+                                        <li><span data-checkout="total-product" data-declination="товар,товара,товаров">0</span><strong>7 420 ₽</strong></li>
+                                        <li><span>Скидка</span><strong class="checkout-red">- 60 ₽ </strong></li>
+                                        <li><span>Доставка</span><strong>480 ₽ </strong></li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div class="checkout-aside__total"><span>Общая стоимость</span><strong data-currency="₽" data-cart="total-price">7 360 </strong></div>
+                                </div>
+                              </div>
+                      </div>
                     </div>
-                    <div class="search-empty__title">Ничего не найдено</div>
-                    <div class="search-empty__desc">Попробуйте поиск ещё раз, либо <br> вернитесь на главную</div>
-                    <div class="search-empty__btn"><a href="#">
-                        <button class="btn">Перейти на главную</button></a></div>
                   </div>
           </div>
         </div>

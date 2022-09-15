@@ -27,13 +27,14 @@
             font-weight: 600;
             font-size: 13px;
             color: $blue;
+            cursor: pointer;
         }
     }
 
     &__aside {
         @media screen and (min-width: $w992) {
-            width: 33.33%;
-            max-width: 410px;
+            width: 34%;
+            max-width: 440px;
             min-width: 300px;
         }
     }
@@ -91,6 +92,9 @@
     }
 
     &__remove {
+
+        cursor: pointer;
+
         @media screen and (min-width: $w992) {
             position: absolute;
             right: 20px;
@@ -320,6 +324,7 @@
         position: sticky;
         margin-top: 40px;
         top: 30px;
+        padding: 30px;
     }
 
     &__wrp {
@@ -435,16 +440,20 @@
 }
 
 
+
 /* ================= colors ================= */
 
+.checkout-red,
 .cart-red {
     color: $red;
 }
 
+.checkout-green,
 .cart-green {
     color: $green;
 }
 
+.checkout-orange,
 .cart-orange {
     color: $orange;
 }

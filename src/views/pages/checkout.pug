@@ -2,13 +2,13 @@ extends ../layouts/site
 
 block variables
   include ../../data/data.pug
-  - const title = "Корзина товаров - Quinta" 
+  - const title = "Оформлене заказа" 
 
 
 block content
 
   include ../../blocks/components/breadcrumb/breadcrumb.pug
-  include ../../blocks/modules/cart/cart
+  include ../../blocks/modules/checkout/checkout
 
   .page
     .page__top
@@ -16,11 +16,12 @@ block content
         .page__breadcrumb: +breadcrumb([ 
           'Главная',
           'Корзина',
+          'Оформлене заказа',
         ])
-        .page__title: h1 Корзина
+        .page__title: h1 Оформлене заказа
     .page__main
       .container
-        +cart
+        +checkout()
  
 
 block scripts

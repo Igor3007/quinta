@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Категория каталога - Quinta</title>
+    <title>Корзина товаров - Quinta</title>
     <meta name="theme-color" content="#fff">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -416,7 +416,7 @@
                     <div class="cart__wrp">
                       <div class="cart__content">
                         <div class="cart__topbar">
-                          <div class="cart__select-all">
+                          <div class="cart__select-all" data-cart="select-all">
                             <label class="checkbox">
                               <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Выбрать все</span>
                             </label>
@@ -1113,16 +1113,15 @@
                                     </form>
                                   </div>
                                   <div class="cart-aside__checkout">
-                                    <div class="cart-aside__btn">
-                                      <button class="btn">Перейти к оформлению</button>
-                                    </div>
+                                    <div class="cart-aside__btn"><a href="./checkout.html">
+                                        <button class="btn">Перейти к оформлению</button></a></div>
                                     <div class="cart-aside__note">Доступные способы и время доставки можно выбрать при оформлении заказа</div>
                                   </div>
                                   <div class="cart-aside__details">
                                     <div class="cart-aside__title">Ваша корзина</div>
                                     <div class="cart-aside__more">
                                       <ul>
-                                        <li><span data-cart="total-product">4 товара</span><strong>7 420 ₽</strong></li>
+                                        <li><span data-cart="total-product" data-declination="товар,товара,товаров">0</span><strong>7 420 ₽</strong></li>
                                         <li><span>Скидка</span><strong class="cart-red">- 60 ₽ </strong></li>
                                       </ul>
                                     </div>
@@ -1133,6 +1132,19 @@
                       </div>
                     </div>
                   </div>
+                        <div class="popup-success" data-form-success="remove">
+                          <div class="popup-success__icons">
+                            <svg width="96" height="96">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_dialog"></use>
+                            </svg>
+                          </div>
+                          <div class="popup-success__title">Внимание!</div>
+                          <div class="popup-success__desc">Вы действительно хотите <br> удалить?</div>
+                          <div class="popup-success__btns">
+                            <button class="btn btn-small" data-dialog="success">Удалить</button>
+                            <button class="btn btn-small btn-gray">Отмена</button>
+                          </div>
+                        </div>
           </div>
         </div>
       </div>

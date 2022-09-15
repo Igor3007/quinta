@@ -105,6 +105,22 @@
         }
     }
 
+    &__btns {
+
+
+        margin: -10px;
+
+        @media screen and (min-width: $w480) {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        & .btn {
+            margin: 10px;
+            width: 100%;
+        }
+    }
+
     &__close {
 
         padding-top: 20px;
