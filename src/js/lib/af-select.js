@@ -40,6 +40,12 @@ class customSelect {
 
         const styledList = document.createElement('div')
         styledList.classList.add('select-list');
+
+        const styledFindInput = document.createElement('input')
+        styledFindInput.classList.setAttribute('type', 'text');
+        styledFindInput.classList.setAttribute('placeholder', 'Найти...');
+
+        styledList.appendChild(styledFindInput)
         styledList.appendChild(styledOptions)
 
         item.appendChild(styledSelect)

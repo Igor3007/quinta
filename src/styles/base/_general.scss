@@ -461,6 +461,11 @@ input[type="date"] {
 
 }
 
+@mixin title-profile {
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 25px;
+}
 
 @mixin section-padding {
     padding: 45px 0;

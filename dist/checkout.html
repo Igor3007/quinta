@@ -393,7 +393,7 @@
         </div>
       </div>
     </header>
-    <main> 
+    <main>  
       <div class="page">
         <div class="page__top">
           <div class="container">
@@ -418,7 +418,10 @@
                       <div class="checkout__content">
                         <div class="checkout__address">
                           <div class="checkout-radio">
-                            <div class="checkout-radio__title">Адрес доставки</div>
+                            <div class="checkout-radio__title"><span>Адрес доставки</span><a href="#">
+                                <svg width="32" height="32">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_plus"></use>
+                                </svg>Добавить новый адрес  </a></div>
                             <div class="checkout-radio__option">
                               <ul>
                                       <li>
@@ -462,7 +465,7 @@
                         </div>
                         <div class="checkout__delivery">
                           <div class="checkout-radio">
-                            <div class="checkout-radio__title">Доставка</div>
+                            <div class="checkout-radio__title"><span>Доставка</span></div>
                             <div class="checkout-radio__option">
                               <ul>
                                       <li>
@@ -493,7 +496,7 @@
                         </div>
                         <div class="checkout__payment">
                           <div class="checkout-radio">
-                            <div class="checkout-radio__title">Оплата</div>
+                            <div class="checkout-radio__title"><span>Оплата</span></div>
                             <div class="checkout-radio__option">
                               <ul>
                                       <li>
@@ -545,6 +548,68 @@
                                   <div class="checkout-aside__total"><span>Общая стоимость</span><strong data-currency="₽" data-cart="total-price">7 360 </strong></div>
                                 </div>
                               </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="checkout-create-address">
+                    <div class="create-address" data-popup="create-address">
+                      <div class="create-address__create">
+                        <div class="create-address__title">Новый адрес</div>
+                        <div class="create-address__form">
+                          <form action="#" method="POST">
+                            <div class="form">
+                              <div class="form__item">
+                                <div class="form__subitem">
+                                  <select data-find="true" name="country">
+                                    <option value="">Выберите</option>
+                                    <option value="">Бельгия</option>
+                                    <option value="">Россия</option>
+                                    <option value="">Самали</option>
+                                    <option value="">Уругвай</option>
+                                    <option value="">Бельгия</option>
+                                    <option value="">Казахстан</option>
+                                    <option value="">Украина</option>
+                                    <option value="">Польша</option>
+                                    <option value="">Бельгия</option>
+                                    <option value="">Молдова</option>
+                                    <option value="">Бельгия</option>
+                                  </select>
+                                </div>
+                                <div class="form__subitem">
+                                  <div class="input-material">
+                                    <input type="text" value="" required=""/>
+                                    <label>Адрес</label>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form__item">
+                                <div class="form__subitem">
+                                  <div class="input-material">
+                                    <input type="text" value="" required=""/>
+                                    <label>Город</label>
+                                  </div>
+                                </div>
+                                <div class="form__subitem">
+                                  <div class="input-material">
+                                    <input type="text" value="" required=""/>
+                                    <label>Штат/Регион</label>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form__item">
+                                <div class="form__subitem">
+                                  <div class="input-material">
+                                    <input type="text" value="" required=""/>
+                                    <label>Индекс/ZIP</label>
+                                  </div>
+                                </div>
+                                <div class="form__subitem">
+                                  <button class="btn" type="submit">Добавить</button>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
                       </div>
                     </div>
                   </div>

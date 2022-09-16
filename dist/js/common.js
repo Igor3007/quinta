@@ -1523,5 +1523,30 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
+    /* ==================================
+    create address
+    ==================================*/
+
+    if (document.querySelector('[data-popup="create-address"]')) {
+
+        const createAddressPopup = new customModal({
+            mobileInBottom: true
+        })
+
+        const formElement = document.querySelector('[data-popup="create-address"]')
+
+        document.querySelector('.checkout-radio__title a').addEventListener('click', function (e) {
+            e.preventDefault()
+
+            createAddressPopup.open(formElement.outerHTML, function (instanse) {
+                selectCustom.reinit(instanse.querySelector('.af-popup select'))
+            })
+
+        })
+
+
+    }
+
+
 
 }); //ready
