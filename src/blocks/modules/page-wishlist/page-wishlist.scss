@@ -1,0 +1,45 @@
+.page-wishlist {
+
+    padding-bottom: 60px;
+
+    &__topbar {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 20px;
+    }
+
+    &__remove-select {
+        & span {
+            font-weight: 600;
+            font-size: 13px;
+            color: $blue;
+            cursor: pointer;
+        }
+    }
+
+    &__list {
+
+
+        display: flex;
+        flex-wrap: wrap;
+        margin: -15px;
+    }
+
+    &__item {
+
+        padding: 15px;
+        width: 100%;
+
+        @media screen and (min-width: $w760) {
+            flex-basis: 50%;
+        }
+
+        @media screen and (min-width: $w1440) {
+            flex-basis: 25%;
+        }
+
+        @media screen and (min-width: $w1200) {
+            flex-basis: 33.33%;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+include ../../modules/profile/profile.pug
+include ../../components/pagination/pagination.pug
+
+mixin user-orders
+    .user-orders
+        .user-orders__list
+            each item in app.orders
+                .user-orders__item: +card-order(item)
+            each item in app.orders
+                .user-orders__item: +card-order(item)
+            each item in app.orders
+                .user-orders__item: +card-order(item)
+        .user-orders__pagitation: +pagination()

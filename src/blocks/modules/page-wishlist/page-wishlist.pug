@@ -1,0 +1,13 @@
+include  ../minicard/minicard.pug
+include  ../cart/cart.pug
+
+mixin page-wishlist
+    .page-wishlist
+        .page-wishlist__topbar
+            .page-wishlist__select-all(data-page-wishlist="select-all"): +checkbox('Выбрать все')
+            .page-wishlist__remove-select: span(data-page-wishlist="remove-selected") Удилить выбранные
+        .page-wishlist__list
+            each item in app.catalog
+                .page-wishlist__item: +minicard-wishlist(item)
+    
+    +popup-success-remove({})

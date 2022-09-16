@@ -81,10 +81,7 @@
                 </nav>
               </div>
             </div>
-            <div class="header__login"><span data-register="open-popup">
-                <svg width="25" height="25">
-                  <use xlink:href="/img/sprites/sprite.svg#ic_user"></use>
-                </svg></span></div>
+            <div class="header__login"><a href="profile.html" title="George Georges"><span class="bgimage lazyload" data-bg="/img/common/svg/account.svg"></span></a></div>
             <div class="header__cart"><a href="#">
                 <svg width="25" height="25">
                   <use xlink:href="/img/sprites/sprite.svg#ic_cart"></use>
@@ -423,7 +420,7 @@
                                     <div class="profile-dashbord__main">
                                       <div class="profile-dashbord__name">Georges Simenon</div>
                                       <div class="profile-dashbord__phone">+32 529 703 83 40</div>
-                                      <div class="profile-dashbord__edit"><a href="#"> 
+                                      <div class="profile-dashbord__edit"><a href="profile-userdata.html"> 
                                           <svg width="18" height="18">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_user-edit"></use>
                                           </svg><span>Управление личными данными</span></a></div>
@@ -446,6 +443,7 @@
                                           <use xlink:href="/img/sprites/sprite.svg#ic_pen-blue"></use>
                                         </svg><span>2 адреса</span>
                                       </div>
+                                      <div class="dashbord-nav__link"><a class="only-mobile" href="profile-addresses.html"></a></div>
                                     </div>
                                   </div>
                                 </div>
@@ -463,90 +461,90 @@
                       </div>
                       <div class="profile__content"> 
                         <div class="profile__userdata">
-                          <div class="profile-userdata">
-                            <div class="profile-userdata__title">Мои данные</div>
-                            <div class="profile-userdata__form">
-                              <form action="#" method="POST">
-                                <div class="u-form form">
-                                  <div class="u-form__col">
-                                    <div class="u-form__item">
-                                      <div class="u-form__label">Ваша страна</div>
-                                      <div class="u-form__input">
-                                        <select placeholder="">
-                                          <option value="0">Выберите</option>
-                                          <option value="1">Бельгия</option>
-                                        </select>
+                                <div class="profile-userdata">
+                                  <div class="profile-userdata__title">Мои данные</div>
+                                  <div class="profile-userdata__form">
+                                    <form action="#" method="POST">
+                                      <div class="u-form form">
+                                        <div class="u-form__col">
+                                          <div class="u-form__item">
+                                            <div class="u-form__label">Ваша страна</div>
+                                            <div class="u-form__input">
+                                              <select placeholder="">
+                                                <option value="0">Выберите</option>
+                                                <option value="1">Бельгия</option>
+                                              </select>
+                                            </div>
+                                          </div>
+                                          <div class="u-form__item">
+                                            <div class="u-form__label">Как вас зовут?</div>
+                                            <div class="u-form__input">
+                                              <input type="text" placeholder="Имя" value="Georges">
+                                            </div>
+                                            <div class="u-form__input">
+                                              <input type="text" placeholder="Фамилия" value="Simenon">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="u-form__col">
+                                          <div class="u-form__item">
+                                            <div class="u-form__label">Ваш телефон <span>Подтвердить</span></div>
+                                            <div class="u-form__input">
+                                              <input class="status--no-verify" type="text" placeholder="Телефон" value="7(989)999-99-99">
+                                            </div>
+                                          </div>
+                                          <div class="u-form__item">
+                                            <div class="u-form__label">Ваша почта <span>Сменить</span></div>
+                                            <div class="u-form__input">
+                                              <input class="status--success" type="text" placeholder="Телефон" value="georgesmodelist@gmail.com">
+                                            </div>
+                                            <div class="u-form__input">
+                                              <button class="btn">Сохранить изменения</button>
+                                            </div>
+                                          </div>
+                                        </div>
                                       </div>
-                                    </div>
-                                    <div class="u-form__item">
-                                      <div class="u-form__label">Как вас зовут?</div>
-                                      <div class="u-form__input">
-                                        <input type="text" placeholder="Имя" value="Georges">
-                                      </div>
-                                      <div class="u-form__input">
-                                        <input type="text" placeholder="Фамилия" value="Simenon">
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="u-form__col">
-                                    <div class="u-form__item">
-                                      <div class="u-form__label">Ваш телефон <span>Подтвердить</span></div>
-                                      <div class="u-form__input">
-                                        <input class="status--no-verify" type="text" placeholder="Телефон" value="7(989)999-99-99">
-                                      </div>
-                                    </div>
-                                    <div class="u-form__item">
-                                      <div class="u-form__label">Ваша почта <span>Сменить</span></div>
-                                      <div class="u-form__input">
-                                        <input class="status--success" type="text" placeholder="Телефон" value="georgesmodelist@gmail.com">
-                                      </div>
-                                      <div class="u-form__input">
-                                        <button class="btn">Сохранить изменения</button>
-                                      </div>
-                                    </div>
+                                    </form>
                                   </div>
                                 </div>
-                              </form>
-                            </div>
-                          </div>
                         </div>
                         <div class="profile__address">
-                          <div class="profile-address">
-                            <div class="profile-address__title"><span>Ваши адреса</span><a href="#">
-                                <svg width="32" height="32">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_plus"></use>
-                                </svg>Добавить новый адрес  </a></div>
-                            <div class="profile-address__list">
-                              <div class="profile-address__item">
-                                <div class="card-address card-address--default">
-                                  <div class="card-address__street">Desire Toeffaertstraat 2, 9050 Gent</div>
-                                  <div class="card-address__country">Бельгия</div>
-                                  <div class="card-address__action">
-                                    <div class="card-address__default">По умолчанию</div>
-                                    <div class="card-address__remove"><a href="#">Удалить</a></div>
+                                <div class="profile-address">
+                                  <div class="profile-address__title"><span>Ваши адреса</span><a href="#">
+                                      <svg width="32" height="32">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_plus"></use>
+                                      </svg>Добавить новый адрес  </a></div>
+                                  <div class="profile-address__list">
+                                    <div class="profile-address__item">
+                                      <div class="card-address card-address--default">
+                                        <div class="card-address__street">Desire Toeffaertstraat 2, 9050 Gent</div>
+                                        <div class="card-address__country">Бельгия</div>
+                                        <div class="card-address__action">
+                                          <div class="card-address__default">По умолчанию</div>
+                                          <div class="card-address__remove"><a href="#">Удалить</a></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="profile-address__item">
+                                      <div class="card-address">
+                                        <div class="card-address__street">Jovastraat 23, 9050 Gent</div>
+                                        <div class="card-address__country">Бельгия</div>
+                                        <div class="card-address__action">
+                                          <div class="card-address__default"><a href="#">Назначить по умолчанию</a></div>
+                                          <div class="card-address__remove"><a href="#">Удалить </a></div>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div class="profile-address__item">
-                                <div class="card-address">
-                                  <div class="card-address__street">Jovastraat 23, 9050 Gent</div>
-                                  <div class="card-address__country">Бельгия</div>
-                                  <div class="card-address__action">
-                                    <div class="card-address__default"><a href="#">Назначить по умолчанию</a></div>
-                                    <div class="card-address__remove"><a href="#">Удалить </a></div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
                         </div>
                         <div class="profile__orders">
                           <div class="profile-orders">
-                            <div class="profile-orders__title"><span>Ваши заказы </span><a href="#">Все заказы</a></div>
+                            <div class="profile-orders__title"><span>Ваши заказы </span><a href="/profile-orders.html">Все заказы</a></div>
                             <div class="profile-orders__list">
                               <div class="profile-orders__item">
                                       <div class="card-order">                         
-                                        <div class="card-order__number">№12487-448А<span>от 25.07.2022</span></div>
+                                        <div class="card-order__number"><a href="profile-order.html">№12487-448А</a><span>от 25.07.2022</span></div>
                                         <div class="card-order__price"><small>товаров 2</small><strong>7 420₽</strong></div>
                                         <div class="card-order__delivery">Доставка до 16.09.2022</div>
                                         <div class="card-order__status"><span class="order-status--await">Ожидает отправки</span></div>
@@ -554,7 +552,7 @@
                               </div>
                               <div class="profile-orders__item">
                                       <div class="card-order">                         
-                                        <div class="card-order__number">№09434-823А<span>от 19.07.2022</span></div>
+                                        <div class="card-order__number"><a href="profile-order.html">№09434-823А</a><span>от 19.07.2022</span></div>
                                         <div class="card-order__price"><small>товаров 3</small><strong>1 080₽</strong></div>
                                         <div class="card-order__delivery">Доставка до 24.08.2022</div>
                                         <div class="card-order__status"><span class="order-status--shiping">В доставке</span></div>
@@ -562,7 +560,7 @@
                               </div>
                               <div class="profile-orders__item">
                                       <div class="card-order">                         
-                                        <div class="card-order__number">№20762-363А<span>от 09.05.2022</span></div>
+                                        <div class="card-order__number"><a href="profile-order.html">№20762-363А</a><span>от 09.05.2022</span></div>
                                         <div class="card-order__price"><small>товаров 1</small><strong>320₽</strong></div>
                                         <div class="card-order__delivery">24.05.2022</div>
                                         <div class="card-order__status"><span class="order-status--completed">Завершен</span></div>
@@ -856,7 +854,10 @@
                               </div>
                       </div>
                       <div class="main-menu__signin">
-                        <button class="btn btn-line">Войти</button>
+                        <div class="menu-login">
+                          <div class="menu-login__image"><a href="#"><span class="bgimage lazyload" data-bg="/img/common/svg/account.svg"></span></a></div>
+                          <div class="menu-login__name"><a href="#">Georges Simenon</a></div>
+                        </div>
                       </div>
                       <div class="main-menu__cart"><a href="#">
                           <svg width="25" height="25">

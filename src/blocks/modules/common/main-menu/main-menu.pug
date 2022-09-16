@@ -71,3 +71,79 @@ mixin main-menu(data)
 
             .main-menu__image(data-menu="sub") 
 
+mixin main-menu-lk(data)
+ 
+    .main-menu(data-menu="container")
+        .main-menu__wrp
+            
+            .main-menu__form
+                .main-menu__inner
+                    .main-menu__close: span(data-menu="close"): +icons('#ic_cross', 20)
+                    .main-menu__topbar
+                        .main-menu__lang: +change-lang
+                        .main-menu__signin
+                            .menu-login
+                                .menu-login__image: a(href='#'): +bgimage('/img/common/svg/account.svg')
+                                .menu-login__name: a(href='#') Georges Simenon
+                        .main-menu__cart
+                            a(href='#')
+                                +icons('#ic_cart-black')
+                                span.main-menu__cart-total 26
+                        
+                    .main-menu__nav(data-menu="nav")
+                        .main-menu__nav-title Продукция
+                        .main-menu__nav-list
+                             ul
+                                li
+                                    a(href='#') Каталог продукции
+                                    ul.submenu
+                                        li: a(href='#') Новинки
+                                        li: a(href='#') Самолеты
+                                        li: a(href='#') Вертолеты
+                                        li: a(href='#') Автомобили
+                                        li: a(href='#') Бронетехника
+                                li
+                                    a(href='#') Выбрать по масштабу
+                                    ul.submenu
+                                        li: a(href='#') Любой
+                                        li: a(href='#') 1/32
+                                        li: a(href='#') 1/35
+                                        li: a(href='#') 1/48
+                                        li: a(href='#') 1/72
+                                        li: a(href='#') 1/144
+                                li
+                                    a(href='#') Тип техники
+                                    ul.submenu
+                                        li: a(href='#') Самолеты
+                                        li: a(href='#') Вертолеты
+                                        li: a(href='#') Автомобили
+                                li
+                                    a(href='#') Выбрать по эпохе 
+                                    ul.submenu
+                                        li: a(href='#') Настоящее время
+                                        li: a(href='#') Вторая мировая война
+                                        li: a(href='#') Первая мировая война
+
+                        .main-menu__nav-title Покупателям
+                        .main-menu__nav-list
+                             ul
+                                li: a(href='#') Оптовикам
+                                li: a(href='#') Оплата и доставка
+                                li: a(href='#') Возврат         
+                       
+                
+
+                    .main-menu__link
+                        ul
+                            li: a(href='#') О компании
+                            li: a(href='#') Контакты
+                            li: a(href='#') Блог
+                            li: a(href='#') Юридическая информация
+                    .main-menu__social
+                        ul
+                            li: a(href='#'): +bgimage('/img/svg/ic_vk.svg')
+                            li: a(href='#'): +bgimage('/img/svg/ic_fb.svg') 
+                            li: a(href='#'): +bgimage('/img/svg/ic_ig.svg')
+
+            .main-menu__image(data-menu="sub") 
+

@@ -212,6 +212,7 @@
             font-size: 15px;
             font-weight: bold;
             color: $black;
+            white-space: nowrap;
 
             @media screen and (min-width: $w375) {
                 font-size: 18px;
@@ -376,6 +377,16 @@
             & svg {
                 margin-right: 10px;
             }
+        }
+    }
+
+    &__create {
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 3px;
+
+        & .btn {
+            width: 100%;
         }
     }
 
@@ -665,5 +676,79 @@
 
     &__country {
         font-size: 15px;
+    }
+}
+
+.page-profile-userdata {
+
+    & .profile-userdata {
+
+        max-width: 850px;
+
+
+
+        @media screen and (max-width: $w480) {
+            margin-left: -20px;
+            margin-right: -20px;
+            margin-bottom: -30px;
+
+        }
+
+        padding-top: 10px;
+
+        &__title {
+            display: none;
+        }
+
+        &__form {
+            padding-bottom: 60px;
+        }
+
+        & .u-form {
+            &__input {
+                & .btn {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+}
+
+.page-profile-addresses {
+
+    max-width: 850px;
+
+    & .profile-address {
+
+        padding-top: 10px;
+
+        &__list {
+
+            padding-bottom: 30px;
+
+            @media screen and (max-width: $w480) {
+                flex-wrap: wrap;
+                margin-right: -5px;
+            }
+        }
+
+        &__item {
+            @media screen and (max-width: $w480) {
+                width: 100%;
+            }
+        }
+
+        &__title {
+            font-weight: bold;
+            font-size: 20px;
+        }
+    }
+}
+
+a.only-mobile {
+    @media screen and (min-width: $w760) {
+        cursor: default;
+        pointer-events: none;
     }
 }

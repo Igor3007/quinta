@@ -34,3 +34,74 @@ mixin minicard(data)
 
                         .minicard__buy
                             button.btn.btn-small(data-add-to-cart="1485") В корзину
+
+
+mixin minicard-no-category(data)
+    .minicard
+        .minicard__wrp
+            .minicard__image
+                .minicard__top
+                    if data.badge
+                        .minicard__badge
+                            ul
+                                li: span(class=data.badge.class)= data.badge.text
+                    if data.code
+                        .minicard__code
+                            span Артикул: QD48294
+                .minicard__picture: +picture(data.image)
+            .minicard__main
+                .minicard__bar
+                    .minicard__tags
+                        ul
+                            each tag, index in data.tags
+                                li(class=(index == 2 ? 'minicard-tags--gray':'')): a(href='#')= tag
+                    if data.like
+                        .minicard__fav
+                            span(data-wishlist=data.id): +icons('#ic_heart-solid')
+
+                 
+                .minicard__title
+                    a(href='card-catalog.html')= data.title
+
+                if data.price
+                    .minicard__botton
+                        .minicard__price
+                            .minicard__price-old=data.price+' ₽' 
+                            .minicard__price-current=data.price+' ₽'
+
+                        .minicard__buy
+                            button.btn.btn-small(data-add-to-cart="1485") В корзину
+
+
+mixin minicard-wishlist(data)
+    .minicard(data-minicard-id=data.id)
+        .minicard__wrp
+            .minicard__image
+                .minicard__top
+                    .minicard__checkbox: +checkbox('select')
+                    .minicard__remove
+                        span(data-minicard="remove-wishlist" ): +icons('#ic_remove', 24)
+
+                .minicard__picture: +picture(data.image)
+            .minicard__main
+                .minicard__bar
+                    .minicard__tags
+                        ul
+                            each tag, index in data.tags
+                                li(class=(index == 2 ? 'minicard-tags--gray':'')): a(href='#')= tag
+                    if data.like
+                        .minicard__fav
+                            span(data-wishlist=data.id): +icons('#ic_heart-solid')
+
+                 
+                .minicard__title
+                    a(href='card-catalog.html')= data.title
+
+                if data.price
+                    .minicard__botton
+                        .minicard__price
+                            .minicard__price-old=data.price+' ₽' 
+                            .minicard__price-current=data.price+' ₽'
+
+                        .minicard__buy
+                            button.btn.btn-small(data-add-to-cart="1485") В корзину

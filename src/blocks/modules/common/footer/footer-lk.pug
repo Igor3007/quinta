@@ -1,0 +1,35 @@
+include ../main-menu/main-menu.pug
+include ../../registration/registration.pug
+include ./check-lang
+ 
+
+
+.footer
+  .container
+    .footer__top
+      .footer__nav
+        ul
+          each item in app.footerMenu
+            li: a(href=item.href)= item.text
+      .footer__social
+        .footer__social-title Будьте в курсе наших новостей
+        ul
+            li: a(href="#"): +bgimage('/img/common/svg/ic_vk.svg')
+            li: a(href="#"): +bgimage('/img/common/svg/ic_fb.svg')
+            li: a(href="#"): +bgimage('/img/common/svg/ic_ig.svg')
+    .footer__bottom
+      .footer__apps
+        ul
+          li: a(href='#'): +bgimage('/img/common/svg/apple-store.svg')
+          li: a(href='#'): +bgimage('/img/common/svg/google-store.svg')
+      .footer__lang
+        +change-lang
+
+.footer-copyright
+  .container
+    .footer-copyright__text © 2022 Quinta Studio’s Company
+    
++popup-signin()
++main-menu-lk()
+
+

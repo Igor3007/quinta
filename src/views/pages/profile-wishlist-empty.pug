@@ -1,0 +1,33 @@
+extends ../layouts/lk
+
+block variables
+  include ../../data/data.pug 
+  - const title = "Quinta"
+
+
+block content
+
+  include ../../blocks/modules/cart-empty/cart-empty
+  include ../../blocks/components/breadcrumb/breadcrumb.pug
+
+  .page
+    .page__top
+      .container
+        .page__breadcrumb: +breadcrumb([ 
+          'Главная',
+          'Личный кабинет',
+          'Избранное',
+        ])
+        .page__title: h1 Избранное
+
+    .page__main
+      .container
+       +wishlist-empty()
+  
+
+
+block scripts
+ 
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")  
+ 

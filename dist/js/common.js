@@ -975,7 +975,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-    if (document.querySelector('[data-register="close-popup"]')) {
+    if (document.querySelector('[data-register="open-popup"]')) {
 
 
         function userAuthorization() {
@@ -1323,6 +1323,42 @@ document.addEventListener("DOMContentLoaded", function (event) {
             this.totalProductElement[0].innerText = declination(this.cartArray.length, wordsArray[0], wordsArray[1], wordsArray[2])
         }
 
+        removeProducts(arrayProductId) {
+
+            this.confirm((event, modal) => {
+                arrayProductId.forEach(id => {
+                    this.cartArray.forEach((product, index) => {
+                        if (product.id == id) {
+                            this.cartArray.splice(index, 1)
+                        }
+                    })
+
+                    console.log(this.cartArray)
+                })
+
+                modal.close()
+                this.render()
+
+
+                //ajax requets on remove
+
+                window.ajax({
+                    url: '/js/suggest.json',
+                    type: 'GET', //заменить на POST
+                    data: {
+                        ids: arrayProductId
+                    }
+
+                }, function (status, response) {
+                    if (response) {
+                        console.log('remove')
+                    }
+                })
+
+            })
+
+        }
+
         confirm(success, cancel) {
 
             const confirmPopup = new customModal({
@@ -1348,7 +1384,144 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
-    const instanseCart = new Cart()
+
+
+    if (document.querySelector('.card')) {
+        const instanseCart = new Cart()
+    }
+
+    /* =========================================
+    remove product wishlist
+    =========================================*/
+
+    if (document.querySelector('[data-minicard="remove-wishlist"]')) {
+
+
+        class RemoveWishlist {
+            constructor() {
+                this.minicards = document.querySelectorAll('[data-minicard-id]');
+                this.removeAllCheckbox = document.querySelector('[data-page-wishlist="select-all"]');
+                this.removeButton = document.querySelectorAll('[data-minicard="remove-wishlist"]');
+                this.removeAllButton = document.querySelector('[data-page-wishlist="remove-selected"]');
+
+                this.init()
+            }
+
+            init() {
+                this.addEvent()
+            }
+
+
+
+            removeProducts(arrayProductId, elem) {
+
+                console.log(arrayProductId)
+
+                this.confirm((event, modal) => {
+
+
+
+                    // close popup
+                    modal.close()
+
+                    //remove element
+
+                    this.minicards.forEach(card => {
+                        if (arrayProductId.indexOf(Number(card.dataset.minicardId)) !== -1) {
+
+                            card.parentNode.classList.add('fade-out')
+
+                            setTimeout(() => {
+                                card.parentNode.remove()
+                            }, 500)
+                        }
+                    })
+
+
+
+                    //ajax requets on remove
+
+                    window.ajax({
+                        url: '/js/suggest.json',
+                        type: 'GET', //заменить на POST
+                        data: {
+                            ids: arrayProductId
+                        }
+
+                    }, function (status, response) {
+                        if (response) {
+                            console.log('remove')
+                        }
+                    })
+
+                })
+
+            }
+
+
+            addEvent() {
+
+                this.removeAllCheckbox.querySelector('input').addEventListener('change', (e) => {
+
+                    this.minicards.forEach(item => {
+                        let checkbox = item.querySelector('input[type="checkbox"]')
+                        checkbox.checked = (e.target.checked ? true : false)
+                    })
+                })
+
+                this.removeButton.forEach(item => {
+                    item.addEventListener('click', e => {
+                        const id = e.target.closest('.minicard').dataset.minicardId
+                        const elem = e.target.closest('.minicard')
+
+                        this.removeProducts([Number(id)])
+                    })
+                })
+
+                // remove selected
+
+                this.removeAllButton.addEventListener('click', (e) => {
+
+                    let idArray = [];
+
+                    this.minicards.forEach(item => {
+                        if (item.querySelector('input[type="checkbox"]:checked')) {
+                            idArray.push(Number(item.dataset.minicardId))
+                        }
+                    })
+
+                    if (idArray) {
+                        this.removeProducts(idArray)
+                    }
+                })
+            }
+
+            confirm(success, cancel) {
+
+                const confirmPopup = new customModal({
+                    mobileInBottom: true
+                })
+                const popupHtmlElement = document.querySelector('[data-form-success="remove"]')
+
+                confirmPopup.open(popupHtmlElement.outerHTML, function (instanse) {
+                    instanse.querySelector('.btn-gray').addEventListener('click', function () {
+                        confirmPopup.close()
+                    })
+
+                    //click
+                    instanse.querySelector('[data-dialog="success"]').addEventListener('click', (e) => {
+                        success(e, confirmPopup);
+                    })
+                })
+
+
+            }
+
+        }
+
+        const instanseRemoveWishlist = new RemoveWishlist()
+
+    }
 
 
 }); //ready

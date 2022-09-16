@@ -406,7 +406,7 @@
                  font-weight: bold;
                  color: #fff;
 
-                 @media screen and (min-width: $w576) {
+                 @media screen and (min-width: $w480) {
                      border: 2px solid $black;
                      color: $black;
                  }
@@ -416,7 +416,7 @@
 
                      min-width: 16px;
 
-                     @media screen and (min-width: $w576) {
+                     @media screen and (min-width: $w480) {
                          fill: $black;
                          filter: invert(1);
                      }
@@ -514,6 +514,50 @@
      & .form {
          & .btn {
              width: 100%;
+         }
+     }
+ }
+
+ .menu-login {
+     display: flex;
+     align-items: center;
+
+     &__image {
+
+         & .bgimage {
+             min-width: 36px;
+             width: 36px;
+             height: 36px;
+             border-radius: 50%;
+             @include bgimage-cover;
+
+
+         }
+
+         margin-right: 15px;
+
+     }
+
+     &__name {
+         font-size: 13px;
+         font-weight: bold;
+
+         &:hover {
+             text-decoration: underline;
+         }
+
+         & a {
+             color: #fff;
+             max-width: 160px;
+             overflow: hidden;
+             text-overflow: ellipsis;
+             white-space: nowrap;
+             display: block;
+
+             @media screen and (min-width: $w480) {
+                 color: $black;
+                 max-width: 250px;
+             }
          }
      }
  }

@@ -1,0 +1,233 @@
+.order-details {
+
+    margin-bottom: 60px;
+
+
+    &__wrp {
+        @media screen and (min-width: $w1200) {
+            display: flex;
+            margin: -15px;
+
+            &>div {
+                padding: 15px;
+            }
+        }
+    }
+
+    &__aside {
+        @media screen and (min-width: $w1200) {
+            width: 34%;
+            max-width: 440px;
+            min-width: 360px;
+
+        }
+
+        @media screen and (min-width: $w1440) {
+            min-width: 440px;
+        }
+
+        & .profile-info {
+            display: none;
+            background-color: #fff;
+            padding: 30px;
+
+            @media screen and (min-width: $w1200) {
+                display: block;
+            }
+        }
+    }
+
+    &__content {
+        flex-grow: 1;
+    }
+
+    //========
+
+
+
+
+
+
+
+}
+
+
+
+
+.order-aside {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 3px;
+
+
+
+
+
+    @media screen and (min-width: $w992) {
+        position: sticky;
+        padding: 30px;
+        top: 30px;
+    }
+
+    &__wrp {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__ticket {
+
+        order: 5;
+
+        & a {
+            font-size: 13px;
+            font-weight: bold;
+            color: $link-blue;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 15px;
+    }
+
+    &__subtitle {
+        font-size: 15px;
+        padding-bottom: 15px;
+    }
+
+    &__prop {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        align-items: center;
+
+        border-bottom: 1px solid rgba(17, 27, 41, 0.1);
+        margin-bottom: 15px;
+    }
+
+    &__status {
+        & span {
+            display: flex;
+            padding: 0 15px;
+            background-color: #eee;
+            height: 40px;
+            align-items: center;
+            margin-right: auto;
+            color: rgba(17, 27, 41, 0.5);
+            position: relative;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 3px 3px;
+            line-height: 110%;
+
+            &.order-status {
+                &--await {
+                    background: #FFEBD5;
+                }
+
+                &--shiping {
+                    background: #D3FFD2;
+                }
+
+                &--complete {
+                    background: rgba(17, 27, 41, 0.1);
+                }
+            }
+
+        }
+    }
+
+    &__delivery {
+        /* Font grey */
+        color: rgba(17, 27, 41, 0.5);
+        font-size: 13px;
+
+    }
+
+    &__details {
+        @media screen and (min-width: $w992) {
+            order: 1;
+        }
+    }
+
+    &__more {
+
+        padding-bottom: 20px;
+
+        & ul {
+            & li {
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 7px;
+                font-size: 15px;
+
+                &:last-child {
+                    padding-bottom: 0;
+                }
+
+            }
+        }
+    }
+
+    &__total {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 15px;
+        border-top: 1px solid rgba(17, 27, 41, 0.1);
+
+        @media screen and (min-width: $w992) {
+            order: 3;
+
+            padding-top: 17px;
+        }
+
+        & span {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        & strong {
+            font-size: 20px;
+
+            &::after {
+                content: attr(data-currency);
+                margin-left: 0.3em;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+}
+
+.order-products {
+
+    padding-top: 40px;
+
+    @media screen and (min-width: $w992) {
+        padding-top: 0;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: 600;
+        padding-bottom: 25px;
+    }
+
+    &__item {
+        padding-bottom: 10px;
+    }
+
+    &__list {}
+}

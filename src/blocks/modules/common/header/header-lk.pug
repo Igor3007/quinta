@@ -1,0 +1,168 @@
+-
+  const search = {
+    cat: {
+      title: 'Категория',
+      prop: [
+        'Цветные 3D интерьеры',
+        'Деталировка сидений',
+        'Элементы экстерьера',
+        'Остекление кабин',
+        'Традиционные декали',
+        'Заклепки 3D',
+      ]
+    },
+    //===============================
+    scale: {
+      title: 'Масштаб',
+      prop: [
+        'Любой',
+        '1/32',
+        '1/35',
+        '1/48',
+        '1/72',
+        '1/144',
+      ]
+    },
+    //===============================
+    sale: {
+      title: 'Скидки и акции',
+      prop: [
+        'Скидка',
+        'Новинка',
+        'Хип продаж',
+      ]
+    },
+    //===============================
+    model: {
+      title: 'Тип модели',
+      prop: [
+        'Самолеты',
+        'Вертолеты',
+        'Автомобили',
+        'Бронетехника',
+      ]
+    },
+    //===============================
+    years: {
+      title: 'Эпоха',
+      prop: [
+        'Настоящее время',
+        'Вторая мировая война',
+        'Первая мировая война',
+      ]
+    },
+    //===============================
+    complexity: {
+      title: 'Сложность',
+      prop: [
+        'Легкая',
+        'Средняя',
+        'Сложная',
+      ]
+    },
+    //===============================
+    compatibility: {
+      title: 'Совместимость с моделями',
+      prop: [
+        'Для любой модели',
+        'Tamiya',
+        'Italeri',
+        'Trumpeter',
+        'Eduard',
+        'Hasegawa',
+        'Dragon',
+        'HobbyBoss',
+        'Trimaster',
+        'Revell',
+        'H.G.W.',
+        'Kinetic',
+        'Звезда',
+      ]
+    },
+    //===============================
+  }
+
+mixin hs-extend(data, modify)
+  .hs-extend
+    .hs-extend__name= data.title
+    .hs-extend__prop(class="hs-extend__prop--col"+modify)
+      ul
+        each item in data.prop
+          li: +checkbox(item)
+
+.header-top
+  .container
+    .header
+      .header__menu
+        .btn-burger(data-menu="btn") 
+          i
+          i
+          i
+      .header__logo
+        a(href='/'): +bgimage('/img/common/svg/logo.svg')
+      .header__nav
+        .header__nav-container
+          nav
+            ul
+              each item in app.mainMenu
+                li: a(href=item.href)= item.text
+      .header__login
+        a(href="profile.html" title="George Georges"): +bgimage('/img/common/svg/account.svg')
+      .header__cart
+        a(href='#')
+           +icons('#ic_cart')
+           span.header__cart-total 26
+
+
+
+
+
+
+
+.header-search
+  .header-search-field
+    .container
+      .header-find
+          .header-find__form
+            .header-find__input: input(type="text" placeholder="Поиск" data-suggest="input")
+            .header-find__btn: span: +icons('#ic_search')
+            .header-find__params(data-find-params="open"): span: +icons('#ic_find-params')
+          .header-find__suggest(data-suggest="container")
+            .find-suggest
+              .find-suggest__list
+                ul(data-suggest="result")
+                 
+
+  .header-search-extend(data-find-params="container")
+    .container
+      .search-extend
+        .search-extend__title Расширенный поиск
+        .search-extend__form
+          form(action='#' method='POST')
+            .search-extend__container
+              .search-extend__col
+                  +hs-extend(search.cat, '2')
+                  +hs-extend(search.scale, '3')
+                  +hs-extend(search.sale, '3')
+              .search-extend__col
+                +hs-extend(search.model, '3')
+                +hs-extend(search.years, '2')
+                +hs-extend(search.complexity, '3')
+              .search-extend__col
+                +hs-extend(search.compatibility, '2')
+                .search-extend__btn
+                  button.btn Применить
+            
+              
+  
+
+.header__nav-mobile
+  .container
+    ul
+      each item in app.mainMenu
+        li: a(href=item.href)= item.text
+
+
+
+
+

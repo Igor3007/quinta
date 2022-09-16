@@ -1,0 +1,32 @@
+extends ../layouts/lk
+
+block variables
+  include ../../data/data.pug
+  - const title = "Личный кабинет - Quinta" 
+
+
+block content
+
+  include ../../blocks/components/breadcrumb/breadcrumb.pug
+  include ../../blocks/modules/user-orders/user-orders
+
+  .page
+    .page__top
+      .container
+        .page__breadcrumb: +breadcrumb([ 
+          'Главная',
+          'Личный кабинет',
+          'Ваши заказы',
+        ])
+        .page__title: h1 Ваши заказы
+    .page__main
+      .container
+        +user-orders()
+         
+ 
+
+block scripts
+ 
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")  
+ 

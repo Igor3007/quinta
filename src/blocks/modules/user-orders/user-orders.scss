@@ -1,0 +1,47 @@
+.user-orders {
+    max-width: 850px;
+    margin-bottom: 50px;
+
+    &__list {
+        display: flex;
+        margin: -5px;
+        padding-bottom: 5px;
+        flex-wrap: wrap;
+
+
+
+        @media screen and (min-width: $w1200) {
+            flex-direction: column;
+        }
+    }
+
+    &__item {
+        padding: 5px;
+
+        width: 100%;
+
+        @media screen and (min-width: $w760) {
+            width: 50%;
+            min-width: 50%;
+        }
+
+        @media screen and (min-width: $w992) {
+            width: 33.33%;
+            min-width: 33.33%;
+        }
+
+        @media screen and (min-width: $w1200) {
+            width: 100%;
+        }
+    }
+
+    & .order-status {
+
+        &--completed,
+        &--shiping {
+            max-width: 105px;
+            text-align: center;
+            justify-content: center;
+        }
+    }
+}

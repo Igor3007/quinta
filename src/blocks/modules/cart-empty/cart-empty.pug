@@ -4,4 +4,12 @@ mixin cart-empty
         .cart-empty__title В корзине пока ничего нет
         .cart-empty__desc Начните с главной страницы или <br> воспользуйтесь поиском
         .cart-empty__btn
-          a(href='#'): button.btn Перейти на главную
+          a(href='/'): button.btn Перейти на главную
+
+mixin wishlist-empty
+    .cart-empty 
+        .cart-empty__image: +bgimage('/img/common/svg/wishlist-empty.svg')
+        .cart-empty__title Ничего нет
+        .cart-empty__desc В списке пока нет ни одного <br> избранного товара   
+        .cart-empty__btn
+          a(href='/'): button.btn Перейти на главную

@@ -1,0 +1,62 @@
+mixin cart-item-2(item)
+    .cart-item.cart-item--order
+        .cart-item__wrp
+             
+            .cart-item__main
+                .cart-item__image: +picture(item.image)
+                .cart-item__inner
+                    .cart-item__title: a(href='#')= item.title
+                    .cart-item__tags
+                        ul
+                            each tag,index in item.tags 
+                                li(class=(index==2 ? 'active':'')): a(href='#')= tag
+                .cart-item__prop
+                    .cart-item__price
+                         
+                        .cart-item__price-current
+                            span(data-cart="price-current")= item.price
+                            | ₽
+                    .cart-item__counter
+                        span 2 шт
+
+
+mixin order-details
+    .order-details
+        .order-details__wrp
+            .order-details__aside: +order-details-aside()
+            .order-details__content
+                .order-products
+                    .order-products__title Товары в заказе
+                    .order-products__list
+                        each item in app.catalog
+                            .order-products__item: +cart-item-2(item)
+
+
+mixin order-details-aside
+    .order-aside
+        .order-aside__wrp
+            .order-aside__details
+                .order-aside__subtitle Заказ от 25.07.2022
+                .order-aside__prop
+                    .order-aside__status 
+                        span.order-status--await Ожидает отправки
+                    .order-aside__delivery Доставка до 16.09.2022
+                .order-aside__more
+                    ul
+                        li
+                            span(data-order="total-product" data-declination="товар,товара,товаров") 4 товара
+                            strong 7 420 ₽
+                        li
+                            span Скидка
+                            strong(class="order-red") - 60 ₽ 
+                        li
+                            span Доставка
+                            strong 489 ₽ 
+            
+
+            .order-aside__total
+                span Оплачено
+                strong(data-currency="₽" data-cart="total-price") 7 849 ₽
+            .order-aside__ticket
+                a(href='#') Электронный чек 
+

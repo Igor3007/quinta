@@ -127,6 +127,19 @@ header {
 
     &__login {
 
+        & a {
+            & .bgimage {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                @include bgimage-cover;
+
+                @media screen and (min-width: $w576) {
+                    margin-right: 15px;
+                }
+            }
+        }
+
         span {
             width: 40px;
             height: 40px;
@@ -459,7 +472,7 @@ header {
 
     border-bottom: 1px solid #eee;
     margin-top: 15px;
-    min-height: 135px;
+    min-height: 145px;
 
     &__name {
         font-weight: 500;
@@ -476,10 +489,10 @@ header {
             display: flex;
             flex-wrap: wrap;
 
-            margin: -5px;
+            margin: -7px;
 
             & li {
-                padding: 5px;
+                padding: 7px;
                 flex-basis: 150px;
                 flex-grow: 1;
 

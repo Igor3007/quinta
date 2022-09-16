@@ -13,6 +13,33 @@
 
     & li {
 
+        @media screen and (max-width: $w760) {
+            display: none;
+
+            &:nth-last-child(2) {
+                display: block;
+                display: flex;
+                align-items: center;
+
+                &::after {
+                    display: none;
+                }
+
+                &::before {
+                    display: inline;
+                    content: '';
+                    font-weight: 600;
+                    width: 18px;
+                    height: 18px;
+                    @include bgimage-contain;
+                    margin-right: 10px;
+                    position: relative;
+                    top: 1px;
+                    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE2LjQ4NiA5Ljc1MkgzLjMxMUw1Ljc4IDEyLjIyYy43MDkuNzA5LS4zNTUgMS43NzItMS4wNjQgMS4wNjNsLTIuMjQ4LTIuMjUxLTEuNS0xLjUwM2EuNzUuNzUgMCAwMTAtMS4wNThsMy43NDgtMy43NTNhLjc1Ljc1IDAgMDEuNTQ0LS4yMjcuNzUuNzUgMCAwMS41MiAxLjI5bC0yLjQ3NSAyLjQ3aDEzLjIyYzEuMDQuMDUuOTYyIDEuNTUyLS4wMzkgMS41eiIgZmlsbD0iIzE1NkZCMCIvPjwvc3ZnPg==);
+                }
+            }
+        }
+
         & a {
 
             color: $blue;

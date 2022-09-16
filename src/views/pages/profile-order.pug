@@ -1,0 +1,33 @@
+extends ../layouts/lk
+
+block variables
+  include ../../data/data.pug
+  - const title = "Личный кабинет - Quinta" 
+
+
+block content
+
+  include ../../blocks/components/breadcrumb/breadcrumb.pug
+  include ../../blocks/modules/order-details/order-details
+
+  .page
+    .page__top
+      .container
+        .page__breadcrumb: +breadcrumb([ 
+          'Главная',
+          'Личный кабинет',
+          'Ваши заказы',
+          'Заказ №09434-823А',
+        ])
+        .page__title: h1 Заказ №09434-823А
+    .page__main
+      .container
+        +order-details 
+         
+ 
+
+block scripts
+ 
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")  
+ 

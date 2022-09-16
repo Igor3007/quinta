@@ -1,4 +1,4 @@
-extends ../layouts/site
+extends ../layouts/lk
 
 block variables
   include ../../data/data.pug
@@ -8,7 +8,7 @@ block variables
 block content
 
   include ../../blocks/components/breadcrumb/breadcrumb.pug
-  include ../../blocks/modules/profile/profile
+  include ../../blocks/modules/page-wishlist/page-wishlist
 
   .page
     .page__top
@@ -21,6 +21,7 @@ block content
         .page__title: h1 Избранное
     .page__main
       .container
+        +page-wishlist()
          
  
 

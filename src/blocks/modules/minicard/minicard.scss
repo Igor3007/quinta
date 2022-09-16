@@ -296,5 +296,15 @@
         }
     }
 
+    &__remove {
+        cursor: pointer;
+    }
+
+    &__checkbox {
+        & .checkbox__text {
+            display: none;
+        }
+    }
+
 
 }
