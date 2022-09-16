@@ -1386,7 +1386,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-    if (document.querySelector('.card')) {
+    if (document.querySelector('.cart')) {
         const instanseCart = new Cart()
     }
 
