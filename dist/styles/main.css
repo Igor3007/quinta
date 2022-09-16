@@ -6547,6 +6547,7 @@ footer {
   padding: 20px;
   border-radius: 3px;
   margin-top: 20px;
+  margin-top: 40px;
 }
 
 .checkout-aside__wrp {
@@ -6741,6 +6742,7 @@ footer {
 
 .checkout-user__profile span {
   display: none;
+  margin-right: 15px;
 }
 
 .profile__aside .profile-info {
@@ -8339,21 +8341,44 @@ footer {
   .checkout__aside {
     width: 34%;
     max-width: 440px;
-    min-width: 300px;
+    min-width: 340px;
+  }
+
+  .checkout__content {
+    display: flex;
+    flex-direction: column;
   }
 
   .checkout__note {
     font-size: 13px;
   }
 
-  .checkout-aside {
-    padding: 30px;
+  .checkout__user {
+    order: 0;
+    padding-bottom: 50px;
+  }
+
+  .checkout__address {
+    order: 1;
+  }
+
+  .checkout__delivery {
+    order: 2;
+  }
+
+  .checkout__payment {
+    order: 3;
+  }
+
+  .checkout__order {
+    order: 4;
   }
 
   .checkout-aside {
     position: sticky;
-    margin-top: 40px;
+    margin-top: 0;
     top: 30px;
+    padding: 30px;
   }
 
   .checkout-aside__details {
@@ -8366,11 +8391,46 @@ footer {
   }
 
   .checkout-radio {
-    padding-bottom: 35px;
+    padding-bottom: 50px;
   }
 
   .checkout-radio__title {
     font-size: 24px;
+  }
+
+  .checkout-user {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 3px;
+  }
+
+  .checkout-user__name {
+    font-size: 15px;
+  }
+
+  .checkout-user__profile {
+    display: flex;
+    align-items: center;
+  }
+
+  .checkout-user__profile a {
+    width: auto;
+    height: auto;
+    border-radius: 0;
+  }
+
+  .checkout-user__profile a:hover {
+    background-color: transparent;
+  }
+
+  .checkout-user__profile a:hover span {
+    text-decoration: underline;
+  }
+
+  .checkout-user__profile span {
+    display: inline;
+    font-weight: bold;
+    color: #367fbd;
   }
 
   .profile-dashbord {
