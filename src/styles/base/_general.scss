@@ -148,7 +148,7 @@ input[type="date"] {
 .formated-text {
 
     & * {
-        line-height: 140%;
+        line-height: 160%;
     }
 
     & h1,
@@ -263,7 +263,7 @@ input[type="date"] {
     & p {
         margin: 20px 0;
         color: $black;
-        line-height: 150%;
+
 
         @media screen and (min-width: $w760) {
             font-size: 16px;
@@ -272,7 +272,7 @@ input[type="date"] {
 
     & ul {
 
-        padding: 20px 0;
+        padding: 0px 0;
 
         @media screen and (min-width: $w760) {
             padding-top: 20px;
@@ -283,11 +283,12 @@ input[type="date"] {
             position: relative;
             padding-left: 20px;
             font-size: 14px;
-            padding-bottom: 15px;
+            padding-bottom: 5px;
 
             @media screen and (min-width: $w760) {
                 font-size: 16px;
                 padding-left: 18px;
+                padding-bottom: 15px;
             }
 
             &:last-child {

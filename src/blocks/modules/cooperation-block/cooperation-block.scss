@@ -1,5 +1,10 @@
 .cooperation-block {
 
+    @media screen and (min-width: $w992) {
+        padding-top: 13px;
+
+    }
+
     &__btn {
         & .btn {
             width: 100%;
@@ -7,6 +12,10 @@
             @media screen and (min-width: $w480) {
                 width: auto;
             }
+        }
+
+        @media screen and (max-width: $w480) {
+            display: none !important;
         }
     }
 
@@ -19,12 +28,16 @@
     &__form {
 
         background-color: #fff;
-        margin: 0 -20px;
+        margin: 0 -15px;
         padding: 20px;
         margin-top: 40px;
 
         &:not(.open) {
             display: none;
+        }
+
+        @media screen and (max-width: $w480) {
+            display: block !important;
         }
 
 
@@ -40,7 +53,9 @@
         }
 
         & .checkbox {
-            margin: 15px 0;
+            @media screen and (min-width: $w760) {
+                margin: 15px 0;
+            }
         }
     }
 
@@ -64,6 +79,9 @@
     & textarea {
         height: 80px;
         min-height: 80px;
+
+        color: $black;
+
     }
 
     & .popup-success {
@@ -132,4 +150,8 @@
             cursor: pointer;
         }
     }
+}
+
+.formated-text p:first-child {
+    margin-top: 0;
 }

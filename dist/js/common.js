@@ -114,7 +114,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
 
+    /* ==============================================
+    data-spiler
+    ==============================================*/
 
+
+    if (document.querySelector('[data-spoiler="btn"]')) {
+        let text = document.querySelector('[data-spoiler="text"]')
+
+        document.querySelectorAll('[data-spoiler="btn"]').forEach(item => {
+            item.addEventListener('click', function (e) {
+                item.classList.toggle('is-active')
+                e.preventDefault()
+                e.target.closest('[data-spoiler="container"]').querySelector('[data-spoiler="text"]').classList.toggle('no-lineclamp-text')
+            })
+        })
+    }
 
     /* ==============================================
     mobile menu
@@ -1139,9 +1154,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
         constructor() {
             this.products = document.querySelectorAll('[data-product-id]');
             this.totalPriceElement = document.querySelectorAll('[data-cart="total-price"]');
+            this.costProductElement = document.querySelectorAll('[data-cart="cost-product"]');
+
+
             this.totalProductElement = document.querySelectorAll('[data-cart="total-product"]');
             this.removeSelectedElement = document.querySelector('[data-cart="remove-selected"]');
             this.selectAllElement = document.querySelector('[data-cart="select-all"]');
+
+            this.promocodeInput = document.querySelector('[data-cart="promocode-input"]');
+            this.promocodeSend = document.querySelector('[data-card="promocode-send"]');
+
+            this.discountElement = document.querySelectorAll('[data-cart="discount"]');
+            this.discount = 60; //скидка
+
             this.cartArray = new Array();
             this.init()
         }
@@ -1248,6 +1273,64 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         }
 
+        promocode(e) {
+
+            let form = e.target.closest('.form')
+
+            if (e.target.value.length) {
+                this.promocodeAddStatus('status-promocode--send', form)
+            } else {
+                this.promocodeClearStatus(form)
+            }
+
+        }
+
+        promocodeClearStatus(form) {
+            form.classList.forEach(item => {
+                if (item != 'form') form.classList.remove(item)
+            })
+        }
+
+        promocodeAddStatus(status, form) {
+            this.promocodeClearStatus(form);
+            form.classList.add(status)
+
+            if (status == 'status-promocode--error') {
+                form.parentNode.querySelector('.error').style.display = 'block'
+            } else {
+                form.parentNode.querySelector('.error').style.display = 'none'
+            }
+        }
+
+        sendPromocode(e) {
+
+            let form = e.target.closest('.form')
+            let input = form.querySelector('input')
+
+            this.promocodeAddStatus('status-promocode--loading', form)
+
+            //setTimeout имитирует ajax запрос
+
+            setTimeout(() => {
+
+                if (input.value == '111') {
+                    this.promocodeAddStatus('status-promocode--success', form)
+                    input.value = "Промокод готов"
+                    input.setAttribute('disabled', true)
+
+                    //обновить скидку
+                    this.discount = 300;
+                    this.render()
+
+                } else {
+                    this.promocodeAddStatus('status-promocode--error', form)
+
+                }
+
+            }, 1000)
+
+        }
+
         getTotalPrice() {
             let initialValue = 0
 
@@ -1255,7 +1338,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 initialValue += (Number(item.total) * Number(item.price))
             })
 
-            return initialValue
+            let totalCost = initialValue - this.discount;
+            let costProducts = initialValue;
+
+            return {
+                costProducts,
+                totalCost
+            }
         }
 
         addEvent() {
@@ -1294,6 +1383,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     checkbox.checked = (e.target.checked ? true : false)
                 })
             })
+
+
+            this.promocodeInput.addEventListener('keyup', e => {
+                this.promocode(e)
+            })
+
+            this.promocodeSend.addEventListener('click', e => {
+                this.sendPromocode(e)
+            })
+
         }
 
         setAsideData() {
@@ -1318,7 +1417,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 return "";
             }
 
-            this.totalPriceElement[0].innerText = this.getTotalPrice()
+
+            this.costProductElement.forEach(item => {
+                item.innerText = this.getTotalPrice().costProducts
+            })
+
+            this.totalPriceElement.forEach(item => {
+                item.innerText = this.getTotalPrice().totalCost
+            })
+
+            this.discountElement.forEach(item => {
+                item.innerText = this.discount
+            })
+
             let wordsArray = this.totalProductElement[0].dataset.declination.split(',')
             this.totalProductElement[0].innerText = declination(this.cartArray.length, wordsArray[0], wordsArray[1], wordsArray[2])
         }
@@ -1535,7 +1646,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         const formElement = document.querySelector('[data-popup="create-address"]')
 
-        document.querySelector('.checkout-radio__title a').addEventListener('click', function (e) {
+        document.querySelector('[data-create-address="open"]').addEventListener('click', function (e) {
             e.preventDefault()
 
             createAddressPopup.open(formElement.outerHTML, function (instanse) {

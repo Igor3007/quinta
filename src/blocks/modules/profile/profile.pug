@@ -1,3 +1,5 @@
+include ../checkout/checkout.pug
+
 mixin profile
     .profile
         .profile__wrp
@@ -19,11 +21,14 @@ mixin profile
                 .profile__info
                     +profile-info()
 
+    .profile-create-address
+        +create-address 
+
 mixin profile-addresses()
     .profile-address
         .profile-address__title
             span Ваши адреса
-            a(href='#')
+            a(href='#' data-create-address="open")
                 +icons('#ic_plus', 32)
                 | Добавить новый адрес  
         .profile-address__list
@@ -71,8 +76,8 @@ mixin card-order(data)
             a(href='profile-order.html')= data.number 
             span= data.created
         .card-order__price
-            small= 'товаров ' + data.total 
-            strong= data.price + '₽'         
+            small= data.total 
+            strong= data.price + ' ₽'         
         .card-order__delivery= data.delivery              
         .card-order__status
             span(class='order-status--'+data.status)=data.statusText            

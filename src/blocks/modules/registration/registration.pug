@@ -63,9 +63,9 @@ mixin register-user
                         'Украина'
                     ])
                     .form__label Как вас зовут
-                    .form__item: .form__subitem: +input-material('text', 'Имя')
-                    .form__item: .form__subitem: +input-material('text', 'Фамилия')
-                    .form__item: .form__subitem: +input-material('text', 'Отчество, если есть*')
+                    .form__item: .form__subitem: input(type='text', placeholder='Имя')
+                    .form__item: .form__subitem: input(type='text', placeholder='Фамилия')
+                    .form__item: .form__subitem: input(type='text', placeholder='Отчество, если есть*')
                     .form__item: .form__subitem: .form__note * требуется для отправки Почтой России
                     .form__item: .form__subitem: button(type="submit").btn Перейти в личный кабинет
                      

@@ -299,6 +299,10 @@
 
              & li {
                  padding: 5px;
+
+                 @media screen and (min-width: $w992) {
+                     padding: 5px 15px;
+                 }
              }
 
              & a {
@@ -333,6 +337,10 @@
 
              & li {
                  padding: 5px;
+
+                 @media screen and (min-width: $w992) {
+                     padding: 5px 10px;
+                 }
 
                  & a {
                      width: 30px;

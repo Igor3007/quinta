@@ -45,8 +45,8 @@ mixin cart-aside
             .cart-aside__promocode
                 form(action='#' method='POST')
                     .form
-                        .cart-aside__input: input(type="text" placeholder="Промокод")
-                        .cart-aside__send: span(data-text="Применить")
+                        .cart-aside__input: input(type="text" placeholder="Промокод (111)" data-cart="promocode-input")
+                        .cart-aside__send: span(data-text="Применить" data-card="promocode-send")
                     .error Промокод не найден
 
             .cart-aside__checkout
@@ -59,10 +59,10 @@ mixin cart-aside
                     ul
                         li
                             span(data-cart="total-product" data-declination="товар,товара,товаров") 0
-                            strong 7 420 ₽
+                            strong <i data-cart="cost-product" >0</i> ₽
                         li
                             span Скидка
-                            strong(class="cart-red") - 60 ₽ 
+                            strong(class="cart-red") - <i data-cart="discount" >0</i> ₽ 
             
 
             .cart-aside__total

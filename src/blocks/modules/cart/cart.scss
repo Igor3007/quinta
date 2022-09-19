@@ -131,6 +131,7 @@
             width: 70px;
             align-items: center;
             justify-content: center;
+            color: #999;
         }
 
         display: flex;
@@ -374,6 +375,7 @@
             color: $red;
             font-size: 12px;
             display: none;
+            padding-top: 5px;
         }
     }
 
@@ -396,6 +398,10 @@
 
                 &:last-child {
                     padding-bottom: 0;
+                }
+
+                & i {
+                    font-style: normal;
                 }
 
             }
@@ -453,6 +459,136 @@
     }
 
 
+    & .status-promocode {
+        &--send {
+
+            position: relative;
+
+            & .cart-aside {
+                &__send {
+                    & span {
+                        display: block;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        font-weight: 600;
+                        font-size: 14px;
+                        color: $link-blue;
+                        cursor: pointer;
+
+                        height: 100%;
+                        padding: 0 15px;
+                        display: flex;
+                        align-items: center;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+
+                        &::before {
+                            content: attr(data-text);
+                        }
+                    }
+                }
+            }
+        }
+
+        &--loading {
+
+            & .cart-aside {
+                &__input {
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        width: 14px;
+                        min-width: 14px;
+                        height: 14px;
+                        border: 2px solid $blue;
+                        border-radius: 50%;
+                        border-left-color: transparent !important;
+
+                        transition: transform 0.5s linear;
+                        animation: 0.5s linear loadingrotate infinite;
+                        display: inline-block;
+                        white-space: nowrap;
+                        flex-wrap: nowrap;
+                        position: absolute;
+                        right: 15px;
+                        top: 50%;
+                        margin-top: -9px;
+
+                    }
+                }
+            }
+
+
+        }
+
+        &--error {
+
+            & .cart-aside {
+                &__input {
+
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        width: 12px;
+                        height: 12px;
+                        @include bgimage-contain;
+                        position: absolute;
+                        right: 15px;
+                        top: 50%;
+                        margin-top: -6px;
+                        background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.32166 6.00059L11.8083 1.51376C11.9317 1.39024 11.9998 1.22546 12 1.04976C12 0.873952 11.9319 0.708977 11.8083 0.585659L11.4151 0.192586C11.2915 0.0687814 11.1267 0.000976562 10.9508 0.000976562C10.7752 0.000976562 10.6104 0.0687814 10.4868 0.192586L6.00019 4.67912L1.51337 0.192586C1.38995 0.0687814 1.22507 0.000976562 1.04927 0.000976562C0.873658 0.000976562 0.70878 0.0687814 0.585366 0.192586L0.192 0.585659C-0.064 0.841659 -0.064 1.25805 0.192 1.51376L4.67873 6.00059L0.192 10.4872C0.0684878 10.6109 0.000487805 10.7757 0.000487805 10.9514C0.000487805 11.1271 0.0684878 11.2919 0.192 11.4155L0.585268 11.8086C0.708683 11.9323 0.873658 12.0002 1.04917 12.0002C1.22498 12.0002 1.38985 11.9323 1.51327 11.8086L6.0001 7.32195L10.4867 11.8086C10.6103 11.9323 10.7751 12.0002 10.9507 12.0002H10.9509C11.1266 12.0002 11.2914 11.9323 11.415 11.8086L11.8082 11.4155C11.9316 11.292 11.9997 11.1271 11.9997 10.9514C11.9997 10.7757 11.9316 10.6109 11.8082 10.4873L7.32166 6.00059Z' fill='%23111B29' fill-opacity='0.5'/%3E%3C/svg%3E%0A");
+                    }
+
+                    & input {
+                        color: $red;
+                    }
+                }
+            }
+
+            & input {
+                background: #FFE7E8;
+                border: 2px solid #F2B8BA;
+                border-radius: 3px;
+            }
+
+        }
+
+        &--success {
+
+            & .cart-aside {
+                &__input {
+
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        width: 20px;
+                        height: 20px;
+                        @include bgimage-contain;
+                        position: absolute;
+                        right: 15px;
+                        top: 50%;
+                        margin-top: -10px;
+                        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10 0C4.48438 0 0 4.48438 0 10C0 15.5156 4.48438 20 10 20C15.5156 20 20 15.5156 20 10C20 4.48438 15.5156 0 10 0Z' fill='%2368B66C'/%3E%3Cpath d='M8.07422 14.5742C6.79688 13.2969 5.52734 12.0078 4.24609 10.7305C4.10547 10.5898 4.10547 10.3555 4.24609 10.2148L5.71875 8.74219C5.85938 8.60156 6.09375 8.60156 6.23438 8.74219L8.33984 10.8477L13.7539 5.42969C13.8984 5.28906 14.1289 5.28906 14.2734 5.42969L15.75 6.90625C15.8945 7.05078 15.8945 7.28125 15.75 7.42187L8.58984 14.5742C8.44922 14.7187 8.21875 14.7187 8.07422 14.5742Z' fill='white'/%3E%3C/svg%3E%0A");
+                    }
+
+                    & input {
+                        font-weight: 500 !important;
+                    }
+                }
+            }
+
+            & input {
+                background: #D3FFD2;
+            }
+        }
+    }
+
 
 }
 
@@ -460,16 +596,19 @@
 
 /* ================= colors ================= */
 
+.order-red,
 .checkout-red,
 .cart-red {
     color: $red;
 }
 
+.order-green,
 .checkout-green,
 .cart-green {
     color: $green;
 }
 
+.order-orange,
 .checkout-orange,
 .cart-orange {
     color: $orange;

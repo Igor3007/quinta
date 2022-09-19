@@ -19,7 +19,7 @@ input {
         font-size: 14px;
         padding-left: rem(15);
         padding-right: rem(15);
-        border: 1px solid #F0F2F3;
+        border: 2px solid #F0F2F3;
         border-radius: 5px;
         background: #F0F2F3;
         box-sizing: border-box;
@@ -29,11 +29,20 @@ input {
 
 
 
-
+        &:focus {
+            border: 2px solid #cfd9e0;
+            background: transparent;
+        }
 
 
         &::placeholder {
             color: $main;
+        }
+
+        &.error {
+            background: #FFE7E8;
+            border: 2px solid #F2B8BA;
+            border-radius: 3px;
         }
     }
 
@@ -91,6 +100,18 @@ input {
         line-height: 140%;
 
         background-color: $bg-gray;
+
+        &::placeholder {
+            color: $main;
+        }
+
+        &:focus {
+            border: 2px solid #cfd9e0;
+            background: transparent;
+        }
+
+
+
 
         &:focus {
             outline: none !important;
@@ -313,6 +334,11 @@ input {
         transform: translateY(15px);
         color: #525166;
 
+        &:focus {
+            border: none;
+            background: transparent;
+        }
+
         &:invalid {
             box-shadow: none !important;
         }
@@ -322,6 +348,8 @@ input {
 
     & input:focus {
         outline: none;
+        border: none;
+        background: transparent;
     }
 
     & label {

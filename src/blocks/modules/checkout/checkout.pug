@@ -11,7 +11,7 @@ mixin checkout
                     .checkout-radio
                         .checkout-radio__title
                             span Адрес доставки
-                            a(href='#')
+                            a(href='#' data-create-address="open")
                                 +icons('#ic_plus', 32)
                                 | Добавить новый адрес  
                         .checkout-radio__option
@@ -60,37 +60,8 @@ mixin checkout
                         | а так же с 
                         a(href='#') Политикой в отношении персональных данных
             .checkout__aside: +checkout-aside()
-    
     .checkout-create-address
-        .create-address(data-popup="create-address")
-            .create-address__create
-                .create-address__title Новый адрес
-                .create-address__form
-                    form(action='#' method='POST')
-                        .form
-                            .form__item
-                                .form__subitem
-                                    select( data-find="true" name="country")
-                                        option(value="") Выберите
-                                        option(value="") Бельгия
-                                        option(value="") Россия
-                                        option(value="") Самали
-                                        option(value="") Уругвай
-                                        option(value="") Бельгия
-                                        option(value="") Казахстан
-                                        option(value="") Украина
-                                        option(value="") Польша
-                                        option(value="") Бельгия
-                                        option(value="") Молдова
-                                        option(value="") Бельгия
-                                .form__subitem: +input-material('text', 'Адрес')
-                            .form__item
-                                .form__subitem: +input-material('text', 'Город')
-                                .form__subitem: +input-material('text', 'Штат/Регион')
-                            .form__item
-                                .form__subitem: +input-material('text', 'Индекс/ZIP')
-                                .form__subitem
-                                    button.btn(type="submit" ) Добавить
+        +create-address
 
 mixin checkout-aside
     .checkout-aside
@@ -100,7 +71,7 @@ mixin checkout-aside
                 .checkout-aside__more
                     ul
                         li
-                            span(data-checkout="total-product" data-declination="товар,товара,товаров") 0
+                            span 10 товаров
                             strong 7 420 ₽
                         li
                             span Скидка
@@ -127,3 +98,35 @@ mixin radio-card(array)
                             span.radio-card-elem
                             span.radio-card-text= data.title
                         .radio-card__image: img(src=data.image)
+
+mixin create-address
+    
+        .create-address(data-popup="create-address")
+            .create-address__create
+                .create-address__title Новый адрес
+                .create-address__form
+                    form(action='#' method='POST')
+                        .form
+                            .form__item
+                                .form__subitem
+                                    select( data-find="true" name="country")
+                                        option(value="") Выберите
+                                        option(value="") Бельгия
+                                        option(value="") Россия
+                                        option(value="") Самали
+                                        option(value="") Уругвай
+                                        option(value="") Бельгия
+                                        option(value="") Казахстан
+                                        option(value="") Украина
+                                        option(value="") Польша
+                                        option(value="") Бельгия
+                                        option(value="") Молдова
+                                        option(value="") Бельгия
+                                .form__subitem: input(type='text', placeholder='Адрес')
+                            .form__item
+                                .form__subitem: input(type='text', placeholder='Город')
+                                .form__subitem: input(type='text', placeholder='Штат/Регион')
+                            .form__item
+                                .form__subitem: input(type='text', placeholder='Индекс/ZIP')
+                                .form__subitem
+                                    button.btn(type="submit" ) Добавить

@@ -36,6 +36,10 @@
         & textarea {
             min-height: 180px;
 
+            &::placeholder {
+                color: $black;
+            }
+
             @media screen and (min-width: $w992) {
                 min-height: 250px;
             }
@@ -100,9 +104,10 @@
                     & ul {
                         display: flex;
                         flex-wrap: wrap;
+                        margin: -5px -10px;
 
                         & li {
-                            padding: 5px;
+                            padding: 5px 10px;
 
                             & .bgimage {
                                 width: 32px;

@@ -501,6 +501,18 @@
                 flex-direction: column;
             }
         }
+
+        & .select-list {
+            border-radius: 5px;
+        }
+
+        & .select-options {
+            &>li {
+                padding: 5px !important;
+                border: none;
+                color: $link-blue;
+            }
+        }
     }
 
 

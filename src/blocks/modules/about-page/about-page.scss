@@ -1,5 +1,6 @@
 .about-page {
     max-width: 890px;
+    margin-bottom: 60px;
 
     &__title {
         font-size: 24px;
@@ -9,6 +10,13 @@
 
         @media screen and (min-width: $w992) {
             font-size: 32px;
+        }
+    }
+
+    &__text {
+
+        & * {
+            line-height: 162% !important;
         }
     }
 
@@ -80,7 +88,7 @@
         & strong {
             display: flex;
             font-size: 15px;
-            padding-bottom: 10px;
+            padding-bottom: 5px;
 
             @media screen and (min-width: $w992) {
                 padding-bottom: 2px;
@@ -99,10 +107,14 @@
         font-size: 18px;
         font-weight: bold;
         line-height: 130%;
+        padding-left: 30px;
+        position: relative;
 
         @media screen and (min-width: $w992) {
             padding-bottom: 30px;
             font-size: 24px;
+
+            padding-left: 35px;
         }
 
         &::before {
@@ -115,6 +127,15 @@
             background-position: center;
             background-repeat: no-repeat;
             background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 13.7134H5.14285L1.71426 20.5705H6.85711L10.2857 13.7134V3.42773H0V13.7134Z' fill='%230B98CF'/%3E%3Cpath d='M13.7139 3.42773V13.7134H18.8567L15.4281 20.5705H20.571L23.9996 13.7134V3.42773H13.7139Z' fill='%230B98CF'/%3E%3C/svg%3E%0A");
+
+            left: 0;
+            top: 3px;
+            position: absolute;
+
+            @media screen and (min-width: $w992) {
+                top: 5px;
+            }
+
         }
     }
 }
