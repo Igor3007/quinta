@@ -271,8 +271,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         this.addEvent = function () {
             this.openElements.forEach(btn => {
                 btn.addEventListener('click', (e) => {
-
-
                     if (this.containerElement.classList.contains('open')) {
                         this.close()
                     } else {
@@ -281,6 +279,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 })
             })
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('[data-find-params="open"]') && !e.target.closest('[data-find-params="container"]')) {
+                    this.close()
+                }
+            })
+
+
+            //!e.target.closest('[data-find-params="container"]') || 
         }
     }
 
@@ -428,10 +435,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             gap: 30,
             autoWidth: true,
             start: 0,
+            perPage: 4,
 
             breakpoints: {
                 760: {
-
+                    perPage: 1,
                     gap: 15,
                 },
             },
@@ -439,6 +447,35 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
 
         splide.mount();
+
+        const prevButton = document.querySelector('[data-slider-prev="new-products"]')
+        const nextButton = document.querySelector('[data-slider-next="new-products"]')
+
+        prevButton.addEventListener('click', e => {
+            splide.go('<')
+        })
+
+        nextButton.addEventListener('click', e => {
+            splide.go('>')
+        })
+
+        splide.on('move', (newIndex, prevIndex, destIndex) => {
+
+            nextButton.removeAttribute('disabled')
+            prevButton.removeAttribute('disabled')
+
+            if (destIndex == 0) {
+                prevButton.setAttribute('disabled', 'disabled')
+            }
+
+            if (splide.length == (destIndex + splide.options.perPage)) {
+                nextButton.setAttribute('disabled', 'disabled')
+            }
+
+
+        })
+
+
     }
 
 

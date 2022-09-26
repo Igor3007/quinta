@@ -155,6 +155,16 @@ header {
         }
     }
 
+    &__lang {
+        margin-right: 10px;
+
+        & .change-lang__dropdown {
+            top: calc(100%);
+            padding-top: 10px;
+            z-index: 10;
+        }
+    }
+
     &__cart {
 
         a {
@@ -295,7 +305,22 @@ header {
     }
 
     &__params {
-        display: none;
+
+        display: block;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -42px;
+
+        & svg {
+            filter: grayscale(0) brightness(0.8);
+
+            @media screen and (min-width: $w1200) {
+                filter: brightness(1);
+            }
+        }
 
         @media screen and (min-width: $w1200) {
             display: block;
@@ -328,13 +353,21 @@ header {
 
     &__btn {
 
+        display: none;
+
         width: 42px;
         height: 42px;
-        display: flex;
         align-items: center;
         justify-content: center;
         margin-left: -42px;
         cursor: pointer;
+
+        @media screen and (min-width: $w1200) {
+            display: flex;
+            cursor: pointer;
+            left: -46px;
+            position: relative;
+        }
 
         &:hover {
             background-color: #333;

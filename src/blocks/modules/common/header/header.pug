@@ -1,3 +1,7 @@
+include ../footer/check-lang.pug
+
+
+
 -
   const search = {
     cat: {
@@ -106,6 +110,8 @@ mixin hs-extend(data, modify)
             ul
               each item in app.mainMenu
                 li: a(href=item.href)= item.text
+      .header__lang
+        +change-lang-min
       .header__login
         span(data-register="open-popup"): +icons('#ic_user')
       .header__cart

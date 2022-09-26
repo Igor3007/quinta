@@ -10,7 +10,7 @@ mixin minicard(data)
                     if data.code
                         .minicard__code
                             span Артикул: QD48294
-                .minicard__picture: +picture(data.image)
+                .minicard__picture: a(href='card-catalog.html'): +picture(data.image)
             .minicard__main
                 .minicard__bar
                     .minicard__tags
@@ -48,7 +48,7 @@ mixin minicard-no-category(data)
                     if data.code
                         .minicard__code
                             span Артикул: QD48294
-                .minicard__picture: +picture(data.image)
+                .minicard__picture: a(href='card-catalog.html'): +picture(data.image)
             .minicard__main
                 .minicard__bar
                     .minicard__tags
@@ -82,7 +82,7 @@ mixin minicard-wishlist(data)
                     .minicard__remove
                         span(data-minicard="remove-wishlist" ): +icons('#ic_remove', 24)
 
-                .minicard__picture: +picture(data.image)
+                .minicard__picture: a(href='card-catalog.html'): +picture(data.image)
             .minicard__main
                 .minicard__bar
                     .minicard__tags

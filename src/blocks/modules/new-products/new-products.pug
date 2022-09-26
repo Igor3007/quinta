@@ -11,6 +11,15 @@ mixin new-products(data)
                             .splide__list
                                 each item in app.slider
                                     .splide__slide: +minicard(item) 
+                                each item in app.slider
+                                    .splide__slide: +minicard(item) 
+                                each item in app.slider
+                                    .splide__slide: +minicard(item) 
+                .new-products__nav
+                    .new-products__nav--prev(data-slider-prev="new-products" disabled): +icons('#ic_prev-slider', 40)
+                    .new-products__nav--next(data-slider-next="new-products"): +icons('#ic_next-slider', 40)
+
+
             
 
                  

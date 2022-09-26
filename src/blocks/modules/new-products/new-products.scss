@@ -59,4 +59,31 @@
             }
         }
     }
+
+    &__nav {
+        display: flex;
+        margin-left: -5px;
+        padding-top: 15px;
+
+        @media screen and (min-width: $w992) {
+            justify-content: flex-end;
+            padding-top: 25px;
+        }
+
+        &--next,
+        &--prev {
+            padding: 5px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.9;
+            }
+
+            &[disabled] {
+                filter: grayscale(1);
+                opacity: 0.3;
+                cursor: default;
+            }
+        }
+    }
 }
