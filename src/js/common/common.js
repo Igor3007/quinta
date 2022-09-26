@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
     /* ==============================================
-    data-spiler
+    data-spoiler
     ==============================================*/
 
 
@@ -127,6 +127,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 item.classList.toggle('is-active')
                 e.preventDefault()
                 e.target.closest('[data-spoiler="container"]').querySelector('[data-spoiler="text"]').classList.toggle('no-lineclamp-text')
+            })
+        })
+    }
+
+    /* ==============================================
+    (data-home-catalog="open")
+    ==============================================*/
+
+    if (document.querySelector('[data-home-catalog="open"]')) {
+        document.querySelector('[data-home-catalog="open"]').addEventListener('click', function () {
+            document.querySelector('[data-home-catalog="nav"]').classList.toggle('open')
+            this.classList.toggle('open')
+        })
+
+        document.querySelectorAll('[data-home-catalog="nav"]>ul>li').forEach(item => {
+            item.addEventListener('click', function () {
+                item.classList.toggle('open')
             })
         })
     }

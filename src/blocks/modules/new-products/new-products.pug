@@ -20,9 +20,64 @@ mixin new-products(data)
                     .new-products__nav--next(data-slider-next="new-products"): +icons('#ic_next-slider', 40)
 
 
-            
+mixin home-catalog
+    section.section-home-catalog
+        .home-catalog
+            .container
+                .home-catalog__menu
+                    .home-catalog__title.home-catalog__title--menu(data-home-catalog="open") Каталог
+                    .home-catalog__nav(data-home-catalog="nav")
+                        ul
+                            li.open
+                                span Наша продукция
+                                ul
+                                    li: a(href='#') Цветные 3D интерьеры
+                                    li: a(href='#') Элеементы экстерьера
+                                    li: a(href='#') Остекление кабин
+                                    li: a(href='#') Деталтровка сидений
+                                    li: a(href='#') Заклепки 3D
+                                    li: a(href='#') Традиционные декали
+                            li
+                                span Выбрать по масштабу
+                                ul
+                                    li: a(href='#') 1/36
+                                    li: a(href='#') 1/64
+                                    li: a(href='#') 1/12
+                            li
+                                span Тип техники
+                                ul
+                                    li: a(href='#') Самолеты
+                                    li: a(href='#') Вертолеты
+                                    li: a(href='#') Автомобили
+                                    
+                            li
+                                span Выбрать по эпохе
+                                ul
+                                    li: a(href='#') Настоящее время
+                                    li: a(href='#') Вторая мировая война
+                                    li: a(href='#') Первая мировая война
+                .home-catalog__new
+                    .home-catalog__title Новинки    
+                    .home-catalog__list    
+                         each item in app.slider
+                            .home-catalog__item: +minicard(item)                          
+                                                     
 
-                 
+          
+
+       
+
+
+
+
+ 
+
+
+
+
+
+
+
 
 
 
