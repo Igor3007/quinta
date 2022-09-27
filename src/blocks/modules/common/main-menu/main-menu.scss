@@ -11,6 +11,12 @@
      display: none;
      overflow-y: auto;
      overflow-x: hidden;
+     transition: 0.3s ease;
+     animation: fade-in 0.3s ease forwards;
+
+     @media screen and (max-width: $w760) {
+         animation: slide-right 0.5s forwards;
+     }
 
 
      @media screen and (min-width: $w992) {
@@ -19,6 +25,16 @@
 
      &.open {
          display: block;
+
+     }
+
+     &.close-animate {
+
+         animation: fade-out 0.3s ease forwards;
+
+         @media screen and (max-width: $w760) {
+             animation: slide-right-hide 0.3s forwards;
+         }
      }
 
 
@@ -438,6 +454,10 @@
 
 
          }
+     }
+
+     &__signin {
+         margin-right: auto;
      }
 
      &__topbar {

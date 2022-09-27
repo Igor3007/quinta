@@ -7,8 +7,8 @@ mixin main-menu(data)
                 .main-menu__inner
                     .main-menu__close: span(data-menu="close"): +icons('#ic_cross', 20)
                     .main-menu__topbar
-                        .main-menu__lang: +change-lang
-                        .main-menu__signin: button.btn.btn-line Войти
+                         
+                        .main-menu__signin: button.btn.btn-line(data-register="open-popup") Войти
                         .main-menu__cart
                             a(href='#')
                                 +icons('#ic_cart-black')
@@ -80,7 +80,7 @@ mixin main-menu-lk(data)
                 .main-menu__inner
                     .main-menu__close: span(data-menu="close"): +icons('#ic_cross', 20)
                     .main-menu__topbar
-                        .main-menu__lang: +change-lang
+                         
                         .main-menu__signin
                             .menu-login
                                 .menu-login__image: a(href='#'): +bgimage('/img/common/svg/account.svg')

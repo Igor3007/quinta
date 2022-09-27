@@ -11,11 +11,19 @@
     display: none;
     overflow-y: auto;
 
+    animation: fade-in 0.3s ease forwards;
+
+
     @media screen and (min-width: $w992) {
         top: 0;
     }
 
     &.open {
+        display: block;
+    }
+
+    &.close-animate {
+        animation: fade-out 0.3s ease forwards;
         display: block;
     }
 

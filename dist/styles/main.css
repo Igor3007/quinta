@@ -1287,6 +1287,22 @@ select {
   }
 }
 
+@keyframes slide-down {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+}
+
 @keyframes slide-left {
   from {
     transform: translateX(0);
@@ -1311,6 +1327,30 @@ select {
   }
 }
 
+@keyframes slide-right {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-right-hide {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
 @keyframes loadingrotate {
   0% {
     transform: rotate(0deg);
@@ -1328,6 +1368,40 @@ select {
 
   to {
     transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes check-zoom {
+  0% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1.2);
   }
 }
 
@@ -3344,10 +3418,16 @@ footer {
   display: none;
   overflow-y: auto;
   overflow-x: hidden;
+  transition: 0.3s ease;
+  animation: fade-in 0.3s ease forwards;
 }
 
 .main-menu.open {
   display: block;
+}
+
+.main-menu.close-animate {
+  animation: fade-out 0.3s ease forwards;
 }
 
 .main-menu__wrp {
@@ -3606,6 +3686,10 @@ footer {
   padding-top: 10px;
 }
 
+.main-menu__signin {
+  margin-right: auto;
+}
+
 .main-menu__topbar {
   display: flex;
   align-items: center;
@@ -3740,6 +3824,43 @@ footer {
 
 .section-home-catalog {
   padding: 50px 0;
+}
+
+.home-catalog__slider {
+  margin-right: -15px;
+}
+
+.home-catalog__slider .splide {
+  visibility: visible;
+}
+
+.home-catalog__slider .splide__slide {
+  padding: 5px;
+  width: 300px;
+}
+
+.home-catalog__control {
+  display: flex;
+  margin-left: -5px;
+  padding-top: 15px;
+}
+
+.home-catalog__control--next,
+.home-catalog__control--prev {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.home-catalog__control--next:hover,
+.home-catalog__control--prev:hover {
+  opacity: 0.9;
+}
+
+.home-catalog__control--next[disabled],
+.home-catalog__control--prev[disabled] {
+  filter: grayscale(1);
+  opacity: 0.3;
+  cursor: default;
 }
 
 .home-catalog__new {
@@ -6160,9 +6281,15 @@ footer {
   color: #000;
   display: none;
   overflow-y: auto;
+  animation: fade-in 0.3s ease forwards;
 }
 
 .popup-signin.open {
+  display: block;
+}
+
+.popup-signin.close-animate {
+  animation: fade-out 0.3s ease forwards;
   display: block;
 }
 
@@ -8012,6 +8139,10 @@ footer {
     max-width: 250px;
   }
 
+  .home-catalog__slider {
+    margin-right: 0;
+  }
+
   .cooperation-block__btn .btn {
     width: auto;
   }
@@ -8202,6 +8333,11 @@ footer {
   .change-lang__title {
     padding-left: 25px;
     padding-right: 25px;
+  }
+
+  .home-catalog__slider .splide__slide {
+    padding: 5px;
+    width: 50%;
   }
 
   .home-catalog__item {
@@ -8584,6 +8720,16 @@ footer {
 
   .home-catalog .container {
     display: flex;
+  }
+
+  .home-catalog__slider .splide__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+  }
+
+  .home-catalog__control {
+    display: none;
   }
 
   .home-catalog__new {
@@ -9315,8 +9461,9 @@ footer {
     display: none;
   }
 
-  .home-catalog__list {
-    margin: -15px;
+  .home-catalog__slider .splide__slide {
+    padding: 10px;
+    width: 33.33%;
   }
 
   .home-catalog__item {
@@ -9614,6 +9761,12 @@ footer {
   }
 }
 
+@media screen and (min-width: 1376px) {
+  .home-catalog__slider .splide__slide {
+    padding: 15px;
+  }
+}
+
 @media screen and (min-width: 1440px) {
   .container {
     padding: 0 0;
@@ -9868,6 +10021,14 @@ footer {
     position: relative;
     top: 1px;
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE2LjQ4NiA5Ljc1MkgzLjMxMUw1Ljc4IDEyLjIyYy43MDkuNzA5LS4zNTUgMS43NzItMS4wNjQgMS4wNjNsLTIuMjQ4LTIuMjUxLTEuNS0xLjUwM2EuNzUuNzUgMCAwMTAtMS4wNThsMy43NDgtMy43NTNhLjc1Ljc1IDAgMDEuNTQ0LS4yMjcuNzUuNzUgMCAwMS41MiAxLjI5bC0yLjQ3NSAyLjQ3aDEzLjIyYzEuMDQuMDUuOTYyIDEuNTUyLS4wMzkgMS41eiIgZmlsbD0iIzE1NkZCMCIvPjwvc3ZnPg==);
+  }
+
+  .main-menu {
+    animation: slide-right 0.5s forwards;
+  }
+
+  .main-menu.close-animate {
+    animation: slide-right-hide 0.3s forwards;
   }
 }
 

@@ -58,9 +58,15 @@ mixin home-catalog
                                     li: a(href='#') Первая мировая война
                 .home-catalog__new
                     .home-catalog__title Новинки    
-                    .home-catalog__list    
-                         each item in app.slider
-                            .home-catalog__item: +minicard(item)                          
+                    .home-catalog__slider
+                        .splide(data-slider="home-catalog")
+                            .splide__track
+                                .splide__list
+                                    each item in app.slider
+                                        .splide__slide: +minicard(item) 
+                    .home-catalog__control
+                        .home-catalog__control--prev(data-slider-prev="home-catalog" disabled): +icons('#ic_prev-slider', 40)
+                        .home-catalog__control--next(data-slider-next="home-catalog"): +icons('#ic_next-slider', 40)
                                                      
 
           

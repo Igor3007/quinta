@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 this.el.classList.remove('close-animate')
                 document.body.classList.remove('hidden')
                 this.state = 'close'
-            }, 200)
+            }, 300)
 
 
         }
@@ -442,6 +442,59 @@ document.addEventListener("DOMContentLoaded", function (event) {
     /* ============================================
     data-splide="new-products"
     ============================================ */
+
+    if (document.querySelector('[data-slider="home-catalog"]') && document.body.clientWidth < 992) {
+        var splide = new Splide('[data-slider="home-catalog"]', {
+
+            arrows: false,
+            pagination: false,
+            gap: 30,
+            autoWidth: true,
+            start: 0,
+            perPage: 4,
+
+            breakpoints: {
+                992: {
+                    perPage: 2,
+                    gap: 5,
+                },
+
+                760: {
+                    perPage: 1,
+                }
+            },
+
+        });
+
+        splide.mount();
+
+        const prevButton = document.querySelector('[data-slider-prev="home-catalog"]')
+        const nextButton = document.querySelector('[data-slider-next="home-catalog"]')
+
+        prevButton.addEventListener('click', e => {
+            splide.go('<')
+        })
+
+        nextButton.addEventListener('click', e => {
+            splide.go('>')
+        })
+
+        splide.on('move', (newIndex, prevIndex, destIndex) => {
+
+            nextButton.removeAttribute('disabled')
+            prevButton.removeAttribute('disabled')
+
+            if (destIndex == 0) {
+                prevButton.setAttribute('disabled', 'disabled')
+            }
+
+            if (splide.length == (destIndex + splide.options.perPage)) {
+                nextButton.setAttribute('disabled', 'disabled')
+            }
+
+
+        })
+    }
 
 
     if (document.querySelector('[data-slider="new-products"]')) {
@@ -1051,7 +1104,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
             this.popup = document.querySelector('[data-register="popup"]')
             this.popupCloseElement = document.querySelector('[data-register="close-popup"]')
-            this.popupOpenElement = document.querySelector('[data-register="open-popup"]')
+            this.popupOpenElement = document.querySelectorAll('[data-register="open-popup"]')
             this.backToNumber = document.querySelector('[data-register="back-to-number"]')
             this.inputCode = document.querySelector('[data-register="input-code"]')
 
@@ -1074,8 +1127,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 document.body.classList.remove('hidden')
             }
             this.openPopup = function () {
-                this.popup.classList.toggle('open')
-                document.body.classList.add('hidden')
+
+
+                //close main menu
+                if (window.menuInstanse.state == 'open') {
+                    window.menuInstanse.close()
+                }
+
+                setTimeout(() => {
+                    this.popup.classList.toggle('open')
+                    document.body.classList.add('hidden')
+                }, 400)
+
             }
 
             this.addEvent = function () {
@@ -1083,8 +1146,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     this.closePopup()
                 })
 
-                this.popupOpenElement.addEventListener('click', e => {
-                    this.openPopup()
+                this.popupOpenElement.forEach(item => {
+                    item.addEventListener('click', e => {
+                        this.openPopup()
+                    })
                 })
 
                 this.backToNumber.addEventListener('click', e => {
