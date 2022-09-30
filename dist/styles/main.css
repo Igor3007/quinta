@@ -3311,6 +3311,14 @@ footer {
   display: block;
 }
 
+.change-lang__title span.lang-flag-country {
+  display: block;
+  width: 20px;
+  height: 15px;
+  background-size: contain;
+  margin-left: 9px;
+}
+
 .change-lang__title svg {
   margin-left: 10px;
 }
@@ -3330,6 +3338,22 @@ footer {
 
 .change-lang__dropdown ul {
   background-color: #27303D;
+  max-height: 225px;
+  overflow: auto;
+  scrollbar-color: #657389 #313c4d;
+  scrollbar-width: thin !important;
+}
+
+.change-lang__dropdown ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.change-lang__dropdown ul::-webkit-scrollbar-track {
+  background-color: #657389;
+}
+
+.change-lang__dropdown ul::-webkit-scrollbar-thumb {
+  background-color: #313c4d;
 }
 
 .change-lang__dropdown li {
@@ -8331,8 +8355,8 @@ footer {
   }
 
   .change-lang__title {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .home-catalog__slider .splide__slide {

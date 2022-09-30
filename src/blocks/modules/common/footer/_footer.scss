@@ -248,8 +248,8 @@ footer {
         border-radius: 3px;
 
         @media screen and (min-width: $w760) {
-            padding-left: 25px;
-            padding-right: 25px;
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
         & span {
@@ -268,6 +268,14 @@ footer {
                 @media screen and (min-width: $w1200) {
                     display: none;
                 }
+            }
+
+            &.lang-flag-country {
+                display: block;
+                width: 20px;
+                height: 15px;
+                background-size: contain;
+                margin-left: 9px;
             }
         }
 
@@ -294,6 +302,27 @@ footer {
 
         & ul {
             background-color: $black-2;
+
+            max-height: 225px;
+            overflow: auto;
+
+
+            scrollbar-color: #657389 #313c4d;
+            scrollbar-width: thin !important;
+
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: #657389;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #313c4d;
+            }
+
+
         }
 
         & li {
